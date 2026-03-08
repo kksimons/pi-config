@@ -1,0 +1,23 @@
+# Sensitive files
+auth.json
+*.pem
+*.key
+
+# Session data (ephemeral, large)
+sessions/
+
+# Binaries and temp files
+bin/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Node modules (if any local packages)
+node_modules/

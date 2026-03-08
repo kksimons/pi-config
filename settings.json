@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "0.57.1",
+  "defaultProvider": "zai",
+  "defaultModel": "glm-5",
+  "packages": [
+    "npm:pi-web-access"
+  ]
+}
