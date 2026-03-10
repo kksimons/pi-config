@@ -15,30 +15,20 @@
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, isAbsolute, join, resolve } from "node:path";
 
-// Cache for Python project detection
-let isPythonProject: boolean | null = null;
-let projectType: "app" | "standard" | null = null;
+// Cache for Python project detection (keyed by project root)
+const pythonProjectCache = new Map<string, boolean>();
+const projectTypeCache = new Map<string, "app" | "standard">();
 
-// Track if we're already linting to avoid infinite loops
-let isLinting = false;
-let pendingLint = false;
+// Track edited files during the agent's response
+let editedPythonFiles = new Set<string>();
+let currentProjectRoot: string | null = null;
 
 export default function (pi: ExtensionAPI) {
-  pi.on("session_start", async (_event, ctx) => {
-    // Reset cache on new session
-    isPythonProject = null;
-    projectType = null;
-
-    if (detectPythonProject()) {
-      const target = projectType === "app" ? "app/" : ".";
-      ctx.ui.notify(`Python lint hook loaded - will run ruff check && pyright ${target} after edits`, "info");
-    }
-  });
-
-  pi.on("tool_result", async (event, ctx) => {
+  // 1. Accumulate edited files during the agent's response
+  pi.on("tool_result", async (event, _ctx) => {
     // Only process edit and write tools
     if (event.toolName !== "edit" && event.toolName !== "write") {
       return;
@@ -71,67 +61,103 @@ export default function (pi: ExtensionAPI) {
       return;
     }
 
-    // Check if this is a Python project (cached)
-    if (!detectPythonProject()) {
+    // Find project root from the file path (walk up to find pyproject.toml or setup.py)
+    const projectRoot = findProjectRoot(filePath);
+    if (!projectRoot) {
       return;
     }
 
-    // Avoid re-entrant linting
-    if (isLinting) {
-      pendingLint = true;
+    // Check if this is a Python project (cached per project root)
+    if (!detectPythonProject(projectRoot)) {
       return;
     }
 
-    isLinting = true;
-
-    try {
-      await runLintAndReport(ctx);
-    } finally {
-      isLinting = false;
-
-      // If a lint was requested while we were linting, run it now
-      if (pendingLint) {
-        pendingLint = false;
-        setTimeout(() => runLintAndReport(ctx), 100);
-      }
-    }
+    // Accumulate the edited file and track the project root
+    editedPythonFiles.add(filePath);
+    currentProjectRoot = projectRoot;
   });
 
-  function detectPythonProject(): boolean {
-    if (isPythonProject !== null) {
-      return isPythonProject;
+  // 2. Run linter ONCE at the end of the agent's response
+  pi.on("agent_end", async (_event, ctx) => {
+    if (editedPythonFiles.size === 0 || !currentProjectRoot) {
+      return;
     }
 
-    const cwd = process.cwd();
+    // Capture and reset state for next prompt
+    const projectRoot = currentProjectRoot;
+    editedPythonFiles = new Set();
+    currentProjectRoot = null;
+
+    await runLintAndReport(ctx, projectRoot);
+  });
+
+  /**
+   * Walk up from a file path to find the nearest Python project root
+   */
+  function findProjectRoot(filePath: string): string | null {
+    // Resolve to absolute path if relative
+    const absolutePath = isAbsolute(filePath) ? filePath : resolve(filePath);
+    let dir = dirname(absolutePath);
+
+    // Walk up the directory tree
+    while (dir && dir !== "/" && dir !== ".") {
+      // Check for Python project indicators
+      if (
+        existsSync(join(dir, "pyproject.toml")) ||
+        existsSync(join(dir, "setup.py")) ||
+        existsSync(join(dir, "setup.cfg")) ||
+        existsSync(join(dir, ".python-version"))
+      ) {
+        return dir;
+      }
+      const parent = dirname(dir);
+      if (parent === dir) break; // Reached root
+      dir = parent;
+    }
+
+    return null;
+  }
+
+  function detectPythonProject(projectRoot: string): boolean {
+    if (pythonProjectCache.has(projectRoot)) {
+      return pythonProjectCache.get(projectRoot)!;
+    }
 
     // Check for Python project indicators
-    const hasPyproject = existsSync(join(cwd, "pyproject.toml"));
-    const hasSetup = existsSync(join(cwd, "setup.py"));
-    const hasPythonVersion = existsSync(join(cwd, ".python-version"));
-    const hasAppDir = existsSync(join(cwd, "app"));
+    const hasPyproject = existsSync(join(projectRoot, "pyproject.toml"));
+    const hasSetup = existsSync(join(projectRoot, "setup.py"));
+    const hasPythonVersion = existsSync(join(projectRoot, ".python-version"));
+    const hasAppDir = existsSync(join(projectRoot, "app"));
 
     if (hasPyproject || hasSetup || hasPythonVersion) {
-      isPythonProject = true;
-      projectType = hasAppDir ? "app" : "standard";
+      pythonProjectCache.set(projectRoot, true);
+      projectTypeCache.set(projectRoot, hasAppDir ? "app" : "standard");
       return true;
     }
 
-    isPythonProject = false;
+    pythonProjectCache.set(projectRoot, false);
     return false;
   }
 
-  async function runLintAndReport(ctx: unknown) {
-    const cwd = process.cwd();
+  function getProjectType(projectRoot: string): "app" | "standard" {
+    if (projectTypeCache.has(projectRoot)) {
+      return projectTypeCache.get(projectRoot)!;
+    }
+    return "standard";
+  }
+
+  async function runLintAndReport(ctx: unknown, projectRoot: string) {
+    const projectType = getProjectType(projectRoot);
     const target = projectType === "app" ? "app" : ".";
 
     // @ts-expect-error - ctx typing is complex
-    ctx.ui.notify?.(`Running ruff check && pyright ${target}...`, "info");
+    ctx.ui.notify?.(`Running ruff check && pyright ${target} in ${projectRoot}...`, "info");
 
     // Run ruff check with auto-fix first
-    const ruffResult = await runCommand("ruff", ["check", "--fix", target], cwd);
+    const ruffResult = await runCommand("ruff", ["check", "--fix", target], projectRoot);
 
     // Run pyright
-    const pyrightResult = await runCommand("pyright", [target], cwd);
+    const pyrightResult = await runCommand("pyright", [target], projectRoot);
 
     // Combine errors
     const errors: string[] = [];
@@ -161,7 +187,7 @@ Instructions:
 6. Run ruff check && pyright again after fixes to verify`;
 
       // Send a steering message to interrupt and get the agent to fix
-      pi.sendUserMessage(errorMessage, { mode: "steer" });
+      pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
       // @ts-expect-error - ctx typing is complex
       ctx.ui.notify?.("Lint/type errors found - sending to agent for fixing", "warning");

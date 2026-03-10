@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: Use when encountering any bug, test failure, or unexpected behavior. Provides a structured 4-phase approach: root cause investigation, pattern analysis, hypothesis testing, and implementation. NEVER propose fixes without completing Phase 1.
+description: "Use when encountering any bug, test failure, or unexpected behavior. Provides a structured 4-phase approach: root cause investigation, pattern analysis, hypothesis testing, and implementation. NEVER propose fixes without completing Phase 1."
 ---
 
 # Systematic Debugging

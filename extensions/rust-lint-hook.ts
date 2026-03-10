@@ -13,26 +13,18 @@
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { spawn } from "node:child_process";
 import { existsSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, isAbsolute, join, resolve } from "node:path";
 
-// Cache for Rust project detection
-let isRustProject: boolean | null = null;
+// Cache for Rust project detection (keyed by project root)
+const rustProjectCache = new Map<string, boolean>();
 
-// Track if we're already linting to avoid infinite loops
-let isLinting = false;
-let pendingLint = false;
+// Track edited files during the agent's response
+let editedRustFiles = new Set<string>();
+let currentProjectRoot: string | null = null;
 
 export default function (pi: ExtensionAPI) {
-  pi.on("session_start", async (_event, ctx) => {
-    // Reset cache on new session
-    isRustProject = null;
-
-    if (detectRustProject()) {
-      ctx.ui.notify("Rust lint hook loaded - will run cargo clippy after edits", "info");
-    }
-  });
-
-  pi.on("tool_result", async (event, ctx) => {
+  // 1. Accumulate edited files during the agent's response
+  pi.on("tool_result", async (event, _ctx) => {
     // Only process edit and write tools
     if (event.toolName !== "edit" && event.toolName !== "write") {
       return;
@@ -51,9 +43,6 @@ export default function (pi: ExtensionAPI) {
       return;
     }
 
-    // Skip test files (optional - tests often have different lint rules)
-    // But we still want to lint them, so we don't skip
-
     // Skip generated files and target directory
     if (
       filePath.includes("/target/") ||
@@ -63,49 +52,70 @@ export default function (pi: ExtensionAPI) {
       return;
     }
 
-    // Check if this is a Rust project (cached)
-    if (!detectRustProject()) {
+    // Find project root from the file path (walk up to find Cargo.toml)
+    const projectRoot = findProjectRoot(filePath);
+    if (!projectRoot) {
       return;
     }
 
-    // Avoid re-entrant linting
-    if (isLinting) {
-      pendingLint = true;
+    // Check if this is a Rust project (cached per project root)
+    if (!detectRustProject(projectRoot)) {
       return;
     }
 
-    isLinting = true;
-
-    try {
-      await runLintAndReport(ctx);
-    } finally {
-      isLinting = false;
-
-      // If a lint was requested while we were linting, run it now
-      if (pendingLint) {
-        pendingLint = false;
-        setTimeout(() => runLintAndReport(ctx), 100);
-      }
-    }
+    // Accumulate the edited file and track the project root
+    editedRustFiles.add(filePath);
+    currentProjectRoot = projectRoot;
   });
 
-  function detectRustProject(): boolean {
-    if (isRustProject !== null) {
-      return isRustProject;
+  // 2. Run linter ONCE at the end of the agent's response
+  pi.on("agent_end", async (_event, ctx) => {
+    if (editedRustFiles.size === 0 || !currentProjectRoot) {
+      return;
     }
 
-    const cwd = process.cwd();
-    const cargoTomlPath = join(cwd, "Cargo.toml");
+    // Capture and reset state for next prompt
+    const projectRoot = currentProjectRoot;
+    editedRustFiles = new Set();
+    currentProjectRoot = null;
 
-    isRustProject = existsSync(cargoTomlPath);
-    return isRustProject;
+    await runLintAndReport(ctx, projectRoot);
+  });
+
+  /**
+   * Walk up from a file path to find the nearest Cargo.toml directory
+   */
+  function findProjectRoot(filePath: string): string | null {
+    // Resolve to absolute path if relative
+    const absolutePath = isAbsolute(filePath) ? filePath : resolve(filePath);
+    let dir = dirname(absolutePath);
+
+    // Walk up the directory tree
+    while (dir && dir !== "/" && dir !== ".") {
+      if (existsSync(join(dir, "Cargo.toml"))) {
+        return dir;
+      }
+      const parent = dirname(dir);
+      if (parent === dir) break; // Reached root
+      dir = parent;
+    }
+
+    return null;
   }
 
-  async function runLintAndReport(ctx: unknown) {
-    const cwd = process.cwd();
+  function detectRustProject(projectRoot: string): boolean {
+    if (rustProjectCache.has(projectRoot)) {
+      return rustProjectCache.get(projectRoot)!;
+    }
 
+    const isRust = existsSync(join(projectRoot, "Cargo.toml"));
+    rustProjectCache.set(projectRoot, isRust);
+    return isRust;
+  }
+
+  async function runLintAndReport(ctx: unknown, projectRoot: string) {
     // @ts-expect-error - ctx typing is complex
-    ctx.ui.notify?.(`Running cargo clippy...`, "info");
+    ctx.ui.notify?.(`Running cargo clippy in ${projectRoot}...`, "info");
 
     // Run clippy with all targets and features, treating warnings as errors
     const clippyResult = await runCommand("cargo", [
@@ -115,7 +125,7 @@ export default function (pi: ExtensionAPI) {
       "--",
       "-D",
       "warnings",
-    ], cwd);
+    ], projectRoot);
 
     if (clippyResult.exitCode !== 0) {
       const errors = parseClippyErrors(clippyResult.stdout + "\n" + clippyResult.stderr);
@@ -137,15 +147,15 @@ Instructions:
    - Use &str instead of String for function parameters when possible
 5. Run cargo clippy again after fixes to verify`;
 
-        // Send a steering message to interrupt and get the agent to fix
-        pi.sendUserMessage(errorMessage, { mode: "steer" });
+        // Send a followUp message to queue for after agent finishes current response
+        pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
         // @ts-expect-error - ctx typing is complex
         ctx.ui.notify?.("Clippy errors found - sending to agent for fixing", "warning");
       }
     } else {
       // Also run cargo check to catch any remaining compilation errors
-      const checkResult = await runCommand("cargo", ["check", "--all-targets", "--all-features"], cwd);
+      const checkResult = await runCommand("cargo", ["check", "--all-targets", "--all-features"], projectRoot);
 
       if (checkResult.exitCode !== 0) {
         const errors = parseCheckErrors(checkResult.stdout + "\n" + checkResult.stderr);
@@ -161,7 +171,7 @@ Instructions:
 3. Handle all Result/Option cases properly
 4. Run cargo check again after fixes to verify`;
 
-          pi.sendUserMessage(errorMessage, { mode: "steer" });
+          pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
           // @ts-expect-error - ctx typing is complex
           ctx.ui.notify?.("Compilation errors found - sending to agent for fixing", "warning");

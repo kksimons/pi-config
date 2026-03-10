@@ -8,7 +8,7 @@
  * - package.json with "react" in dependencies
  * - .tsx/.jsx files in src/ directory
  *
- * Commands: Tries in order:
+ * Commands: Uses the package manager detected from lock files:
  * - bun run lint && bun run typecheck
  * - npm run lint && npm run typecheck
  * - yarn lint && yarn typecheck
@@ -17,29 +17,34 @@
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { spawn } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync, appendFileSync } from "node:fs";
+import { dirname, isAbsolute, join, resolve } from "node:path";
 
-// Cache for React project detection
-let isReactProject: boolean | null = null;
-let packageManager: string | null = null;
+// Debug logging to file
+const LOG_FILE = join(process.env.HOME || "/tmp", ".pi-react-lint-debug.log");
+function log(message: string) {
+  const timestamp = new Date().toISOString();
+  const line = `[${timestamp}] ${message}\n`;
+  try {
+    appendFileSync(LOG_FILE, line);
+  } catch {}
+}
 
-// Track if we're already linting to avoid infinite loops
-let isLinting = false;
-let pendingLint = false;
+// Cache for React project detection (keyed by project root)
+const reactProjectCache = new Map<string, boolean>();
+const packageManagerCache = new Map<string, string>();
+
+// Track edited files during the agent's response
+let editedFiles = new Set<string>();
+let currentProjectRoot: string | null = null;
 
 export default function (pi: ExtensionAPI) {
-  pi.on("session_start", async (_event, ctx) => {
-    // Reset cache on new session
-    isReactProject = null;
-    packageManager = null;
+  log("Extension loaded (v3 with agent_end pattern)");
 
-    if (detectReactProject()) {
-      ctx.ui.notify(`React lint hook loaded - will run ${getPackageManager()} run lint && typecheck after edits`, "info");
-    }
-  });
+  // 1. Accumulate edited files during the agent's response
+  pi.on("tool_result", async (event, _ctx) => {
+    log(`tool_result: toolName=${event.toolName}, isError=${event.isError}`);
 
-  pi.on("tool_result", async (event, ctx) => {
     // Only process edit and write tools
     if (event.toolName !== "edit" && event.toolName !== "write") {
       return;
@@ -54,6 +59,8 @@ export default function (pi: ExtensionAPI) {
     const input = event.input as { path?: string };
     const filePath = input.path;
 
+    log(`filePath from input: ${filePath}`);
+
     if (!filePath) {
       return;
     }
@@ -61,6 +68,7 @@ export default function (pi: ExtensionAPI) {
     // Only process TypeScript/JavaScript files
     const validExtensions = [".ts", ".tsx", ".js", ".jsx"];
     if (!validExtensions.some((ext) => filePath.endsWith(ext))) {
+      log(`File extension not matched, skipping`);
       return;
     }
 
@@ -73,42 +81,78 @@ export default function (pi: ExtensionAPI) {
       filePath.includes(".config.") ||
       filePath.endsWith(".d.ts")
     ) {
+      log(`File is test/config/node_modules, skipping`);
       return;
     }
 
-    // Check if this is a React project (cached)
-    if (!detectReactProject()) {
+    // Find project root from the file path (walk up to find package.json)
+    const projectRoot = findProjectRoot(filePath);
+    log(`findProjectRoot(${filePath}) = ${projectRoot}`);
+
+    if (!projectRoot) {
+      log(`No project root found, skipping`);
       return;
     }
 
-    // Avoid re-entrant linting
-    if (isLinting) {
-      pendingLint = true;
+    // Check if this is a React project (cached per project root)
+    if (!detectReactProject(projectRoot)) {
+      log(`Not a React project, skipping`);
       return;
     }
 
-    isLinting = true;
+    log(`React project detected at ${projectRoot}`);
 
-    try {
-      await runLintAndReport(ctx);
-    } finally {
-      isLinting = false;
-
-      // If a lint was requested while we were linting, run it now
-      if (pendingLint) {
-        pendingLint = false;
-        setTimeout(() => runLintAndReport(ctx), 100);
-      }
-    }
+    // Accumulate the edited file and track the project root
+    editedFiles.add(filePath);
+    currentProjectRoot = projectRoot;
   });
 
-  function detectReactProject(): boolean {
-    if (isReactProject !== null) {
-      return isReactProject;
+  // 2. Run linter ONCE at the end of the agent's response
+  pi.on("agent_end", async (_event, ctx) => {
+    if (editedFiles.size === 0 || !currentProjectRoot) {
+      return;
     }
 
-    const cwd = process.cwd();
-    const packageJsonPath = join(cwd, "package.json");
+    // Capture and reset state for next prompt
+    const projectRoot = currentProjectRoot;
+    editedFiles = new Set();
+    currentProjectRoot = null;
+
+    await runLintAndReport(ctx, projectRoot);
+  });
+
+  /**
+   * Walk up from a file path to find the nearest package.json directory
+   */
+  function findProjectRoot(filePath: string): string | null {
+    // Resolve to absolute path if relative
+    const absolutePath = isAbsolute(filePath) ? filePath : resolve(filePath);
+    let dir = dirname(absolutePath);
+    log(`findProjectRoot: starting from ${absolutePath}, dir=${dir}`);
+
+    // Walk up the directory tree
+    while (dir && dir !== "/" && dir !== ".") {
+      const pkgPath = join(dir, "package.json");
+      log(`findProjectRoot: checking ${pkgPath}, exists=${existsSync(pkgPath)}`);
+      if (existsSync(pkgPath)) {
+        log(`findProjectRoot: found project root at ${dir}`);
+        return dir;
+      }
+      const parent = dirname(dir);
+      if (parent === dir) break; // Reached root
+      dir = parent;
+    }
+
+    log(`findProjectRoot: no project root found`);
+    return null;
+  }
+
+  function detectReactProject(projectRoot: string): boolean {
+    if (reactProjectCache.has(projectRoot)) {
+      return reactProjectCache.get(projectRoot)!;
+    }
+
+    const packageJsonPath = join(projectRoot, "package.json");
 
     // Check if package.json exists and has react
     if (existsSync(packageJsonPath)) {
@@ -117,7 +161,7 @@ export default function (pi: ExtensionAPI) {
         const deps = { ...packageJson.dependencies, ...packageJson.devDependencies };
 
         if (deps.react || deps["@types/react"]) {
-          isReactProject = true;
+          reactProjectCache.set(projectRoot, true);
           return true;
         }
       } catch {
@@ -126,51 +170,58 @@ export default function (pi: ExtensionAPI) {
     }
 
     // Check for tsx/jsx files in src/
-    const srcPath = join(cwd, "src");
+    const srcPath = join(projectRoot, "src");
     if (existsSync(srcPath)) {
       // Simple heuristic: if src/ exists, likely a frontend project
-      // Could be enhanced to actually scan for .tsx files
-      isReactProject = true;
+      reactProjectCache.set(projectRoot, true);
       return true;
     }
 
-    isReactProject = false;
+    reactProjectCache.set(projectRoot, false);
     return false;
   }
 
-  function getPackageManager(): string {
-    if (packageManager) {
-      return packageManager;
+  function getPackageManager(projectRoot: string): string {
+    if (packageManagerCache.has(projectRoot)) {
+      const cached = packageManagerCache.get(projectRoot)!;
+      log(`getPackageManager: cached ${projectRoot} -> ${cached}`);
+      return cached;
     }
-
-    const cwd = process.cwd();
 
     // Check for lock files to determine package manager
-    if (existsSync(join(cwd, "bun.lock"))) {
-      packageManager = "bun";
-    } else if (existsSync(join(cwd, "pnpm-lock.yaml"))) {
-      packageManager = "pnpm";
-    } else if (existsSync(join(cwd, "yarn.lock"))) {
-      packageManager = "yarn";
+    const bunLock = existsSync(join(projectRoot, "bun.lock"));
+    const bunLockb = existsSync(join(projectRoot, "bun.lockb"));
+    const pnpmLock = existsSync(join(projectRoot, "pnpm-lock.yaml"));
+    const yarnLock = existsSync(join(projectRoot, "yarn.lock"));
+
+    log(`getPackageManager: locks for ${projectRoot} - bun.lock=${bunLock}, bun.lockb=${bunLockb}, pnpm=${pnpmLock}, yarn=${yarnLock}`);
+
+    if (bunLock || bunLockb) {
+      packageManagerCache.set(projectRoot, "bun");
+    } else if (pnpmLock) {
+      packageManagerCache.set(projectRoot, "pnpm");
+    } else if (yarnLock) {
+      packageManagerCache.set(projectRoot, "yarn");
     } else {
-      packageManager = "npm";
+      packageManagerCache.set(projectRoot, "npm");
     }
 
-    return packageManager;
+    log(`getPackageManager: detected ${packageManagerCache.get(projectRoot)} for ${projectRoot}`);
+    return packageManagerCache.get(projectRoot)!;
   }
 
-  async function runLintAndReport(ctx: unknown) {
-    const cwd = process.cwd();
-    const pm = getPackageManager();
+  async function runLintAndReport(ctx: unknown, projectRoot: string) {
+    const pm = getPackageManager(projectRoot);
+    log(`runLintAndReport: projectRoot=${projectRoot}, pm=${pm}`);
 
     // @ts-expect-error - ctx typing is complex
-    ctx.ui.notify?.(`Running lint && typecheck...`, "info");
+    ctx.ui.notify?.(`Running ${pm} run lint && typecheck in ${projectRoot}...`, "info");
 
     // Run lint first
-    const lintResult = await runCommand(pm, ["run", "lint"], cwd);
+    const lintResult = await runCommand(pm, ["run", "lint"], projectRoot);
 
     // Run typecheck
-    const typecheckResult = await runCommand(pm, ["run", "typecheck"], cwd);
+    const typecheckResult = await runCommand(pm, ["run", "typecheck"], projectRoot);
 
     // Combine errors
     const errors: string[] = [];
@@ -201,8 +252,8 @@ Instructions:
 4. For lint errors, try to fix the underlying issue rather than disabling the rule
 5. Run lint && typecheck again after fixes to verify`;
 
-      // Send a steering message to interrupt and get the agent to fix
-      pi.sendUserMessage(errorMessage, { mode: "steer" });
+      // Send a followUp message to queue for after agent finishes current response
+      pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
       // @ts-expect-error - ctx typing is complex
       ctx.ui.notify?.("Lint/type errors found - sending to agent for fixing", "warning");

@@ -96,21 +96,29 @@ ruff check app/ && pyright app/ && pytest
 ### Rust Projects
 
 ```bash
-# Compile check
+# Quick compile check (FAST - use for iteration)
 cargo check
 
-# Lint (clippy)
+# Lint (clippy) - catches more issues than check
 cargo clippy --all-targets --all-features -- -D warnings
 
 # Tests
 cargo test
 
-# Build
+# Release build (SLOW - only for final verification before shipping)
 cargo build --release
 
-# Full verification
+# Quick verification during development
+cargo check && cargo clippy
+
+# Full verification before committing
 cargo check && cargo clippy && cargo test
 ```
+
+**IMPORTANT:** Default to `cargo check` or `cargo clippy` for verification during development.
+- `cargo check` is 10-100x faster than `cargo build --release`
+- Only use `cargo build --release` when you specifically need a release artifact
+- The lint hook runs `cargo clippy` automatically - trust it or run `cargo check` to verify
 
 ### General Patterns
 
