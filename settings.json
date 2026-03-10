@@ -4,5 +4,10 @@
   "defaultModel": "glm-5",
   "packages": [
     "npm:pi-web-access"
-  ]
+  ],
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 60000,
+    "keepRecentTokens": 25000
+  }
 }
