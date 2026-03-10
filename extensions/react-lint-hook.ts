@@ -34,6 +34,9 @@ function log(message: string) {
 const reactProjectCache = new Map<string, boolean>();
 const packageManagerCache = new Map<string, string>();
 
+// Track whether we sent an error for a specific project root
+const lastErrorSent = new Map<string, boolean>();
+
 // Track edited files during the agent's response
 let editedFiles = new Set<string>();
 let currentProjectRoot: string | null = null;
@@ -109,11 +112,16 @@ export default function (pi: ExtensionAPI) {
 
   // 2. Run linter ONCE at the end of the agent's response
   pi.on("agent_end", async (_event, ctx) => {
-    if (editedFiles.size === 0 || !currentProjectRoot) {
+    if (!currentProjectRoot) {
+      // If we had previously sent an error but no files were edited this turn,
+      // reset the error state to clear stale messages
+      for (const [projectRoot] of lastErrorSent) {
+        lastErrorSent.set(projectRoot, false);
+      }
       return;
     }
 
-    // Capture and reset state for next prompt
+    // Capture the project root and reset state for next prompt
     const projectRoot = currentProjectRoot;
     editedFiles = new Set();
     currentProjectRoot = null;
@@ -241,7 +249,9 @@ export default function (pi: ExtensionAPI) {
     }
 
     if (errors.length > 0) {
-      const errorMessage = `React/TypeScript errors found. Please fix ALL errors and warnings (including pre-existing ones):
+      // Only send the error if we haven't already sent one for this project
+      if (!lastErrorSent.get(projectRoot)) {
+        const errorMessage = `React/TypeScript errors found. Please fix ALL errors and warnings (including pre-existing ones):
 
 ${errors.join("\n\n")}
 
@@ -252,12 +262,18 @@ Instructions:
 4. For lint errors, try to fix the underlying issue rather than disabling the rule
 5. Run lint && typecheck again after fixes to verify`;
 
-      // Send a followUp message to queue for after agent finishes current response
-      pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
+        // Send a followUp message to queue for after agent finishes current response
+        pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
-      // @ts-expect-error - ctx typing is complex
-      ctx.ui.notify?.("Lint/type errors found - sending to agent for fixing", "warning");
+        // Mark that we've sent an error for this project
+        lastErrorSent.set(projectRoot, true);
+
+        // @ts-expect-error - ctx typing is complex
+        ctx.ui.notify?.("Lint/type errors found - sending to agent for fixing", "warning");
+      }
     } else {
+      // Clear the error state since there are no more errors
+      lastErrorSent.set(projectRoot, false);
       // @ts-expect-error - ctx typing is complex
       ctx.ui.notify?.("✓ No lint/type errors", "info");
     }

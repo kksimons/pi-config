@@ -22,6 +22,9 @@ import { dirname, isAbsolute, join, resolve } from "node:path";
 const pythonProjectCache = new Map<string, boolean>();
 const projectTypeCache = new Map<string, "app" | "standard">();
 
+// Track whether we sent an error for a specific project root
+const lastErrorSent = new Map<string, boolean>();
+
 // Track edited files during the agent's response
 let editedPythonFiles = new Set<string>();
 let currentProjectRoot: string | null = null;
@@ -79,11 +82,16 @@ export default function (pi: ExtensionAPI) {
 
   // 2. Run linter ONCE at the end of the agent's response
   pi.on("agent_end", async (_event, ctx) => {
-    if (editedPythonFiles.size === 0 || !currentProjectRoot) {
+    if (!currentProjectRoot) {
+      // If we had previously sent an error but no files were edited this turn,
+      // reset the error state to clear stale messages
+      for (const [projectRoot] of lastErrorSent) {
+        lastErrorSent.set(projectRoot, false);
+      }
       return;
     }
 
-    // Capture and reset state for next prompt
+    // Capture the project root and reset state for next prompt
     const projectRoot = currentProjectRoot;
     editedPythonFiles = new Set();
     currentProjectRoot = null;
@@ -174,7 +182,9 @@ export default function (pi: ExtensionAPI) {
     }
 
     if (errors.length > 0) {
-      const errorMessage = `Python lint/type errors found. Please fix ALL errors (including pre-existing ones):
+      // Only send the error if we haven't already sent one for this project
+      if (!lastErrorSent.get(projectRoot)) {
+        const errorMessage = `Python lint/type errors found. Please fix ALL errors (including pre-existing ones):
 
 ${errors.join("\n\n")}
 
@@ -186,12 +196,18 @@ Instructions:
 5. Ensure proper type annotations on all functions
 6. Run ruff check && pyright again after fixes to verify`;
 
-      // Send a steering message to interrupt and get the agent to fix
-      pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
+        // Send a steering message to interrupt and get the agent to fix
+        pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
-      // @ts-expect-error - ctx typing is complex
-      ctx.ui.notify?.("Lint/type errors found - sending to agent for fixing", "warning");
+        // Mark that we've sent an error for this project
+        lastErrorSent.set(projectRoot, true);
+
+        // @ts-expect-error - ctx typing is complex
+        ctx.ui.notify?.("Lint/type errors found - sending to agent for fixing", "warning");
+      }
     } else {
+      // Clear the error state since there are no more errors
+      lastErrorSent.set(projectRoot, false);
       // @ts-expect-error - ctx typing is complex
       ctx.ui.notify?.("✓ No lint/type errors", "info");
     }

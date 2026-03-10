@@ -18,6 +18,9 @@ import { dirname, isAbsolute, join, resolve } from "node:path";
 // Cache for Rust project detection (keyed by project root)
 const rustProjectCache = new Map<string, boolean>();
 
+// Track whether we sent an error for a specific project root
+const lastErrorSent = new Map<string, boolean>();
+
 // Track edited files during the agent's response
 let editedRustFiles = new Set<string>();
 let currentProjectRoot: string | null = null;
@@ -70,11 +73,16 @@ export default function (pi: ExtensionAPI) {
 
   // 2. Run linter ONCE at the end of the agent's response
   pi.on("agent_end", async (_event, ctx) => {
-    if (editedRustFiles.size === 0 || !currentProjectRoot) {
+    if (!currentProjectRoot) {
+      // If we had previously sent an error but no files were edited this turn,
+      // reset the error state to clear stale messages
+      for (const [projectRoot] of lastErrorSent) {
+        lastErrorSent.set(projectRoot, false);
+      }
       return;
     }
 
-    // Capture and reset state for next prompt
+    // Capture the project root and reset state for next prompt
     const projectRoot = currentProjectRoot;
     editedRustFiles = new Set();
     currentProjectRoot = null;
@@ -131,7 +139,9 @@ export default function (pi: ExtensionAPI) {
       const errors = parseClippyErrors(clippyResult.stdout + "\n" + clippyResult.stderr);
 
       if (errors) {
-        const errorMessage = `Rust clippy errors found. Please fix ALL errors and warnings (including pre-existing ones):
+        // Only send the error if we haven't already sent one for this project
+        if (!lastErrorSent.get(projectRoot)) {
+          const errorMessage = `Rust clippy errors found. Please fix ALL errors and warnings (including pre-existing ones):
 
 ${errors}
 
@@ -147,11 +157,15 @@ Instructions:
    - Use &str instead of String for function parameters when possible
 5. Run cargo clippy again after fixes to verify`;
 
-        // Send a followUp message to queue for after agent finishes current response
-        pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
+          // Send a followUp message to queue for after agent finishes current response
+          pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
-        // @ts-expect-error - ctx typing is complex
-        ctx.ui.notify?.("Clippy errors found - sending to agent for fixing", "warning");
+          // Mark that we've sent an error for this project
+          lastErrorSent.set(projectRoot, true);
+
+          // @ts-expect-error - ctx typing is complex
+          ctx.ui.notify?.("Clippy errors found - sending to agent for fixing", "warning");
+        }
       }
     } else {
       // Also run cargo check to catch any remaining compilation errors
@@ -161,7 +175,9 @@ Instructions:
         const errors = parseCheckErrors(checkResult.stdout + "\n" + checkResult.stderr);
 
         if (errors) {
-          const errorMessage = `Rust compilation errors found. Please fix ALL errors (including pre-existing ones):
+          // Only send the error if we haven't already sent one for this project
+          if (!lastErrorSent.get(projectRoot)) {
+            const errorMessage = `Rust compilation errors found. Please fix ALL errors (including pre-existing ones):
 
 ${errors}
 
@@ -171,15 +187,24 @@ Instructions:
 3. Handle all Result/Option cases properly
 4. Run cargo check again after fixes to verify`;
 
-          pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
+            pi.sendUserMessage(errorMessage, { deliverAs: "followUp" });
 
-          // @ts-expect-error - ctx typing is complex
-          ctx.ui.notify?.("Compilation errors found - sending to agent for fixing", "warning");
+            // Mark that we've sent an error for this project
+            lastErrorSent.set(projectRoot, true);
+
+            // @ts-expect-error - ctx typing is complex
+            ctx.ui.notify?.("Compilation errors found - sending to agent for fixing", "warning");
+          }
         }
       } else {
+        // Clear the error state since there are no more errors
+        lastErrorSent.set(projectRoot, false);
         // @ts-expect-error - ctx typing is complex
         ctx.ui.notify?.("✓ No clippy/check errors", "info");
       }
+    } else {
+      // Clippy passed but no cargo check was run - clear the error state
+      lastErrorSent.set(projectRoot, false);
     }
   }
 
