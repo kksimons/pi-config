@@ -1,0 +1,14 @@
+{
+  "name": "web-browser-extension",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

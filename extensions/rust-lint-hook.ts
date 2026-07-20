@@ -202,9 +202,6 @@ Instructions:
         // @ts-expect-error - ctx typing is complex
         ctx.ui.notify?.("✓ No clippy/check errors", "info");
       }
-    } else {
-      // Clippy passed but no cargo check was run - clear the error state
-      lastErrorSent.set(projectRoot, false);
     }
   }
 

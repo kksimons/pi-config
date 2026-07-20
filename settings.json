@@ -1,13 +1,18 @@
 {
-  "lastChangelogVersion": "0.57.1",
+  "lastChangelogVersion": "0.80.10",
   "defaultProvider": "zai",
-  "defaultModel": "glm-5",
+  "defaultModel": "glm-5.2",
   "packages": [
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:sideshow",
+    "npm:pi-subagents",
+    "../../repos/pi-rtk-optimizer"
   ],
   "compaction": {
     "enabled": true,
     "reserveTokens": 60000,
     "keepRecentTokens": 25000
-  }
+  },
+  "theme": "dark",
+  "defaultThinkingLevel": "xhigh"
 }

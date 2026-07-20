@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2025",
+    "lib": ["ES2025"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@earendil-works/pi-coding-agent": ["/Users/ksimons/.bun/install/global/node_modules/@earendil-works/pi-coding-agent/dist/index.d.ts"],
+      "@earendil-works/pi-tui": ["/Users/ksimons/.bun/install/global/node_modules/@earendil-works/pi-tui/dist/index.d.ts"]
+    },
+    "typeRoots": ["/Users/ksimons/.bun/install/global/node_modules/@types"]
+  },
+  "include": ["bash-guard/index.ts", "project-memory/index.ts", "project-memory/picker.ts", "project-memory/store.ts"]
+}
