@@ -6,7 +6,7 @@
     "npm:pi-web-access",
     "npm:sideshow",
     "npm:pi-subagents",
-    "../../repos/pi-rtk-optimizer"
+    "npm:pi-rtk-optimizer"
   ],
   "compaction": {
     "enabled": true,

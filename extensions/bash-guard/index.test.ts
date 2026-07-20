@@ -35,6 +35,11 @@ describe("plumbing is not inherently destructive", () => {
 		'curl https://example.com | head -c 100',
 		'curl https://example.com -o /tmp/out.json',
 		'cat < file.txt',
+		// interpreter with its own code source piped around — must NOT be flagged
+		`node -e "console.log(require.resolve('x'))" 2>&1 | head -3`,
+		"node -e 'console.log(1)' | head -3",
+		"cat data.json | node -e 'process.stdin.resume()'",
+		'curl -s https://x | python3 -c "import sys; print(sys.stdin.read())"',
 	];
 	for (const command of safe) {
 		test(`allows ${command}`, () => expect(analyzeBashCommand(command)).toBeNull());

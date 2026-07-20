@@ -48,12 +48,20 @@ function anyArgStartsWith(args: string[], prefix: string): boolean {
 
 const ENV_ASSIGNMENT = /^[A-Za-z_][A-Za-z0-9_]*=/;
 
-/** Command interpreters that execute piped input as code → remote code execution when piped. */
+/**
+ * Command interpreters that execute their stdin as code when invoked with no code source
+ * of their own (no `-e`/`-c`/script-file). Piping INTO a *bare* one of these is remote code
+ * execution — the canonical `curl … | sh`. Piping its OUTPUT elsewhere (`node -e '…' | head`)
+ * is completely safe and must not prompt.
+ */
 const EXEC_INTERPRETERS = new Set([
 	"sh", "bash", "zsh", "fish", "dash", "ksh", "ash", "csh", "tcsh",
 	"python", "python2", "python3", "ruby", "rb", "node", "nodejs", "perl", "php", "lua", "tcl", "tclsh",
 	"deno", "bun",
 ]);
+
+/** Flags that give an interpreter its own code source, so it will NOT execute piped stdin. */
+const INTERPRETER_CODE_FLAGS = new Set(["-e", "--eval", "-c", "-r", "-p", "--print", "-m", "--module"]);
 
 /** Remove transparent command wrappers so the executable they invoke is analyzed. */
 export function unwrapCommand(args: string[]): string[] {
@@ -106,6 +114,21 @@ function gitCommand(rest: string[]): { sub?: string; args: string[] } {
 	return { sub: rest[index], args: rest.slice(index + 1) };
 }
 
+/**
+ * True if invoking this interpreter will execute code read from stdin — i.e. it has no code
+ * source of its own (no `-e`/`-c`/`-r`/script file). A bare interpreter is the only form that
+ * executes piped input as code; `node -e '…'`, `python -c '…'`, `python script.py`, etc. are safe.
+ */
+function interpreterReadsStdin(args: string[]): boolean {
+	// args[0] is the interpreter name; the rest are its arguments.
+	for (const arg of args.slice(1)) {
+		if (arg.startsWith("-e=") || arg.startsWith("--eval=")) return false;
+		if (INTERPRETER_CODE_FLAGS.has(arg)) return false;
+		if (!arg.startsWith("-")) return false; // first positional → treated as a script/file/module
+	}
+	return true;
+}
+
 function analyzeSegment(seg: Token[]): Risk | null {
 	const reasons: string[] = [];
 	let severity: Severity = "medium";
@@ -117,12 +140,21 @@ function analyzeSegment(seg: Token[]): Risk | null {
 	const cmd = args[0]!;
 	const rest = args.slice(1);
 
-	// Pipe to a code-executing interpreter is remote code execution regardless of source
-	// (e.g. `curl ... | sh`, `echo ... | python3`). Plain pipes to non-executing consumers
-	// (`curl ... | jq`, `... | head`, `... | grep`) are fine and must not prompt.
-	if (ops.includes("|") && args.some((a) => EXEC_INTERPRETERS.has(a))) {
-		reasons.push("pipe to a command interpreter (possible remote code execution)");
-		severity = "high";
+	// Pipe INTO a code-executing interpreter that reads code from stdin is remote code
+	// execution — the canonical `curl ... | sh` / `echo ... | python3`. This must NOT fire for
+	// safe plumbing where the interpreter has its own code source: `node -e '...' | head` pipes
+	// node's OUTPUT to head and node never executes the pipe. Only an interpreter that is the
+	// *consumer* of a pipe AND would execute stdin as code is dangerous.
+	if (ops.includes("|")) {
+		const stages = splitOnOps(seg, ["|"]);
+		for (let i = 1; i < stages.length; i++) {
+			const stageArgs = unwrapCommand(tokensToStrings(stages[i]!));
+			const stageCmd = stageArgs[0];
+			if (stageCmd && EXEC_INTERPRETERS.has(stageCmd) && interpreterReadsStdin(stageArgs)) {
+				reasons.push("pipe to a command interpreter (possible remote code execution)");
+				severity = "high";
+			}
+		}
 	}
 
 	// sudo
@@ -257,11 +289,6 @@ function analyzeSegment(seg: Token[]): Risk | null {
 		severity = "high";
 		reasons.push(`${cmd} (disk/partition management)`);
 	}
-	if (cmd === "lsblk") {
-		// Usually read-only, but still disk-related; prompt as requested.
-		severity = severity === "high" ? "high" : "medium";
-		reasons.push("lsblk (disk listing)");
-	}
 	if (cmd === "cryptsetup") {
 		severity = "high";
 		reasons.push("cryptsetup (disk encryption management)");
@@ -389,6 +416,13 @@ export function analyzeBashCommand(command: string): Risk | null {
 	return { severity, reasons: uniq };
 }
 
+/** If the tab-attention extension is loaded, flash a [!] marker in the terminal
+ *  tab title (pausing the working spinner) while awaiting input. No-op otherwise. */
+function requestTabAttention(): () => void {
+	const ctrl = (globalThis as { __piTabAttention?: { requestAttention?: () => () => void } }).__piTabAttention;
+	return ctrl?.requestAttention?.() ?? (() => {});
+}
+
 async function promptRunOrAbort(ctx: ExtensionContext, command: string, risk: Risk): Promise<"run" | "abort"> {
 	if (!ctx.hasUI) return "abort";
 
@@ -401,6 +435,9 @@ async function promptRunOrAbort(ctx: ExtensionContext, command: string, risk: Ri
 		{ value: "abort", label: "Abort", description: "Block this command" },
 	];
 
+	// Surface a [!] marker in the terminal tab (and pause the working spinner)
+	// while this prompt is on screen — the agent is blocked waiting for you.
+	const restoreAttention = requestTabAttention();
 	const choice = await ctx.ui.custom<"run" | "abort">((tui, theme, _kb, done) => {
 		const container = new Container();
 		container.addChild(new DynamicBorder((s: string) => theme.fg("warning", s)));
@@ -429,7 +466,7 @@ async function promptRunOrAbort(ctx: ExtensionContext, command: string, risk: Ri
 				tui.requestRender();
 			},
 		};
-	}, { overlay: true });
+	}, { overlay: true }).finally(restoreAttention);
 
 	return choice ?? "abort";
 }

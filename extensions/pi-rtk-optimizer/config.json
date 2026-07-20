@@ -3,14 +3,6 @@
   "mode": "rewrite",
   "guardWhenRtkMissing": true,
   "showRewriteNotifications": true,
-  "terseness": {
-    "enabled": true,
-    "level": "standard",
-    "effortRouting": {
-      "enabled": true,
-      "routineLevel": "low"
-    }
-  },
   "outputCompaction": {
     "enabled": true,
     "stripAnsi": true,

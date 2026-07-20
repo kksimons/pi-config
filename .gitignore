@@ -1,5 +1,6 @@
 # Sensitive files
 auth.json
+auth.json.bak-*
 *.pem
 *.key
 
