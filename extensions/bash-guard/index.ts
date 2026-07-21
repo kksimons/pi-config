@@ -2,6 +2,7 @@ import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-a
 import { DynamicBorder, isToolCallEventType } from "@earendil-works/pi-coding-agent";
 import type { SelectItem } from "@earendil-works/pi-tui";
 import { Container, SelectList, Text } from "@earendil-works/pi-tui";
+import { statSync } from "node:fs";
 import { parse as shellParse } from "shell-quote";
 
 type Severity = "high" | "medium";
@@ -385,19 +386,30 @@ export function analyzeBashCommand(command: string): Risk | null {
 	let severity: Severity = "medium";
 
 	// Pipes and redirections are plumbing, not inherently destructive — what matters is the
-	// actual commands within each segment (analyzed below), plus redirections that truncate or
-	// overwrite a real file. Harmless targets like `>/dev/null`, `2>/dev/null`, and fd-merges
-	// like `2>&1` (emitted by shell-quote as a distinct `>&` op) must not prompt on their own.
+	// actual commands within each segment (analyzed below), plus redirections that would
+	// clobber a real file. Three exemptions keep this from firing on benign plumbing:
+	//   - Append redirects (>>, 2>>) can only create or append — never overwrite. Never prompt.
+	//   - Device targets like >/dev/null, 2>/dev/null are exempt.
+	//   - fd-merges like 2>&1 (emitted by shell-quote as a distinct `>&` op) aren't truncate ops.
+	// For truncating redirects (>, 2>) the only real hazard is overwriting a file that already
+	// exists; creating a new file is harmless, so we stat the target and skip when absent.
 	// shell-quote emits the redirection target as the token immediately after the operator.
 	const DEVICE_TARGETS = new Set(["/dev/null", "/dev/stdout", "/dev/stderr"]);
-	const REDIRECT_OPS = new Set([">", ">>", "2>", "2>>"]);
+	const TRUNCATE_OPS = new Set([">", "2>"]);
+	const APPEND_OPS = new Set([">>", "2>>"]); // create-or-append: non-destructive
+	const fileExists = (p: string) => {
+		try { statSync(p); return true; } catch { return false; }
+	};
 	for (let i = 0; i < tokens.length; i++) {
 		const token = tokens[i]!;
-		if (!isOpToken(token) || !REDIRECT_OPS.has(token.op)) continue;
+		if (!isOpToken(token)) continue;
+		if (APPEND_OPS.has(token.op)) continue; // can't overwrite — never prompt
+		if (!TRUNCATE_OPS.has(token.op)) continue; // fd-merges (>&) and others pass through
 		const target = tokens[i + 1];
 		const targetPath = typeof target === "string" ? target : undefined;
 		if (!targetPath || DEVICE_TARGETS.has(targetPath)) continue;
-		reasons.push("shell output redirection (can overwrite files)");
+		if (!fileExists(targetPath)) continue; // creating a new file is harmless
+		reasons.push("shell output redirection (overwrites existing file)");
 		break;
 	}
 
