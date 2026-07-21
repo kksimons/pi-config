@@ -131,6 +131,29 @@ export default function (pi: ExtensionAPI) {
 		}
 	};
 
+	/** True if an error is pi's "captured ctx is stale" guard. */
+	const isStaleCtxError = (err: unknown): boolean =>
+		err instanceof Error &&
+		err.message.includes("extension ctx is stale after session replacement or reload");
+
+	/**
+	 * Run a timer-driven render/flag read inside a guard. pi invalidates the captured
+	 * ctx when a session is resumed/switched/forked/reloaded, and each new session gets
+	 * its own fresh extension instance — so this closure's `pi`/`ui` are permanently dead
+	 * from that point on. A deferred `setTimeout` or `setInterval` callback that fires
+	 * after invalidation throws *outside* pi's event-emit try/catch and would crash pi.
+	 * Treat a stale ctx as "this closure is retired": stop the spinner and bail silently;
+	 * the new session's fresh extension instance owns the title from here.
+	 */
+	const guarded = (fn: () => void): void => {
+		try {
+			fn();
+		} catch (err) {
+			stopSpinner();
+			if (!isStaleCtxError(err)) throw err;
+		}
+	};
+
 	const renderStatic = (): void => {
 		if (!enabled()) return;
 		if (isAttention()) writeTitle(mark());
@@ -158,13 +181,13 @@ export default function (pi: ExtensionAPI) {
 		frame = 0;
 		// Draw the first frame immediately so the spinner appears without an 80 ms gap.
 		writeFrame();
-		spinnerTimer = setInterval(() => {
+		spinnerTimer = setInterval(() => guarded(() => {
 			if (!enabled() || !isWorking()) {
 				sync(); // state changed under us — reconcile
 				return;
 			}
 			writeFrame();
-		}, SPINNER_INTERVAL_MS);
+		}), SPINNER_INTERVAL_MS);
 	};
 
 	const writeFrame = (): void => {
@@ -202,7 +225,10 @@ export default function (pi: ExtensionAPI) {
 	// we win the race against Pi's own setTitle call). Reads fresh cwd/session each time.
 	const reapply = (ctx: ExtensionContext): void => {
 		capture(ctx);
-		setTimeout(sync, 0);
+		// Deferred to win the race against Pi's own setTitle on session changes. Guarded
+		// because the session may be replaced (resume/switch) before this fires, which
+		// invalidates this closure's ctx — an unguarded sync() would crash pi.
+		setTimeout(() => guarded(sync), 0);
 	};
 	pi.on("session_start", (_event, ctx) => reapply(ctx));
 	pi.on("session_info_changed", (_event, ctx) => reapply(ctx));
