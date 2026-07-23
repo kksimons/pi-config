@@ -4,7 +4,6 @@
   "defaultModel": "glm-5.2",
   "packages": [
     "npm:pi-web-access",
-    "npm:sideshow",
     "npm:pi-subagents",
     "npm:pi-rtk-optimizer"
   ],
