@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "efc62fe5-c38a-4733-9484-a400d702381f",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-08T19:20:44.226Z",
+  "updatedAt": "2026-10-08T19:34:31.401Z",
+  "runs": [
+    {
+      "runId": "47ed74b4-d65b-4bec-b536-b97fd980d232",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47ed74b4-d65b-4bec-b536-b97fd980d232",
+      "status": "complete",
+      "startedAt": "2026-10-08T19:20:44.243Z",
+      "completedAt": "2026-10-08T19:34:31.401Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "47ed74b4-d65b-4bec-b536-b97fd980d232",
+      "key": "nrev-s",
+      "status": "completed",
+      "startedAt": "2026-10-08T19:20:44.276Z",
+      "updatedAt": "2026-10-08T19:34:31.380Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5355d1f8-4991-4308-9185-ee38cbf307a0",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/45b84170-d92a-48c4-8ae4-91c48f2c5250/run-0/session.jsonl"
+      ],
+      "runId": "5355d1f8-4991-4308-9185-ee38cbf307a0",
+      "agent": "reviewer",
+      "completedAt": "2026-10-08T19:34:31.380Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/45b84170-d92a-48c4-8ae4-91c48f2c5250/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T19:34:31.380Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "47ed74b4-d65b-4bec-b536-b97fd980d232",
+      "key": "nrev-c",
+      "status": "completed",
+      "startedAt": "2026-10-08T19:20:44.299Z",
+      "updatedAt": "2026-10-08T19:31:37.847Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a4f30858-1812-4c62-aba1-dc85777edddb",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/554e6324-ca42-45c4-a5b9-4caa78656ed2/run-0/session.jsonl"
+      ],
+      "runId": "a4f30858-1812-4c62-aba1-dc85777edddb",
+      "agent": "reviewer",
+      "completedAt": "2026-10-08T19:31:37.847Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/554e6324-ca42-45c4-a5b9-4caa78656ed2/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T19:31:37.847Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47ed74b4-d65b-4bec-b536-b97fd980d232/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47ed74b4-d65b-4bec-b536-b97fd980d232/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/5355d1f8-4991-4308-9185-ee38cbf307a0_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/a4f30858-1812-4c62-aba1-dc85777edddb_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0.jsonl",
+  "summary": "Workflow completed with 2 child run(s). Return: [\n  {\n    \"key\": \"nrev-s\",\n    \"output\": \"All verification complete. Compiling the review.\\n\\n## Review — /tmp/native-review-S.diff (read in full; every '+' side verified against live files in `/Users/ksimons/repos/tanstacked-heatsink-native`)\\n\\nNote on scope: the diff contains **8 modified source files + 1 new d.ts = 9 files**. A sibling slice `/tmp/native-review-C.diff` exists in /tmp; the task's \\\"10 hand-fixed source files\\\" presumably spans both slices. Every item in my checklist maps 1:1 to this diff, which I reviewed completely.\\n\\n**Checklist 1 — rn-form-data.d.ts + 4 call sites: CORRECT.**\\n- `src/types/rn-form-data.d.ts:11-13` — interface merging adds the descriptor overload *after* lib.dom's `string | Blob` overloads (lib declarations merge first), so no previously-valid call can re-resolve; it only widens. `export {}` + `declare global` is the correct module-augmentation pattern; `tsconfig.json` `include: [\\\"**/*.ts\\\"]` picks it up and nothing else declares a global `FormD… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47ed74b4-d65b-4bec-b536-b97fd980d232/status.json (workflow.value, workflow.emits)) Trace: 4 event(s)."
+}

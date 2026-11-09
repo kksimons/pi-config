@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "9e8cfddf-9d3c-4a9a-97c2-c3e6a140146a",
+  "projectRoot": "/Users/ksimons/repos/heatreach-native",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/a63b1c530b9185208a0494faa5e3777a0fa077efc390501735f926d16b15cc70/9e8cfddf-9d3c-4a9a-97c2-c3e6a140146a.json",
+  "title": "[prompt redacted]",
+  "status": "failed",
+  "updatedAt": "2026-09-06T19:21:12.675Z",
+  "lastRunId": "d6653df1-90d6-4ece-a238-a172edb4db32"
+}

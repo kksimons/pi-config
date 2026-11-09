@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "99c06c43-e52d-4f56-bceb-c845029a08ec",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-08T04:55:20.722Z",
+  "updatedAt": "2026-10-08T05:02:11.140Z",
+  "runs": [
+    {
+      "runId": "eda49579-df71-4226-b7ce-3055ad5b2405",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/eda49579-df71-4226-b7ce-3055ad5b2405",
+      "status": "complete",
+      "startedAt": "2026-10-08T04:55:20.739Z",
+      "completedAt": "2026-10-08T05:02:11.140Z",
+      "usage": {
+        "tokens": 37191
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/eda49579-df71-4226-b7ce-3055ad5b2405/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/eda49579-df71-4226-b7ce-3055ad5b2405/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/eda49579-df71-4226-b7ce-3055ad5b2405_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-08T02-34-54-619Z_01a1195d-1b1a-71b8-b999-4eced1bbcc17.jsonl",
+  "summary": "reviewer:\nAll checks are complete. Everything the parent asked me to verify holds up under inspection.\n\n## Review\n\n### Verified correct\n\n**1. Heredoc + exec under dash (`deploy/start-nginx.sh:12-26`)** — Sound. `<<'PY'` (quoted delimiter) applies stdin only to the single `python -` invocation; after python exits, sh proceeds to `exec`, which replaces the shell in the same PID. One non-obvious dependency I confirmed: dash materializes heredocs as temp files, and the pod has `readOnlyRootFilesystem: true` — but `deploy/k8s/magstudio-prod.yaml` mounts a writable `tmp` emptyDir at `/tmp` (~line 141), so this works. Also confirmed: no CRLF endings, `/opt/venv/bin/python` exists in the runtime stage (`deploy/Dockerfile:125`), and the poll target `127.0.0.1:8000` matches uvicorn's bind in `supervisord.conf` and nginx's `proxy_pass`.\n\n**2. Fail-open after 120s is the right call, and provably not a liveness regression** — The startupProbe budget is exactly `failureThreshold: 24 × periodSeconds: 5` = **120s** (`magstudio-prod.yaml:84-92`), matching the wrapper deadline. Before the change, a >120s backend boot meant nginx answered 502 on `/health` from t≈0 → startup probe failed → restart at ~120s. After the change, probes fail on connection refused over the same budget → same restart time. Normal boots (<120s) are strictly better: pod readiness now coincides with the backend actually answering (`/health` proxies to the backend, `deploy/nginx.conf:69-72`; real endpoint at `backend/app/main.py:225`).\n\n**3. Traffic gating confirmed** — `maxUnavailable: 0, maxSurge: 1` (`magstudio-prod.yaml:39-43`): the old pod serves throughout; the new pod takes LB traffic only after `/health` passes, which now means the backend is up. The LB checker sees refused (pod not ready) instead of 502-with-ERROR-log-spam.\n\n**4. supervisord parsing (`deploy/supervisord.conf:14-21`)** — `command=/bin/sh /app/deploy/start-nginx.sh` has no metacharacters or quoting hazards; supervisord doesn't use a shell,"
+}

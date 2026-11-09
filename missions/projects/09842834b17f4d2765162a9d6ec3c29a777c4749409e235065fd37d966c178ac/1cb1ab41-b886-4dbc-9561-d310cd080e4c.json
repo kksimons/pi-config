@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "1cb1ab41-b886-4dbc-9561-d310cd080e4c",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T01:07:48.075Z",
+  "updatedAt": "2026-10-04T01:30:02.121Z",
+  "runs": [
+    {
+      "runId": "3eb460b4-a03b-4f52-aaf7-f48587814a8f",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/3eb460b4-a03b-4f52-aaf7-f48587814a8f",
+      "status": "complete",
+      "startedAt": "2026-10-04T01:07:48.085Z",
+      "completedAt": "2026-10-04T01:30:02.121Z",
+      "usage": {
+        "tokens": 167468
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/3eb460b4-a03b-4f52-aaf7-f48587814a8f/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/3eb460b4-a03b-4f52-aaf7-f48587814a8f/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/3eb460b4-a03b-4f52-aaf7-f48587814a8f_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nImplemented e2e helper de-duplication across three batches, preserving each call site's exact behavior where the \"duplicates\" actually diverged.\n\n**B1: shared `tests/e2e/workflow-helpers.ts`, 3 specs converted** (electrical-workflow, installation-workflow, app-confirmation). Review note: the four \"verbatim\" card helpers were **not** verbatim — installation carried bounded 10s mount waits and a Mission-warehouse preference that electrical lacked. Per the preservation rule, the shared versions default to the defensive behavior and parameterize the divergence: `mountTimeoutMs` (default 10s; electrical passes `0` to keep its original instant no-op checks — Playwright reads `timeout:0` as infinite, so 0 is handled explicitly), and `preferredWarehouseName` (installation passes `\"Mission\"`, its rationale comment moved to the call site; electrical keeps first-option). `scrollUntilVisible` defaults to `attempts: 12` (most defensive, documented). `screenshotName`, `toLabelRegex`, `attachStepScreenshot`, `uploadRequiredPhotoByLabel`, and `ONE_BY_ONE_PNG` shared verbatim. Out-of-scope locals (`saveCurrentCardAndWait` — behaviorally different, `cardHeaderRegex`, app-confirmation's `ONE_BY_ONE_PNG`) untouched.\n\n**B2: 4/4 specs converted** (change-order-workflow, payments, solar-commission-ppw-override, tax-mode-invoice) to `resolvePdftotext` up front + `test.skip` when null + `pdfToText`, matching payment-invoice-generation/project-invoice-deposits. tax-mode keeps `PDFTOPPM` local (different binary, not covered by the shared module); orphan `execFileSync`/`existsSync` imports removed.\n\n**B3: done, no variant kept** — the remote-signing difference was structural, not behavioral (plain `Page` vs `FrameLocator` ceremony root, SYNC_TIMEOUT identical at 45_000 everywhere). Shared `drawOnPad`/`signEverything` now take `scope: Page | FrameLocator` and `drawOnPad` is exported; agreement-sign imports `signEverything` (its local `drawOnPad` had no other caller); remote-signing pass"
+}

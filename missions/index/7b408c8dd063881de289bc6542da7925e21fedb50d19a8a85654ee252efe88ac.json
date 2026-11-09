@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "873474b6-c627-41f0-8d37-2da684b9a870",
+  "projectRoot": "/Users/ksimons/repos",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/1ea7b3df02a4a56b0d16be77ff1577dbd2e834c82dc1da09429d1785b6627ca9/873474b6-c627-41f0-8d37-2da684b9a870.json",
+  "title": "[prompt redacted]",
+  "status": "cancelled",
+  "updatedAt": "2026-09-15T18:45:24.126Z",
+  "lastRunId": "a72c45c5-bbd1-43db-a422-e029fb0453f7"
+}

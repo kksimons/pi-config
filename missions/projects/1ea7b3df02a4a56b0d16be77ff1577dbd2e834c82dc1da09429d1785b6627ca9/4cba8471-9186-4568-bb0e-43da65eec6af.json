@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "4cba8471-9186-4568-bb0e-43da65eec6af",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-31T18:01:38.195Z",
+  "updatedAt": "2026-10-31T19:01:46.303Z",
+  "runs": [
+    {
+      "runId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47776ce1-4698-43e0-8543-a3e5893d538c",
+      "status": "complete",
+      "startedAt": "2026-10-31T18:01:38.239Z",
+      "completedAt": "2026-10-31T19:01:46.303Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "key": "w1",
+      "status": "failed",
+      "startedAt": "2026-10-31T18:01:38.589Z",
+      "updatedAt": "2026-10-31T18:31:42.250Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec/run-0/session.jsonl"
+      ],
+      "runId": "affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec",
+      "agent": "worker",
+      "completedAt": "2026-10-31T18:31:42.250Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec/run-0/session.jsonl",
+      "acceptanceStatus": "rejected",
+      "heartbeat": {
+        "updatedAt": "2026-10-31T18:31:42.250Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "key": "w2",
+      "status": "failed",
+      "startedAt": "2026-10-31T18:01:38.641Z",
+      "updatedAt": "2026-10-31T18:31:42.422Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/8aa752fc-37ca-4bf6-9a07-bcab756e22a6",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/8aa752fc-37ca-4bf6-9a07-bcab756e22a6/run-0/session.jsonl"
+      ],
+      "runId": "8aa752fc-37ca-4bf6-9a07-bcab756e22a6",
+      "agent": "worker",
+      "completedAt": "2026-10-31T18:31:42.422Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/8aa752fc-37ca-4bf6-9a07-bcab756e22a6/run-0/session.jsonl",
+      "acceptanceStatus": "rejected",
+      "heartbeat": {
+        "updatedAt": "2026-10-31T18:31:42.422Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "key": "w3",
+      "status": "completed",
+      "startedAt": "2026-10-31T18:01:38.676Z",
+      "updatedAt": "2026-10-31T18:16:06.763Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a26f0050-e8c9-4113-ac20-65fe12561b43",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/a26f0050-e8c9-4113-ac20-65fe12561b43/run-0/session.jsonl"
+      ],
+      "runId": "a26f0050-e8c9-4113-ac20-65fe12561b43",
+      "agent": "worker",
+      "completedAt": "2026-10-31T18:16:06.763Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/a26f0050-e8c9-4113-ac20-65fe12561b43/run-0/session.jsonl",
+      "acceptanceStatus": "rejected",
+      "heartbeat": {
+        "updatedAt": "2026-10-31T18:16:06.763Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "key": "w4",
+      "status": "failed",
+      "startedAt": "2026-10-31T18:01:38.715Z",
+      "updatedAt": "2026-10-31T18:31:42.435Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/f5b49e14-77c5-4965-87c5-2c7fc75bf17d",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/f5b49e14-77c5-4965-87c5-2c7fc75bf17d/run-0/session.jsonl"
+      ],
+      "runId": "f5b49e14-77c5-4965-87c5-2c7fc75bf17d",
+      "agent": "worker",
+      "completedAt": "2026-10-31T18:31:42.435Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/f5b49e14-77c5-4965-87c5-2c7fc75bf17d/run-0/session.jsonl",
+      "acceptanceStatus": "rejected",
+      "heartbeat": {
+        "updatedAt": "2026-10-31T18:31:42.435Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "key": "w5",
+      "status": "failed",
+      "startedAt": "2026-10-31T18:31:42.748Z",
+      "updatedAt": "2026-10-31T19:01:46.273Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/69a3d6a6-00a9-4c94-9186-74c3888596ec",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/69a3d6a6-00a9-4c94-9186-74c3888596ec/run-0/session.jsonl"
+      ],
+      "runId": "69a3d6a6-00a9-4c94-9186-74c3888596ec",
+      "agent": "worker",
+      "completedAt": "2026-10-31T19:01:46.273Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/69a3d6a6-00a9-4c94-9186-74c3888596ec/run-0/session.jsonl",
+      "acceptanceStatus": "rejected",
+      "heartbeat": {
+        "updatedAt": "2026-10-31T19:01:46.273Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "47776ce1-4698-43e0-8543-a3e5893d538c",
+      "key": "w6",
+      "status": "completed",
+      "startedAt": "2026-10-31T18:31:42.821Z",
+      "updatedAt": "2026-10-31T18:55:42.628Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/c61f8b4c-0aca-43de-822b-aab6c8f5547f",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/c61f8b4c-0aca-43de-822b-aab6c8f5547f/run-0/session.jsonl"
+      ],
+      "runId": "c61f8b4c-0aca-43de-822b-aab6c8f5547f",
+      "agent": "worker",
+      "completedAt": "2026-10-31T18:55:42.628Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/c61f8b4c-0aca-43de-822b-aab6c8f5547f/run-0/session.jsonl",
+      "acceptanceStatus": "review-required",
+      "heartbeat": {
+        "updatedAt": "2026-10-31T18:55:42.628Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47776ce1-4698-43e0-8543-a3e5893d538c/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47776ce1-4698-43e0-8543-a3e5893d538c/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/8aa752fc-37ca-4bf6-9a07-bcab756e22a6_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/a26f0050-e8c9-4113-ac20-65fe12561b43_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/f5b49e14-77c5-4965-87c5-2c7fc75bf17d_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/69a3d6a6-00a9-4c94-9186-74c3888596ec_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/c61f8b4c-0aca-43de-822b-aab6c8f5547f_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0.jsonl",
+  "summary": "Workflow completed with 6 child run(s). Return: {\n  \"wave1\": [\n    {\n      \"key\": \"w1\",\n      \"ok\": false,\n      \"asyncDir\": \"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec\",\n      \"terminalOutcome\": {\n        \"state\": \"partial\",\n        \"reason\": \"timeout\"\n      },\n      \"agent\": \"worker\",\n      \"runId\": \"affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec\",\n      \"output\": \"The RUF001 is pre-existing on the branch (not my file). Fixing only my D401:\\n\\nRecovery summary:\\n- termination: timed-out\\n- changed tracked files: app/api/v1/aurora.py, app/services/lighting_sheet_sync.py, app/services/windows_sheet_sync.py, app/utils/sheet_sync.py\\n- session file: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec/run-0/session.jsonl\\n- transcript: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/affcbeec-deab-4aa0-b4e5-f8e33c8dc6ec_worker_trans… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47776ce1-4698-43e0-8543-a3e5893d538c/status.json (workflow.value, workflow.emits)) Trace: 12 event(s)."
+}

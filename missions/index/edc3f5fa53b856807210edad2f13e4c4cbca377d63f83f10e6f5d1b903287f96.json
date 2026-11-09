@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "3cd2d0e2-d57d-4ca7-8c90-f1408faf8d6e",
+  "projectRoot": "/Users/ksimons/repos/invoices-axum",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/192f977f264d8acbe8e3c71b7e7c5a87ad75d33ee9bc2675c8db30e1bc55991a/3cd2d0e2-d57d-4ca7-8c90-f1408faf8d6e.json",
+  "title": "[prompt redacted]",
+  "status": "completed",
+  "updatedAt": "2026-09-22T22:45:18.761Z",
+  "lastRunId": "24532c5d-6370-4da0-9a1c-e337c1ee477f"
+}

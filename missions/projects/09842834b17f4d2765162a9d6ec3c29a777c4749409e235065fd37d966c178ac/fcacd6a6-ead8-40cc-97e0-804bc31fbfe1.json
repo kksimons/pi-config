@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "fcacd6a6-ead8-40cc-97e0-804bc31fbfe1",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T03:35:28.868Z",
+  "updatedAt": "2026-10-04T03:46:46.377Z",
+  "runs": [
+    {
+      "runId": "05f15744-40a6-49a0-9319-fcf2bc43372f",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/05f15744-40a6-49a0-9319-fcf2bc43372f",
+      "status": "complete",
+      "startedAt": "2026-10-04T03:35:28.878Z",
+      "completedAt": "2026-10-04T03:46:46.377Z",
+      "usage": {
+        "tokens": 80360
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/05f15744-40a6-49a0-9319-fcf2bc43372f/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/05f15744-40a6-49a0-9319-fcf2bc43372f/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/05f15744-40a6-49a0-9319-fcf2bc43372f_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nAll verification is complete. Final summary of the work:\n\n**What I did:** Two safe pure-subtree extractions from the flagged `DoorSheet` function, per the incremental protocol:\n\n1. **`KnockHistory`** — the knock-history section (visit count + up-to-three knock rows). Zero handlers, zero refs, zero animated values; takes the loaded `Knock[]` and renders it. The `history && history.length > 0` gate stays in the parent.\n2. **`DoorSheetHeader`** — address line, status badge, unit/roof badges, and the close button. Only props: `door` and the sheet's own `onClose` passed through. No gesture-handler library, Skia, refs, or animated values exist anywhere in this file — both subtrees were fully inert.\n\n**The site did NOT clear** — stopping per step 5 of the protocol. Numbers: cyclomatic 36 → 33, cognitive 61 → 57 (threshold ≤ 15 / ≤ 15). The measured behavior of the rule explains why: it counts the component's *own* ternaries/`&&`/`??` — including JSX conditions — while nested callbacks (mutation handlers, `style={({pressed}) => …}` closures, `.map` callbacks) contribute nothing to the parent's score. Extractions of pure subtrees each bought only 1–2 points. Clearing the rule requires removing ~18 more direct decision points, i.e. decomposing the promise-resolution chain and the claim/release branch forest (the sheet's behavioral wiring, with a ref-guarded double-tap path and load-bearing comments). That is exactly the surgery that broke the file last time and that you fenced off — **document-keep is the right call**.\n\n**Concurrent-writer incident (resolved):** mid-task I detected a second writer in the repo (probe files `__rdprobe.tsx` breaking my full-repo tsc gate, `doctor-budget.json` modified). I escalated; the coordinator confirmed these were sibling workers plus its own budget-file edit, instructed me to scope my tsc gate and leave everything else alone. All probe files have since been cleaned up by their owners; final full `tsc --noEmit` is 0 errors project-w"
+}

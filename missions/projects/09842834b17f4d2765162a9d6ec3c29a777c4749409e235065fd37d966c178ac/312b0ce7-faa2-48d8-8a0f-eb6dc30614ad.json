@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "312b0ce7-faa2-48d8-8a0f-eb6dc30614ad",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T01:47:29.452Z",
+  "updatedAt": "2026-10-04T02:00:32.738Z",
+  "runs": [
+    {
+      "runId": "565ee3fe-e529-42a2-b5f1-95a61b2b874f",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/565ee3fe-e529-42a2-b5f1-95a61b2b874f",
+      "status": "complete",
+      "startedAt": "2026-10-04T01:47:29.459Z",
+      "completedAt": "2026-10-04T02:00:32.738Z",
+      "usage": {
+        "tokens": 131486
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/565ee3fe-e529-42a2-b5f1-95a61b2b874f/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/565ee3fe-e529-42a2-b5f1-95a61b2b874f/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/565ee3fe-e529-42a2-b5f1-95a61b2b874f_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\n# Regression Review — warning-removal wave, partition: invoiceSystem, roofing, workflows, heatreach, warehouse, inventory, windows, flha, permits, sms, lighting\n\nAll 295 diff hunks across the 107 changed files in the partition were read and classified. `sms/**` had no changes. ~40 of the hunks belong to non-wave feature commits (heatreach 3D design view: design-scene/roof-tile/surface-shader/use-sharp-texture; leads rep-scoping) — scanned for the regression patterns, out of transform scope. Attribution was done per-file: 106 files carry ≥1 wave commit; 10 files were pure feature-commit territory.\n\n## Flagged findings\n\n**F1 — REGRESSION (minor, timing-dependent): `src/components/invoiceSystem/contractor-invoice-upload.tsx:278` — hunk intent: react-compiler fix converting functional-updater read into closure read + deps band-aid.**\n- OLD (base, `onDrop` with `[]` deps): `setStagingFiles((prev) => { const updated = [...prev, ...newFiles]; if (updated.length > 1) { setProcessIndividually(true); } return updated; });` — the cumulative count was read **inside the functional updater**, i.e. always the latest queued state.\n- NEW (HEAD): `const totalAfterAdd = stagingFiles.length + newFiles.length; setStagingFiles((prev) => [...prev, ...newFiles]); if (totalAfterAdd > 1) { setProcessIndividually(true); }` with `useCallback(..., [stagingFiles])`.\n- Deviation: `processFiles` awaits per-file `FileReader` previews **before** `setStagingFiles`. If a second drop lands inside that window, its closure still sees the pre-first-drop `stagingFiles`. OLD: second drop's updater sees drop 1's files → cumulative > 1 → auto-enables individual processing. NEW: `totalAfterAdd` undercounts → **auto-enable of `processIndividually` is skipped**, so multiple invoices get merged into one processing group (the `!processIndividually` batch path). User can still toggle manually, and the window is the preview-read duration — narrow but real. This is exactly the \"functional updates turned into "
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "eb47a9af-b9d1-4e26-9ba1-21432ad4fbdf",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-08-31T19:51:19.956Z",
+  "updatedAt": "2026-08-31T19:57:05.280Z",
+  "runs": [
+    {
+      "runId": "67765248-dd58-40c5-bb8d-50d028ce817d",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/67765248-dd58-40c5-bb8d-50d028ce817d",
+      "status": "complete",
+      "startedAt": "2026-08-31T19:51:19.975Z",
+      "completedAt": "2026-08-31T19:57:05.280Z",
+      "usage": {
+        "tokens": 137588
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/67765248-dd58-40c5-bb8d-50d028ce817d/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/67765248-dd58-40c5-bb8d-50d028ce817d/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/67765248-dd58-40c5-bb8d-50d028ce817d_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-08-31T18-47-19-459Z_01a05925-b8a3-7d63-b2de-a9a2c78a386f.jsonl",
+  "summary": "reviewer:\nAll verification complete. Here is my review.\n\n## Review\n\n**Scope & method:** Read every listed file in all three repos (working-tree contents; no shell available, so no `git diff` and no live DB queries). Schema claims were verified against in-repo sources of truth: SQLAlchemy models (`heatsink-api/app/models/`), applied migrations (`heatsink-api/migrations/`), and the Effect schema/test fixtures. Only the listed files are judged; adjacent uncommitted changes were ignored except where they interact with this feature.\n\n### Correct — verified with evidence\n\n- **Wire contract, all four layers agree on `ALL`:** FE decode union includes `\"ALL\"` (`tanstacked-heatsink/src/schemas/calendar.ts:172-174`), enum member (`src/types/calendar/enums.ts:26`), both backend enums (`heatsink-api/app/models/event.py:24`, `app/schemas/event.py:21`), and `ALTER TYPE eventtype ADD VALUE IF NOT EXISTS 'ALL'` in the migration. Out-of-union backend strings decode to `OTHER` (`schemas/calendar.ts:180-190`), pinned by `src/test/schemas/calendar-wire.test.ts` (\"keeps unknown event types as OTHER\").\n- **Region passthrough is complete on both backends:** axum SELECT/INSERT/UPDATE/RETURNING + all response JSON (`heatsink-axum/src/db/events.rs:29,54,82`, `src/handlers/events.rs:46,182-186,236-243,401,424`); FastAPI model + schemas + create/update/response (`heatsink-api/app/models/event.py:44`, `app/schemas/event.py:30`, `app/api/v1/events.py:64,148,215-218`). The aggregated calendar path (`handlers/calendar_events.rs:245`) reuses `query_events_calendar`, so region flows there too. FE create/update payloads send region (`src/api/calendar/events.ts:1417,1476`); absent/null region decodes to `undefined` via `mo()` (`schemas/calendar.ts:219`, semantics in `src/schemas/lib.ts` `mo`), so pre-migration cached rows can't break decode.\n- **UPDATE parity:** axum `COALESCE($9, region)` (`handlers/events.rs:401`) and FastAPI `if event_data.region is not None` implement identical \"null = leave unchan"
+}

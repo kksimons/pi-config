@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "84f9fbfe-085e-479c-9c26-5dd107d0ab3d",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-08T03:28:59.150Z",
+  "updatedAt": "2026-10-08T03:39:08.421Z",
+  "runs": [
+    {
+      "runId": "cd8e6515-9877-4957-a6c8-2ec96f2102a0",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd8e6515-9877-4957-a6c8-2ec96f2102a0",
+      "status": "complete",
+      "startedAt": "2026-10-08T03:28:59.167Z",
+      "completedAt": "2026-10-08T03:39:08.421Z",
+      "usage": {
+        "tokens": 66809
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd8e6515-9877-4957-a6c8-2ec96f2102a0/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd8e6515-9877-4957-a6c8-2ec96f2102a0/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/cd8e6515-9877-4957-a6c8-2ec96f2102a0_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-08T02-34-54-619Z_01a1195d-1b1a-71b8-b999-4eced1bbcc17.jsonl",
+  "summary": "reviewer:\n## Review\n\nRegression-focused pass over the follow-up fixes (item 4: model index declarations; item 5: new race-loser tests), re-verifying items 1–3 for interactions. No git baseline was available for a diff view (`watchdog_diff` reported no HEAD in this cwd), so all evidence below is from reading the current files.\n\n**Correct (verified with evidence)**\n\n- **Byte-parity of model indexes vs migration** — `app/models/prep_work.py:474-484` (RoofInfo), `:505-516` (RackingInfo), `:533` area (AtticInfo), `:558` area (ElectricalInfo) each declare `Index(\"uq_*_info_project\", \"project_id\", unique=True, postgresql_where=text(\"project_id IS NOT NULL\"))`, exactly matching the migration's four `op.create_index(..., [\"project_id\"], unique=True, postgresql_where=sa.text(\"project_id IS NOT NULL\"))` calls (`alembic/versions/2026_10_08_a7c41d92e5b8_*.py:169-196`). Names, column list, uniqueness, and where-text are identical, so autogenerate stays quiet — consistent with your `alembic check` result. RackingInfo's redundant where-clause on its `nullable=False` column is deliberate and documented in-model (`prep_work.py:506-509`) — correct choice for the comparison.\n- **No clobbered `__table_args__`** — the models file has 11 classes and 7 `__table_args__` (PrepWorkMedia:350, RackingComponent:465, the four info models, ElectricalComponent ~:631). Each info class gained exactly one; none replaced an existing declaration. `Index` and `text` are both imported (`prep_work.py:17,22`).\n- **No name collisions** — repo-wide, the four index names appear only in the new migration, the model declarations, and an API docstring. No other revision creates indexes with these names, so `upgrade` can't hit \"already exists\" on a migrated DB.\n- **No double-creation path** — tests/conftest.py:271 builds the test schema with `Base.metadata.create_all` only (no alembic in test schemas), so indexes are created from exactly one source per environment. Production gets them from the migration Job only;"
+}

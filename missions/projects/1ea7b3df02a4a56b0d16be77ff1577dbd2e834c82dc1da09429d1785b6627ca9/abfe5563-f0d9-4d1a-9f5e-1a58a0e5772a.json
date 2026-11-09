@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "abfe5563-f0d9-4d1a-9f5e-1a58a0e5772a",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-10T04:43:44.236Z",
+  "updatedAt": "2026-10-10T04:49:47.360Z",
+  "runs": [
+    {
+      "runId": "81ad4dff-edcc-458e-aaea-4314a4ebc065",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/81ad4dff-edcc-458e-aaea-4314a4ebc065",
+      "status": "complete",
+      "startedAt": "2026-10-10T04:43:44.254Z",
+      "completedAt": "2026-10-10T04:49:47.360Z",
+      "usage": {
+        "tokens": 21927
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/81ad4dff-edcc-458e-aaea-4314a4ebc065/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/81ad4dff-edcc-458e-aaea-4314a4ebc065/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/81ad4dff-edcc-458e-aaea-4314a4ebc065_scout_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-09T15-07-37-797Z_01a12134-99c4-7552-b945-baaad0e3abb1.jsonl",
+  "summary": "scout:\n# Top pg_stat_statements on heatsink-db: `SELECT COUNT(*) FROM activity_logs WHERE tenant_id = $1`\n\n## 1. Source\n- **Caller: the Rust/axum backend**, not FastAPI. `heatsink-axum/src/handlers/activity_logs.rs:463-465` builds exactly this SQL (`QueryBuilder::new(\"SELECT COUNT(*) FROM activity_logs WHERE tenant_id = \")` + push_bind) for the `GET /activity-logs` list handler's pagination total.\n- FastAPI twin: `heatsink-api/app/api/v1/activity_log.py:146` (`query.with_entities(func.count(ActivityLog.id))` — shows as `count(activity_logs.id)` in pgss, so NOT this statement; it is also wrapped in `@cached_response(key_prefix=\"activitylog:list\", ttl=120)` at line 51).\n- No worker/jobs/service callers found (grep of app/jobs, app/services, app/middleware, app/mcp: none issue this count).\n\n## 2. Rate — bursty, not steady\n- `pg_stat_statements_info.stats_reset` = **2026-01-30 15:55 UTC** (~253 days uptime) → 675,925 calls ≈ **1.9 calls/min averaged** (~2,670/day).\n- Live 90s sample (2026-10-10 04:43 UTC): **0 calls** — zero traffic right now. Traffic is bursty: admin/coordinator dashboard sessions + TanStack Query invalidation (every `log_activity()` publishes an invalidation for `[\"activity-logs\",\"list\"]`, `heatsink-api/app/utils/service.py:2465-2470`, forcing refetches right after mutations).\n\n## 3. Plan quality — indexed, plan is fine, cost is inherent\n- Index exists: `idx_activity_logs_tenant_id` btree(tenant_id); table ≈ 245k rows.\n- `EXPLAIN (ANALYZE, BUFFERS)` with a real tenant: **37.5ms**, Parallel Index Only Scan + gather, 4,306 buffers, 48,714 heap fetches (visibility-map lag). 54ms avg is reasonable for a full per-tenant count of 245k rows — not a missing-index smell; the query is just run too often.\n\n## 4. Frontend\n- `tanstacked-heatsink/src/db/collections/activity-logs.ts`: `staleTime: Infinity`, gcTime 30min, **no polling** — fetches on mount + server-pushed invalidations.\n- Total **is displayed**: `src/routes/_auth/activity.tsx:230` (\"N entries\" badge) "
+}

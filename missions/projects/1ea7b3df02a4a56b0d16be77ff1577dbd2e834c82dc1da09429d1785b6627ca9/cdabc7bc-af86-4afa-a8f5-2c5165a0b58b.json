@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "cdabc7bc-af86-4afa-a8f5-2c5165a0b58b",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-04T19:25:09.588Z",
+  "updatedAt": "2026-09-04T19:32:20.467Z",
+  "runs": [
+    {
+      "runId": "48b66172-565f-4fc5-9405-c7ee618df683",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/48b66172-565f-4fc5-9405-c7ee618df683",
+      "status": "complete",
+      "startedAt": "2026-09-04T19:25:09.593Z",
+      "completedAt": "2026-09-04T19:32:20.467Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "48b66172-565f-4fc5-9405-c7ee618df683",
+      "key": "resources",
+      "status": "completed",
+      "startedAt": "2026-09-04T19:25:09.629Z",
+      "updatedAt": "2026-09-04T19:32:20.453Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-642Z_01a06de1-cc8a-77c8-8699-bdd594ab0f91.jsonl"
+      ],
+      "runId": "a70088fb-9ae4-4f01-b0af-82063048d47c",
+      "agent": "worker",
+      "completedAt": "2026-09-04T19:32:20.453Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-642Z_01a06de1-cc8a-77c8-8699-bdd594ab0f91.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T19:32:20.453Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "48b66172-565f-4fc5-9405-c7ee618df683",
+      "key": "resources-upload",
+      "status": "completed",
+      "startedAt": "2026-09-04T19:25:09.676Z",
+      "updatedAt": "2026-09-04T19:31:49.117Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-684Z_01a06de1-ccb4-7bce-a38d-18cfdb74262e.jsonl"
+      ],
+      "runId": "7ef08df8-c8d4-4c48-b91c-c2c5ed3931a2",
+      "agent": "worker",
+      "completedAt": "2026-09-04T19:31:49.117Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-684Z_01a06de1-ccb4-7bce-a38d-18cfdb74262e.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T19:31:49.117Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "48b66172-565f-4fc5-9405-c7ee618df683",
+      "key": "aurora",
+      "status": "completed",
+      "startedAt": "2026-09-04T19:25:09.710Z",
+      "updatedAt": "2026-09-04T19:29:04.540Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-719Z_01a06de1-ccd7-70d0-9418-8a22aa0fd5b3.jsonl"
+      ],
+      "runId": "af283d96-f53b-47ae-a795-aa6427323552",
+      "agent": "worker",
+      "completedAt": "2026-09-04T19:29:04.540Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-719Z_01a06de1-ccd7-70d0-9418-8a22aa0fd5b3.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T19:29:04.540Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "48b66172-565f-4fc5-9405-c7ee618df683",
+      "key": "notif-forms",
+      "status": "completed",
+      "startedAt": "2026-09-04T19:25:09.743Z",
+      "updatedAt": "2026-09-04T19:29:10.824Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-752Z_01a06de1-ccf8-7cf9-b5c1-276e7c2a2516.jsonl"
+      ],
+      "runId": "76d8afc2-69ff-4151-8a0a-756c15e8b9b7",
+      "agent": "worker",
+      "completedAt": "2026-09-04T19:29:10.824Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-752Z_01a06de1-ccf8-7cf9-b5c1-276e7c2a2516.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T19:29:10.824Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/48b66172-565f-4fc5-9405-c7ee618df683/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/48b66172-565f-4fc5-9405-c7ee618df683/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-642Z_01a06de1-cc8a-77c8-8699-bdd594ab0f91.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-684Z_01a06de1-ccb4-7bce-a38d-18cfdb74262e.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-719Z_01a06de1-ccd7-70d0-9418-8a22aa0fd5b3.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac/forks/2026-09-04T19-25-09-752Z_01a06de1-ccf8-7cf9-b5c1-276e7c2a2516.jsonl"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-04T18-57-56-226Z_01a06dc8-e002-74fd-b6f2-a757f787e0ac.jsonl",
+  "summary": "Workflow completed with 4 child run(s). Return: {\n  \"lanes\": 4,\n  \"note\": \"see child outputs\"\n} Trace: 8 event(s)."
+}

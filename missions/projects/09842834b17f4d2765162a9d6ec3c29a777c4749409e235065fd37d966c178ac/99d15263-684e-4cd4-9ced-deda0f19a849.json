@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "99d15263-684e-4cd4-9ced-deda0f19a849",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-10T03:40:19.475Z",
+  "updatedAt": "2026-10-10T03:52:34.528Z",
+  "runs": [
+    {
+      "runId": "call_19909ea480ce461b9833bd30",
+      "mode": "workflow",
+      "status": "completed",
+      "startedAt": "2026-10-10T03:52:34.527Z",
+      "completedAt": "2026-10-10T03:52:34.527Z",
+      "usage": {
+        "tokens": 183667
+      }
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "call_19909ea480ce461b9833bd30",
+      "key": "native-sweep-aa",
+      "status": "completed",
+      "startedAt": "2026-10-10T03:40:19.526Z",
+      "updatedAt": "2026-10-10T03:52:34.509Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/77235a30-c2dc-4392-b5ef-22a5de26fe96",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/3a304e61-00e6-41be-960e-bd4fcc56e5ee/run-0/session.jsonl"
+      ],
+      "runId": "77235a30-c2dc-4392-b5ef-22a5de26fe96",
+      "agent": "worker",
+      "completedAt": "2026-10-10T03:52:34.508Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/3a304e61-00e6-41be-960e-bd4fcc56e5ee/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-10T03:52:34.509Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "call_19909ea480ce461b9833bd30",
+      "key": "native-sweep-ab",
+      "status": "completed",
+      "startedAt": "2026-10-10T03:40:19.557Z",
+      "updatedAt": "2026-10-10T03:47:50.525Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6552ce90-3ce5-444c-8156-1a0e5868259f",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/4b8c36c3-bb8d-4382-91ce-eb85567b8959/run-0/session.jsonl"
+      ],
+      "runId": "6552ce90-3ce5-444c-8156-1a0e5868259f",
+      "agent": "worker",
+      "completedAt": "2026-10-10T03:47:50.525Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/4b8c36c3-bb8d-4382-91ce-eb85567b8959/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-10T03:47:50.525Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/77235a30-c2dc-4392-b5ef-22a5de26fe96_worker_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/77235a30-c2dc-4392-b5ef-22a5de26fe96_worker_transcript.jsonl",
+      "description": "Child transcript"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/6552ce90-3ce5-444c-8156-1a0e5868259f_worker_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/6552ce90-3ce5-444c-8156-1a0e5868259f_worker_transcript.jsonl",
+      "description": "Child transcript"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05.jsonl",
+  "summary": "Run fan-out: 2/64 used, 62 remaining\nWorkflow completed.\n\nReturn:\n[\n  {\n    \"key\": \"native-sweep-aa\",\n    \"ok\": true,\n    \"asyncDir\": \"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/77235a30-c2dc-4392-b5ef-22a5de26fe96\",\n    \"agent\": \"worker\",\n    \"runId\": \"77235a30-c2dc-4392-b5ef-22a5de26fe96\",\n    \"output\": \"All 119 tests across the 5 touched test files pass. Sweep complete.\\n\\nImplemented the native-comment-sweep per `/tmp/native-comment-sweep/RULES.md` across the 18 files in `batch-aa` (repo root `/Users/ksimons/repos/tanstacked-heatsink-native`).\\n\\n**1. files changed: 13 / 18**\\nSkipped (no offending comments after inspection): `scripts/doctor-budget.ts`, `src/components/shared/UserSuggestInput.tsx`, `src/lib/device-sync.ts`, `src/lib/fuzzy-search.test.ts`, `src/screens/expenses/use-expense-capture.ts`.\\n\\n**2. edits: removed 4, rewritten 17, names neutralized 4, phases stripped 1** (plus 4 date-stamps stripped inside the rewrites)\\n\\n- **removed** — pure history with no present-tense salvage: StatusBadge.ios.tsx platform-divergence sentences; `[id].tsx` \\\"original footer JSX, moved verbatim\\\"; client.ts \\\"(found as the roofing E2E holdout)\\\" discovery anecdote; client.ts AXUM-FIRST \\\"two transports this file used to split the app between\\\" clause.\\n- **rewritten to present tense** — client.ts ×5 (incident-2026-09-24 parenthetical → present-tense failure mode; X-Platform incident sentence; AXUM-FIRST dateline + \\\"the old body owned here\\\"; 502 \\\"can no longer masquerade\\\" → \\\"cannot\\\"; \\\"(the state this fixed on web)\\\"); cacheRefreshRetry.test.ts \\\"used to be uncancellable\\\"; comments.test.ts \\\"hasn't been migrated\\\" → \\\"has no comments route\\\"; contractor.ts \\\"became… the day the directory filled up\\\" + \\\"pre-directory fallback\\\"; `[id].tsx` \\\"lifted out of\\\" → \\\"kept out of\\\"; PhotoUploadCard.tsx \\\"is no longer a chooser… old burst-per-category behaviour survives\\\"; workflows.test.ts ×2 (\\\"read used to add…\\\", \\\"..."
+}

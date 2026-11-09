@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "d93c85f3-bf17-470b-905e-36e7bbe5ecad",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-04T14:31:07.628Z",
+  "updatedAt": "2026-09-04T14:42:11.052Z",
+  "runs": [
+    {
+      "runId": "47526710-8582-4386-88df-2440dc289190",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47526710-8582-4386-88df-2440dc289190",
+      "status": "complete",
+      "startedAt": "2026-09-04T14:31:07.631Z",
+      "completedAt": "2026-09-04T14:42:11.052Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "47526710-8582-4386-88df-2440dc289190",
+      "key": "review-api",
+      "status": "completed",
+      "startedAt": "2026-09-04T14:31:07.669Z",
+      "updatedAt": "2026-09-04T14:39:03.852Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/416b32b5-fa98-42b1-aaae-2ff9d30e0739/run-0/session.jsonl"
+      ],
+      "runId": "416b32b5-fa98-42b1-aaae-2ff9d30e0739",
+      "agent": "reviewer",
+      "completedAt": "2026-09-04T14:39:03.852Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/416b32b5-fa98-42b1-aaae-2ff9d30e0739/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T14:39:03.852Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "47526710-8582-4386-88df-2440dc289190",
+      "key": "review-axum",
+      "status": "completed",
+      "startedAt": "2026-09-04T14:31:07.763Z",
+      "updatedAt": "2026-09-04T14:36:56.288Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/2bfa53f5-66a8-4c11-96e5-8ac32fe784c5/run-0/session.jsonl"
+      ],
+      "runId": "2bfa53f5-66a8-4c11-96e5-8ac32fe784c5",
+      "agent": "reviewer",
+      "completedAt": "2026-09-04T14:36:56.288Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/2bfa53f5-66a8-4c11-96e5-8ac32fe784c5/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T14:36:56.288Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "47526710-8582-4386-88df-2440dc289190",
+      "key": "review-frontend",
+      "status": "completed",
+      "startedAt": "2026-09-04T14:31:07.845Z",
+      "updatedAt": "2026-09-04T14:38:16.612Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/0bee6f40-b3d8-47a3-8b86-32b5c35774fa/run-0/session.jsonl"
+      ],
+      "runId": "0bee6f40-b3d8-47a3-8b86-32b5c35774fa",
+      "agent": "reviewer",
+      "completedAt": "2026-09-04T14:38:16.612Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/0bee6f40-b3d8-47a3-8b86-32b5c35774fa/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T14:38:16.612Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "47526710-8582-4386-88df-2440dc289190",
+      "key": "review-crossrepo",
+      "status": "completed",
+      "startedAt": "2026-09-04T14:31:07.931Z",
+      "updatedAt": "2026-09-04T14:42:11.032Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/5c34bf5c-0251-45c2-94e8-ea83a3cfde52/run-0/session.jsonl"
+      ],
+      "runId": "5c34bf5c-0251-45c2-94e8-ea83a3cfde52",
+      "agent": "reviewer",
+      "completedAt": "2026-09-04T14:42:11.032Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/5c34bf5c-0251-45c2-94e8-ea83a3cfde52/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-04T14:42:11.032Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47526710-8582-4386-88df-2440dc289190/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/47526710-8582-4386-88df-2440dc289190/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/416b32b5-fa98-42b1-aaae-2ff9d30e0739/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/2bfa53f5-66a8-4c11-96e5-8ac32fe784c5/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/0bee6f40-b3d8-47a3-8b86-32b5c35774fa/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f/5c34bf5c-0251-45c2-94e8-ea83a3cfde52/run-0/session.jsonl"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatsink-api",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-04T14-00-20-248Z_01a06cb8-6a18-74dd-b2c2-67afbc65194f.jsonl",
+  "summary": "Workflow completed with 4 child run(s). Return: {\n  \"api\": {\n    \"key\": \"review-api\",\n    \"ok\": true,\n    \"agent\": \"reviewer\",\n    \"runId\": \"416b32b5-fa98-42b1-aaae-2ff9d30e0739\",\n    \"output\": \"## Review\\n\\nMethod note: I have no shell tool, so I could not literally run `git diff` / `git status`. I reconstructed the change surface from the task description and verified repo state directly: `.git/logs/HEAD` shows the last action as `checkout: moving from main to feat/crew-availability-check-flag`, local branch ref = `1f7dcd42` = `origin/feat/crew-availability-check-flag`, so the working tree holds the uncommitted review-fix edits on top of the pushed PR branch. Everything below was verified by reading the current files end-to-end at the named seams.\\n\\n### Correct\\n\\n- **Migration** (`migrations/2026-09-04-contractor-availability-check-flag.sql`):\\n  - `ADD COLUMN IF NOT EXISTS availability_check_enabled BOOLEAN` (line 32) — nullable, no default → new contractors are null, matching the model (`app/models/invoicesystem.py:254-256`, n Trace: 8 event(s)."
+}

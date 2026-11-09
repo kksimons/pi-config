@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "3cd2d0e2-d57d-4ca7-8c90-f1408faf8d6e",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-22T22:30:56.259Z",
+  "updatedAt": "2026-09-22T22:45:18.761Z",
+  "runs": [
+    {
+      "runId": "24532c5d-6370-4da0-9a1c-e337c1ee477f",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/24532c5d-6370-4da0-9a1c-e337c1ee477f",
+      "status": "complete",
+      "startedAt": "2026-09-22T22:30:56.272Z",
+      "completedAt": "2026-09-22T22:45:18.761Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "24532c5d-6370-4da0-9a1c-e337c1ee477f",
+      "key": "r4-correctness",
+      "status": "completed",
+      "startedAt": "2026-09-22T22:30:56.416Z",
+      "updatedAt": "2026-09-22T22:38:15.174Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/72127bb3-13a1-458e-8565-05c670bfcce4",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/5fdaac7f-a9a5-4d0b-8211-0a61aa46b6ac/run-0/session.jsonl"
+      ],
+      "runId": "72127bb3-13a1-458e-8565-05c670bfcce4",
+      "agent": "reviewer",
+      "completedAt": "2026-09-22T22:38:15.174Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/5fdaac7f-a9a5-4d0b-8211-0a61aa46b6ac/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-22T22:38:15.174Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "24532c5d-6370-4da0-9a1c-e337c1ee477f",
+      "key": "r4-integration",
+      "status": "completed",
+      "startedAt": "2026-09-22T22:38:15.193Z",
+      "updatedAt": "2026-09-22T22:45:18.718Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a3cb8f38-317c-4099-9ec8-fa8e2956e199",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/45e3290d-df54-4255-83c9-80ce5118f030/run-0/session.jsonl"
+      ],
+      "runId": "a3cb8f38-317c-4099-9ec8-fa8e2956e199",
+      "agent": "reviewer",
+      "completedAt": "2026-09-22T22:45:18.718Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/45e3290d-df54-4255-83c9-80ce5118f030/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-22T22:45:18.718Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/24532c5d-6370-4da0-9a1c-e337c1ee477f/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/24532c5d-6370-4da0-9a1c-e337c1ee477f/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/subagent-artifacts/72127bb3-13a1-458e-8565-05c670bfcce4_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/subagent-artifacts/a3cb8f38-317c-4099-9ec8-fa8e2956e199_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/invoices-axum",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014.jsonl",
+  "summary": "Workflow completed with 2 child run(s). Return: {\n  \"correctness\": \"All verification complete. Here is my review.\\n\\n---\\n\\n## Review — full correctness sweep of `src/utils/cache.rs` at HEAD (3493503)\\n\\n### Verified correct (evidence trail)\\n\\n**Gate/guard logic, line by line** (mandate 1): `classify_fill_lock` (cache.rs:571-580) maps the `SET NX PX` reply shapes correctly (`Ok(Some)`→Acquired, `Ok(None)`→Contended, `Err`→Unavailable). The fence in `store` (cache.rs:657-667) is the correct De Morgan complement with the right short-circuit order — ownership checked first, `EXISTS` consulted only when ownership was lost, both error paths biased toward publish as documented. `release` disarms after the await (cache.rs:645-649), so a cancelled release still fires Drop, and the owner-checked EVAL makes any double-release a no-op. `Drop` (cache.rs:697-713) guards on `armed`, `mem::take`s its fields, and pre-checks `Handle::try_current()`. Integer conversions are all millisecond-magnitude (`u128→u64` on `remaining_ms`, `usize` TTL into `. Trace: 4 event(s)."
+}

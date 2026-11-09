@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "90456992-900c-4672-ad47-83b5250c3e45",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T04:53:23.969Z",
+  "updatedAt": "2026-10-04T05:16:02.296Z",
+  "runs": [
+    {
+      "runId": "1f913a74-7194-474b-9106-90844af306e9",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/1f913a74-7194-474b-9106-90844af306e9",
+      "status": "complete",
+      "startedAt": "2026-10-04T04:53:23.982Z",
+      "completedAt": "2026-10-04T05:16:02.296Z",
+      "usage": {
+        "tokens": 160759
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/1f913a74-7194-474b-9106-90844af306e9/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/1f913a74-7194-474b-9106-90844af306e9/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/1f913a74-7194-474b-9106-90844af306e9_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nThe /tmp cleanup was blocked by the bash-guard — the calibration probes remain harmlessly in `/tmp/rd-cal`, `/tmp/rd-report.json`, `/tmp/rd-full.txt`, `/tmp/flhaform-body.txt` for anyone who wants to inspect them.\n\n---\n\nImplemented the react-doctor/lint reduction for my 7-file partition in `tanstacked-heatsink-native`, per-site:\n\n**Fixed (7 findings cleared):**\n- **complexity ×3** — calibrated the rule in /tmp first (flags at >14 own-top-level operators; IIFE/`useMemo`/`useCallback`/`map` internals count nothing), then extracted per the playbook, verifying `tsc` + `oxfmt` + react-doctor after each step:\n  - `FlhaForm.tsx` (27→13 own ops): `ScopeStep` (scope step block), `StepNavBar` (nav bar), `SignatureModal` — all same-file sub-components taking cond/data as props, children return null internally, repo-idiomatic own `hex`/`styles`.\n  - `PhotoUploadCard.tsx` (22→10 ops): `QueueStatusRow` extraction — file now scores **100/100, zero findings**.\n  - `WorkflowContainer.tsx` (27→10 ops): `StoplightsSection` sub-component + `computeWorkflowStatuses` plain helper (moved the `??`/`||`-heavy statuses object out of the React function).\n- **no-array-index-key ×2** (FlhaForm:514/797): `CrewMember` gained a client-generated `id` (name+role can repeat, so ids are the collision-safe stable key); submit payload unchanged; both index-key comments removed.\n- **no-unnecessary-condition ×1** (FlhaForm:71): the dynamic-key `DEFAULT_TEMPLATES[workflowType]` lookup is now cast to `FLHASection[] | undefined` (the runtime truth the Record type can't express) and handled with `?.filter(...) ?? []` — type-truthful, zero behavior change.\n\n**Documented keeps (8 findings, all with in-place comments stating the reason/bound):**\n- scrollview ×6: FlhaForm ×2 (user-saved preset chip strips — comments sharpened to name the bound), PrepWorkSections:363 (comment sharpened: largest option set is the 8-entry ROOF_TYPES), WorkflowWizard:98 (one pill per step), GenericWorkflowContainer:121 (exact"
+}

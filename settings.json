@@ -1,12 +1,14 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "1.5.0",
   "defaultProvider": "zai",
-  "defaultModel": "glm-5.2",
+  "defaultModel": "glm-5.3-flash",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-subagents",
     "npm:pi-rtk-optimizer",
     "npm:@plannotator/pi-extension"
+  ],
+  "extensions": [
+    "-extensions/bash-guard/index.ts"
   ],
   "compaction": {
     "enabled": true,
@@ -14,5 +16,9 @@
     "keepRecentTokens": 25000
   },
   "theme": "dark",
-  "defaultThinkingLevel": "xhigh"
+  "defaultThinkingLevel": "max",
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+    "{\"source\":\"npm:pi-rtk-optimizer\",\"scope\":\"user\"}": "0.9.0"
+  }
 }

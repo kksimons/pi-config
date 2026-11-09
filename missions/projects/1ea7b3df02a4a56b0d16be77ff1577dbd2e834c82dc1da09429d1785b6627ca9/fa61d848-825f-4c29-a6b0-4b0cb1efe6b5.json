@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "fa61d848-825f-4c29-a6b0-4b0cb1efe6b5",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-15T19:53:26.007Z",
+  "updatedAt": "2026-09-15T20:06:21.360Z",
+  "runs": [
+    {
+      "runId": "44664fe3-5d68-4981-8684-7f8b4f990b5f",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/44664fe3-5d68-4981-8684-7f8b4f990b5f",
+      "status": "complete",
+      "startedAt": "2026-09-15T19:53:26.016Z",
+      "completedAt": "2026-09-15T20:06:21.360Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "44664fe3-5d68-4981-8684-7f8b4f990b5f",
+      "key": "beVision",
+      "status": "completed",
+      "startedAt": "2026-09-15T19:53:26.055Z",
+      "updatedAt": "2026-09-15T20:02:36.332Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d6776850-daf3-449e-a746-02c489d836d9",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d/be6829ea-7edb-49b5-8516-a7c2ae6f8a10/run-0/session.jsonl"
+      ],
+      "runId": "d6776850-daf3-449e-a746-02c489d836d9",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T20:02:36.332Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d/be6829ea-7edb-49b5-8516-a7c2ae6f8a10/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T20:02:36.332Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "44664fe3-5d68-4981-8684-7f8b4f990b5f",
+      "key": "feViewer",
+      "status": "completed",
+      "startedAt": "2026-09-15T19:53:26.088Z",
+      "updatedAt": "2026-09-15T20:04:00.742Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/1e35ebf4-69f0-4ee0-8bca-51caae837c51",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d/045b8749-ad86-4801-bfdb-735c5413b49f/run-0/session.jsonl"
+      ],
+      "runId": "1e35ebf4-69f0-4ee0-8bca-51caae837c51",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T20:04:00.741Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d/045b8749-ad86-4801-bfdb-735c5413b49f/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T20:04:00.742Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "44664fe3-5d68-4981-8684-7f8b4f990b5f",
+      "key": "contract",
+      "status": "completed",
+      "startedAt": "2026-09-15T19:53:26.105Z",
+      "updatedAt": "2026-09-15T20:06:21.341Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/0d36743a-72a1-4610-81dd-890b6ec2b316",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d/e0131ee1-f204-4dea-a911-e98b94240782/run-0/session.jsonl"
+      ],
+      "runId": "0d36743a-72a1-4610-81dd-890b6ec2b316",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T20:06:21.340Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d/e0131ee1-f204-4dea-a911-e98b94240782/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T20:06:21.341Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/44664fe3-5d68-4981-8684-7f8b4f990b5f/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/44664fe3-5d68-4981-8684-7f8b4f990b5f/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d6776850-daf3-449e-a746-02c489d836d9"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/1e35ebf4-69f0-4ee0-8bca-51caae837c51"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/0d36743a-72a1-4610-81dd-890b6ec2b316"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T19-11-12-273Z_01a0a67a-f990-77db-a8c7-850bf9c70f2d.jsonl",
+  "summary": "Workflow completed with 3 child run(s). Return: {\n  \"backend\": \"## Review — permit-AI large-PDF field mapping (backend, working tree)\\n\\nVerified against: `app/api/v1/permits.py`, `app/jobs/permit_ai_jobs.py`, `app/schemas/permits.py`, `tests/unit/test_permit_ai_prompt.py`, installed SAQ 0.26.4 (`saq/job.py`, `saq/queue/base.py`, `saq/queue/redis.py`, `saq/worker.py`), `app/worker.py`, `app/main.py`, `app/core/config.py`, `app/core/middleware.py`.\\n\\n### Correct (verified with evidence)\\n\\n- **Page offsets are right end-to-end.** `_split_pdf_for_permit_vision` (permits.py:2631–2671) returns `(0-based offset, count, bytes)`; `_vision_suggest_with_provider` builds `page_ranges` as `offset+1 … offset+max(count,1)` (permits.py:2908–2911) and `map_chunk` re-adjusts each suggestion `page + page_offset` (permits.py:2952–2956). `_parse_permit_vision_fields` forces `page=page_index` (permits.py:2459), so provider 1-based per-chunk pages become 1-based global pages. Tests cover this both directly (test file lines 21–45, 48–65, 68–110).\\n- **C Trace: 6 event(s)."
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "76b34be8-b392-4611-99ee-d4af8cf84832",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-08T23:09:56.053Z",
+  "updatedAt": "2026-10-08T23:33:02.395Z",
+  "runs": [
+    {
+      "runId": "fd90cd62-ef8e-45eb-9845-9718ae3169a2",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fd90cd62-ef8e-45eb-9845-9718ae3169a2",
+      "status": "complete",
+      "startedAt": "2026-10-08T23:09:56.082Z",
+      "completedAt": "2026-10-08T23:33:02.395Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "fd90cd62-ef8e-45eb-9845-9718ae3169a2",
+      "key": "r1",
+      "status": "completed",
+      "startedAt": "2026-10-08T23:09:56.122Z",
+      "updatedAt": "2026-10-08T23:33:02.380Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/0772f50e-5d11-4e88-a34c-d85fb88c4820",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/a1e44f2a-d1d9-4f97-9692-12978ef90613/run-0/session.jsonl"
+      ],
+      "runId": "0772f50e-5d11-4e88-a34c-d85fb88c4820",
+      "agent": "reviewer",
+      "completedAt": "2026-10-08T23:33:02.380Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/a1e44f2a-d1d9-4f97-9692-12978ef90613/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T23:33:02.380Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "fd90cd62-ef8e-45eb-9845-9718ae3169a2",
+      "key": "r2",
+      "status": "completed",
+      "startedAt": "2026-10-08T23:09:56.152Z",
+      "updatedAt": "2026-10-08T23:21:59.324Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9403011c-ae17-4bdc-a115-2b4342a69e6e",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/81883ea5-6e2f-45d0-ae14-37089cb450cb/run-0/session.jsonl"
+      ],
+      "runId": "9403011c-ae17-4bdc-a115-2b4342a69e6e",
+      "agent": "reviewer",
+      "completedAt": "2026-10-08T23:21:59.324Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/81883ea5-6e2f-45d0-ae14-37089cb450cb/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T23:21:59.324Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "fd90cd62-ef8e-45eb-9845-9718ae3169a2",
+      "key": "r3",
+      "status": "completed",
+      "startedAt": "2026-10-08T23:09:56.174Z",
+      "updatedAt": "2026-10-08T23:26:05.409Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d4bd0faf-f89f-4f54-b5b7-c05beb47d615",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/a4196ac3-96f3-4d21-9685-2b3088b3d366/run-0/session.jsonl"
+      ],
+      "runId": "d4bd0faf-f89f-4f54-b5b7-c05beb47d615",
+      "agent": "reviewer",
+      "completedAt": "2026-10-08T23:26:05.409Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/a4196ac3-96f3-4d21-9685-2b3088b3d366/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T23:26:05.409Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fd90cd62-ef8e-45eb-9845-9718ae3169a2/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fd90cd62-ef8e-45eb-9845-9718ae3169a2/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/0772f50e-5d11-4e88-a34c-d85fb88c4820_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/9403011c-ae17-4bdc-a115-2b4342a69e6e_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/d4bd0faf-f89f-4f54-b5b7-c05beb47d615_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0.jsonl",
+  "summary": "Workflow completed with 3 child run(s). Return: [\n  {\n    \"key\": \"r1\",\n    \"output\": \"All checks complete. Compiling the review.\\n\\n## Review — parse layer (src/api/**, src/lib/**, scripts/**)\\n\\n**Correct (verified, evidence):**\\n\\n- **Guard truth tables** (`src/lib/wire-guards.ts`): `isString`/`isNumber`/`isBoolean`/`isObjectLike` are literally the typeof expressions they claim to twin (NaN/Infinity included in `isNumber`; `isObjectLike` passes arrays, rejects null and functions — exactly `typeof v === \\\"object\\\" && v !== null`). `isNonEmptyString` ≡ the old `asString`/`asOptionalString` (`typeof string && length > 0`). `isJsonValue` accepts exactly the JSON space (`undefined` → false; only ever applied to `JSON.parse` output/persisted JSON).\\n- **`isRecord` array-exclusion flip audited at every former local-twin call site** (scheduleDay, serviceDay, workJobs, unitProject, workflowConfig, workflowMedia, smsPreferences, serviceWorkflow, workflowRun): for JSON-parsed inputs the outcome is identical everywhere — arrays that previousl… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fd90cd62-ef8e-45eb-9845-9718ae3169a2/status.json (workflow.value, workflow.emits)) Trace: 6 event(s)."
+}

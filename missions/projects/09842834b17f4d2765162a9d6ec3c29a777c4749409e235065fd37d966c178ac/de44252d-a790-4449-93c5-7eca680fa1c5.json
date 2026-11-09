@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "de44252d-a790-4449-93c5-7eca680fa1c5",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "failed",
+  "createdAt": "2026-10-04T04:53:10.913Z",
+  "updatedAt": "2026-10-04T05:23:14.487Z",
+  "runs": [
+    {
+      "runId": "d3197349-5258-4a09-b13f-d1ddbd9556b3",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d3197349-5258-4a09-b13f-d1ddbd9556b3",
+      "status": "failed",
+      "startedAt": "2026-10-04T04:53:10.940Z",
+      "completedAt": "2026-10-04T05:23:14.487Z",
+      "usage": {
+        "tokens": 226540
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d3197349-5258-4a09-b13f-d1ddbd9556b3/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d3197349-5258-4a09-b13f-d1ddbd9556b3/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/d3197349-5258-4a09-b13f-d1ddbd9556b3_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "Subagent timed out after 1800000ms."
+}

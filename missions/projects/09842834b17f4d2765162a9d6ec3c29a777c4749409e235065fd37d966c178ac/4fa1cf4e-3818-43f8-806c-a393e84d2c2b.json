@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "4fa1cf4e-3818-43f8-806c-a393e84d2c2b",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-13T17:23:33.755Z",
+  "updatedAt": "2026-09-13T17:28:27.900Z",
+  "runs": [
+    {
+      "runId": "d9c7477b-4cab-4f89-839e-e6bb5eefffa8",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d9c7477b-4cab-4f89-839e-e6bb5eefffa8",
+      "status": "complete",
+      "startedAt": "2026-09-13T17:23:33.771Z",
+      "completedAt": "2026-09-13T17:28:27.900Z",
+      "usage": {
+        "tokens": 114696
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d9c7477b-4cab-4f89-839e-e6bb5eefffa8/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d9c7477b-4cab-4f89-839e-e6bb5eefffa8/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/d9c7477b-4cab-4f89-839e-e6bb5eefffa8_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-13T16-59-57-560Z_01a09bb6-18f7-7309-98f5-fb45d7ceec94.jsonl",
+  "summary": "reviewer:\nAll verification complete. Compiling the final audit.\n\n## Review\n\n**Scope covered:** entire 6,528-line `/tmp/heatsink-audit/compA.diff` (agreements, finance, invoiceSystem, email) read page-by-page; every semantic hunk traced into the current working tree; every removed export/prop/file grepped for live callers.\n\n### Correct / verified equivalent (evidence-backed)\n\n- **`toastMutationError` consolidation** (~60 sites): behavior preserved — destructive variant, backend message still surfaced as description; only title copy changes (see finding 4). `src/lib/toast-errors.ts:104-125`.\n- **`SharedTemplateEditor` consolidation** (`src/components/email/shared-template-editor.tsx`) — the highest-risk hunk — checked line-by-line against all three old editors: save payload identical (`subject.trim()`, `content.trim()`, `cc_emails: ccEmails.trim() || null`, `is_active`, reminder `description` pass-through preserved in the wrapper); test-email payloads identical including the old `subject.trim() ? subject : undefined` tri-state (shared editor lines 278-283); customer-only paste interception and escaped-HTML normalization preserved exactly via `interceptMarkupPaste`/`normalizeEscapedHtml` flags (true only in `customer-email-template-editor.tsx`); reminder's local preview substitution is byte-equivalent incl. `projects@magsolar.ca` fallback; 300 ms debounce preserved (line 241); load-failed card only where the old reminder editor had one (`loadFailed={Boolean(queryError) || !template}` vs `false` for customer/payment — matches baseline); payment's \"invoice attachment\" toast copy preserved in its wrapper.\n- **`use-quill-editor.ts` refactor**: the only other consumer (`src/components/email/template-editor.tsx:145`, unmodified by the refactor) passes no feature flags, and all new defaults (`normalizeEscapedHtml`/`interceptMarkupPaste`/`enableVariableDragDrop` = true, `serverContent` undefined → content-prop sync stays active) reproduce its baseline behavior. Variable insert"
+}

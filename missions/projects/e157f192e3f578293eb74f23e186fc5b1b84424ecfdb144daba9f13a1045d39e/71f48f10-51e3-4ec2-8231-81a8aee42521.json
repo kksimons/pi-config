@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "id": "71f48f10-51e3-4ec2-8231-81a8aee42521",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-09T06:56:04.538Z",
+  "updatedAt": "2026-10-09T07:33:01.139Z",
+  "runs": [
+    {
+      "runId": "5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "status": "complete",
+      "startedAt": "2026-10-09T06:56:04.549Z",
+      "completedAt": "2026-10-09T07:33:01.138Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "key": "day1",
+      "status": "completed",
+      "startedAt": "2026-10-09T06:56:04.593Z",
+      "updatedAt": "2026-10-09T07:18:54.087Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ab115381-da4d-4dd7-ab0e-a12bc080591f",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/676e26c3-8f48-4acb-aaf3-115ef410615b/run-0/session.jsonl"
+      ],
+      "runId": "ab115381-da4d-4dd7-ab0e-a12bc080591f",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T07:18:54.087Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/676e26c3-8f48-4acb-aaf3-115ef410615b/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T07:18:54.087Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "key": "cross",
+      "status": "completed",
+      "startedAt": "2026-10-09T06:56:04.623Z",
+      "updatedAt": "2026-10-09T07:23:25.995Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/b6e3dc2b-a701-4d65-b044-48b534365f9d",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/c5fa17b7-78a9-404f-bff6-c10c44610a06/run-0/session.jsonl"
+      ],
+      "runId": "b6e3dc2b-a701-4d65-b044-48b534365f9d",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T07:23:25.995Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/c5fa17b7-78a9-404f-bff6-c10c44610a06/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T07:23:25.995Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "key": "diffread",
+      "status": "completed",
+      "startedAt": "2026-10-09T06:56:04.641Z",
+      "updatedAt": "2026-10-09T07:33:01.104Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ce4f014d-d00a-4059-acef-47f308a2d5c7",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/cfc47ef5-4ef3-4ae6-8bca-3aa5c60882b2/run-0/session.jsonl"
+      ],
+      "runId": "ce4f014d-d00a-4059-acef-47f308a2d5c7",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T07:33:01.104Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/cfc47ef5-4ef3-4ae6-8bca-3aa5c60882b2/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T07:33:01.104Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "key": "py314",
+      "status": "completed",
+      "startedAt": "2026-10-09T06:56:04.661Z",
+      "updatedAt": "2026-10-09T07:26:55.624Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/902fddf5-374d-44aa-8115-93cb6b18626c",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/04d10169-4463-45c6-a324-f43b4b028b6c/run-0/session.jsonl"
+      ],
+      "runId": "902fddf5-374d-44aa-8115-93cb6b18626c",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T07:26:55.624Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/04d10169-4463-45c6-a324-f43b4b028b6c/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T07:26:55.624Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5fc73d07-0844-463e-a1e5-8b550ee09eaa",
+      "key": "final",
+      "status": "completed",
+      "startedAt": "2026-10-09T06:56:04.682Z",
+      "updatedAt": "2026-10-09T07:19:44.347Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7846643f-d6d8-4692-994c-53e700ec4ea7",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/2bbc2826-ed6d-47ad-b764-8b9afd9ebe0e/run-0/session.jsonl"
+      ],
+      "runId": "7846643f-d6d8-4692-994c-53e700ec4ea7",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T07:19:44.347Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7/2bbc2826-ed6d-47ad-b764-8b9afd9ebe0e/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T07:19:44.347Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5fc73d07-0844-463e-a1e5-8b550ee09eaa/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5fc73d07-0844-463e-a1e5-8b550ee09eaa/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/ab115381-da4d-4dd7-ab0e-a12bc080591f_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/b6e3dc2b-a701-4d65-b044-48b534365f9d_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/ce4f014d-d00a-4059-acef-47f308a2d5c7_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/902fddf5-374d-44aa-8115-93cb6b18626c_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/7846643f-d6d8-4692-994c-53e700ec4ea7_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatsink-api",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-08T17-28-11-423Z_01a11c8e-ed9e-7020-98f6-ac6438a7cef7.jsonl",
+  "summary": "Workflow completed with 5 child run(s). Return: {\n  \"reviews\": [\n    {\n      \"lens\": \"First-day-after-deploy runtime behavior\",\n      \"key\": \"day1\",\n      \"report\": {\n        \"key\": \"day1\",\n        \"ok\": true,\n        \"asyncDir\": \"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ab115381-da4d-4dd7-ab0e-a12bc080591f\",\n        \"agent\": \"reviewer\",\n        \"runId\": \"ab115381-da4d-4dd7-ab0e-a12bc080591f\",\n        \"output\": \"All verifications complete. psycopg 3.3.6 confirmed: errors carry `sqlstate` only (`psycopg/errors.py:267,282-283`) — no `pgcode` anywhere. Deposit ids are always `str(uuid.uuid4())`, so the `str()` coercion is a no-op for app-written rows. Composing the report.\\n\\n## Review — WAVE-4, LENS: first-day-after-deploy runtime behavior\\n\\nScope walked: all 129 staged files (stat-level skim of every file; deep reads of `app/database.py`, payments, cancellations, roofing_project_management + models, sms_conversations, projects, MCP implementation, quickbooks_service, jobs, flha, workf… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5fc73d07-0844-463e-a1e5-8b550ee09eaa/status.json (workflow.value, workflow.emits)) Trace: 10 event(s)."
+}

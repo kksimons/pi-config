@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "0cadcff8-7a09-41e0-b0ab-2f570a480b0f",
+  "projectRoot": "/Users/ksimons/repos/tanstacked-heatsink",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/09842834b17f4d2765162a9d6ec3c29a777c4749409e235065fd37d966c178ac/0cadcff8-7a09-41e0-b0ab-2f570a480b0f.json",
+  "title": "[prompt redacted]",
+  "status": "waiting",
+  "updatedAt": "2026-10-03T23:02:12.122Z",
+  "lastRunId": "e5a95da8-9450-4dd3-902a-b11698fabb30"
+}

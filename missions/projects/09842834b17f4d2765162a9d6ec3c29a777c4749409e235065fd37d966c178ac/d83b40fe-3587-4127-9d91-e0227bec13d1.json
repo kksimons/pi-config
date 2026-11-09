@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "d83b40fe-3587-4127-9d91-e0227bec13d1",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T14:26:43.568Z",
+  "updatedAt": "2026-10-04T14:43:00.342Z",
+  "runs": [
+    {
+      "runId": "7e9b4e71-1184-4ed3-912a-18eb2814eaba",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7e9b4e71-1184-4ed3-912a-18eb2814eaba",
+      "status": "complete",
+      "startedAt": "2026-10-04T14:26:43.576Z",
+      "completedAt": "2026-10-04T14:43:00.342Z",
+      "usage": {
+        "tokens": 221239
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7e9b4e71-1184-4ed3-912a-18eb2814eaba/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7e9b4e71-1184-4ed3-912a-18eb2814eaba/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/7e9b4e71-1184-4ed3-912a-18eb2814eaba_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "reviewer:\nAll verification complete. Here is my review.\n\n## Review — commit 8b68bf2, partition: expenses / home / leaderboard-detail / my-invoices / profile / WorkflowActivity / ConfigWizard / FormStep\n\n### Per-file verdicts\n\n| File | Verdict |\n|---|---|\n| `src/screens/expenses/screen.android.tsx` | FINDINGS (P3 only) |\n| `src/screens/expenses/screen.ios.tsx` | CLEAN |\n| `src/screens/home/screen.android.tsx` | CLEAN |\n| `src/screens/home/screen.ios.tsx` | FINDINGS (P3 only) |\n| `src/screens/home/use-home-screen.ts` | CLEAN (only `SalesMode` now exported; see note 4) |\n| `src/screens/leaderboard-detail/screen.android.tsx` | CLEAN |\n| `src/screens/leaderboard-detail/screen.ios.tsx` | **FINDINGS (P1)** |\n| `src/screens/my-invoices/screen.android.tsx` / `screen.ios.tsx` | CLEAN |\n| `src/screens/my-invoices/use-my-invoices-screen.ts` | CLEAN (untouched by commit; keeps verified) |\n| `src/screens/profile/screen.android.tsx` / `screen.ios.tsx` | CLEAN |\n| `src/widgets/WorkflowActivity.tsx` | CLEAN |\n| `src/workflows/ConfigWizard.tsx` | CLEAN |\n| `src/workflows/steps/FormStep.tsx` | CLEAN |\n\n### Findings\n\n- **P1 — `src/screens/leaderboard-detail/screen.ios.tsx:283–292` and `:433–442` — chart panes double-wrapped in `ScrollView > VStack` after extraction.** Base pane 1/pane 2 was exactly one `<ScrollView modifiers={[frame({ maxWidth: Infinity, maxHeight: Infinity })]}>` containing one `<VStack … modifiers={[padding({ horizontal: CHART_INSET, vertical: spacing.md }), …]}>` (full.diff removed-lines at ~9520/~9640). The extracted `MonthlyPane`/`DowHourPane` each render that same wrapper **nested inside an identical second `ScrollView > VStack(padding CHART_INSET, spacing.md)`**. Evidence in current file: ScrollView pairs at 283/292 and 406/408 (MonthlyPane), 433/442 and 502/504 (DowHourPane), with `padding({ horizontal: CHART_INSET, vertical: spacing.md })` on both VStack layers. That is (a) double the base horizontal/vertical inset (CHART_INSET applied on both layers), (b) a n"
+}

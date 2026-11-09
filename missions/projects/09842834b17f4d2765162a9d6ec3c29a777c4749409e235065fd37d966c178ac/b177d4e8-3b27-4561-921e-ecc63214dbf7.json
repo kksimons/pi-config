@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "b177d4e8-3b27-4561-921e-ecc63214dbf7",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T14:26:20.658Z",
+  "updatedAt": "2026-10-04T14:38:18.244Z",
+  "runs": [
+    {
+      "runId": "d00831e4-5ec6-47f2-af3a-a66bb9cdf85d",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d00831e4-5ec6-47f2-af3a-a66bb9cdf85d",
+      "status": "complete",
+      "startedAt": "2026-10-04T14:26:20.667Z",
+      "completedAt": "2026-10-04T14:38:18.244Z",
+      "usage": {
+        "tokens": 136891
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d00831e4-5ec6-47f2-af3a-a66bb9cdf85d/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d00831e4-5ec6-47f2-af3a-a66bb9cdf85d/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/d00831e4-5ec6-47f2-af3a-a66bb9cdf85d_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "reviewer:\nAll verification complete. Compiling the final review.\n\n## Review\n\n**Commit 8b68bf2 \"complexity sweep\" — my 8-file partition. All 8 files CLEAN; no P1/P2 findings.** Two briefing inaccuracies noted below (P3, parent-info only, not code defects).\n\n### Per-file verdicts\n\n| File | Verdict |\n|---|---|\n| `src/app/invoice-change/[id].tsx` | CLEAN |\n| `src/app/review/[unit]/[projectId]/[workflowType].tsx` | CLEAN |\n| `src/app/service-day.tsx` | CLEAN |\n| `src/app/workflow/camera.tsx` | CLEAN |\n| `src/screens/projects/screen.ios.tsx` | CLEAN |\n| `src/screens/projects/use-projects-screen.ts` | CLEAN |\n| `src/screens/leaderboards/screen.ios.tsx` | CLEAN |\n| `src/screens/leaderboards/use-leaderboards-screen.ts` | CLEAN |\n\n### Findings\n\n- **P3 (briefing correction, not a code issue):** The CrewMember client-generated-id fix is in `src/components/flha/FlhaForm.tsx` (FlhaForm partition), **not** invoice-change — `invoice-change/[id].tsx` contains no crew concept at all (its only list is `EditedItem`, `key={index}` intentionally kept, current file:255-262). I verified the FlhaForm fix anyway since checklist item 5 hinged on it: ids are created **once per item in state** — `\"crew_self\"` in the `useState` initializer (FlhaForm.tsx:127) and `crew_${Date.now()}_${Math.random()...}` inside `addCrewMember`'s state updater (:167) — so keys are stable across re-renders. Both crew map sites switched `key={i}` → `key={m.id}`. The submit payload is **unchanged and id-free**: `signatures: crewMembers.map((m) => ({ name, role, signature_data }))` (FlhaForm.tsx:352-356, explicit fields, no spread).\n- **P3 (briefing correction):** service-day's `onRefresh` was **not** moved to `useCallback` (still a plain function, service-day.tsx:106-109 — identical to base); only `openServiceStop` was. No behavior impact either way.\n- No P0/P1/P2 issues found in the partition.\n\n### Checklist confirmations (with evidence)\n\n1. **Render equivalence per extraction — CONFIRMED.** Every extracted region is"
+}

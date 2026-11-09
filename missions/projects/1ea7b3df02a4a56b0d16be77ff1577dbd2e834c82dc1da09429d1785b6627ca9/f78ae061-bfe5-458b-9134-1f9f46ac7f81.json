@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "f78ae061-bfe5-458b-9134-1f9f46ac7f81",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-08T03:01:36.696Z",
+  "updatedAt": "2026-10-08T03:16:48.991Z",
+  "runs": [
+    {
+      "runId": "2a94b828-ce3b-45d3-8d4c-6eb9905a6afa",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2a94b828-ce3b-45d3-8d4c-6eb9905a6afa",
+      "status": "complete",
+      "startedAt": "2026-10-08T03:01:36.718Z",
+      "completedAt": "2026-10-08T03:16:48.991Z",
+      "usage": {
+        "tokens": 86170
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2a94b828-ce3b-45d3-8d4c-6eb9905a6afa/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2a94b828-ce3b-45d3-8d4c-6eb9905a6afa/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/2a94b828-ce3b-45d3-8d4c-6eb9905a6afa_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-08T02-34-54-619Z_01a1195d-1b1a-71b8-b999-4eced1bbcc17.jsonl",
+  "summary": "reviewer:\n## Review\n\n**Correct (verified):**\n\n- **Migration — revision chain:** exactly one file declares `down_revision = \"d2a6f3b8e914\"` (the new one, alembic/versions/2026_10_08_...py:32) and nothing chains onto `a7c41d92e5b8` → single head, no fork. The parent `2026_10_18_d2a6f3b8e914_fold_form_submission_settings.py:23-24` confirms `d2a6f3b8e914 ← c4f8a1e93d27`.\n- **Migration — keeper selection:** `DISTINCT ON (e.project_id)` with leading `ORDER BY e.project_id, count(c.id) DESC, e.id ASC` (lines 9-32, 74-92) is valid Postgres and deterministic; `GROUP BY e.project_id, e.id` permits the aggregate in ORDER BY. Zero-duplicate-groups is a true no-op: the `HAVING count(*) > 1` derived table joins inner, so all UPDATE/DELETE statements get empty driver sets.\n- **Migration — FK/CASCADE safety:** `uq_electrical_component` / `uq_racking_component` exist exactly as cited (app/models/prep_work.py:466, 584); component FKs are `ondelete=CASCADE` but step 2 deletes stranded components *before* step 3 deletes rows, so the CASCADE never fires mid-migration; roof_info/attic_info are unreferenced. Only these two FKs target the four tables (verified in app/models/).\n- **Migration — index declaration:** `op.create_index(..., unique=True, postgresql_where=sa.text(\"project_id IS NOT NULL\"))` (lines 171-197) is the correct Alembic idiom for partial unique indexes; names are collision-free across the repo. `electrical_info/roof_info/attic_info.project_id` are nullable in the models, so the `WHERE` clause is right; it's merely redundant on NOT NULL `racking_info.project_id` — harmless. Downgrade explicitly documents irreversibility and drops only the guards — acceptable contract.\n- **Helpers — session semantics:** `with db.begin_nested():` + `flush()` is the documented SAVEPOINT pattern; on `IntegrityError` the context manager rolls back only the savepoint (outer transaction stays usable), the pending object is expunged, and the failure path returns a freshly re-queried row or re-rais"
+}

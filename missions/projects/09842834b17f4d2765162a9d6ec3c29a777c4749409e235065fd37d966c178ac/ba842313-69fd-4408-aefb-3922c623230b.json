@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "ba842313-69fd-4408-aefb-3922c623230b",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-03T19:09:00.923Z",
+  "updatedAt": "2026-10-03T19:38:28.811Z",
+  "runs": [
+    {
+      "runId": "e7803d7f-655e-4162-9239-a90590a768eb",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e7803d7f-655e-4162-9239-a90590a768eb",
+      "status": "complete",
+      "startedAt": "2026-10-03T19:09:00.932Z",
+      "completedAt": "2026-10-03T19:38:28.811Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "e7803d7f-655e-4162-9239-a90590a768eb",
+      "key": "w2a2",
+      "status": "failed",
+      "startedAt": "2026-10-03T19:09:00.968Z",
+      "updatedAt": "2026-10-03T19:38:28.774Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a44ebd9c-bafa-4fae-8784-e2496c578a0c",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1/10fc6f5f-fd5d-4c98-94df-dccaf4732677/run-0/session.jsonl"
+      ],
+      "runId": "a44ebd9c-bafa-4fae-8784-e2496c578a0c",
+      "agent": "worker",
+      "label": "Fix react-doctor warnings: projects/workflows/shared/export/nav/finance",
+      "completedAt": "2026-10-03T19:38:28.774Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1/10fc6f5f-fd5d-4c98-94df-dccaf4732677/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T19:38:28.774Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "e7803d7f-655e-4162-9239-a90590a768eb",
+      "key": "w2d2",
+      "status": "failed",
+      "startedAt": "2026-10-03T19:09:01.006Z",
+      "updatedAt": "2026-10-03T19:38:22.768Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/73ac0aca-b3a1-4a7f-b843-fc049cc5012f",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1/8032f1d2-918c-403d-b0f6-a255efcac7d7/run-0/session.jsonl"
+      ],
+      "runId": "73ac0aca-b3a1-4a7f-b843-fc049cc5012f",
+      "agent": "worker",
+      "label": "Fix react-doctor warnings: long-tail dirs",
+      "completedAt": "2026-10-03T19:38:22.768Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1/8032f1d2-918c-403d-b0f6-a255efcac7d7/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T19:38:22.768Z",
+        "status": "failed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e7803d7f-655e-4162-9239-a90590a768eb/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e7803d7f-655e-4162-9239-a90590a768eb/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/a44ebd9c-bafa-4fae-8784-e2496c578a0c_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/73ac0aca-b3a1-4a7f-b843-fc049cc5012f_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "Workflow completed with 2 child run(s). Return: ===== w2a2 =====\n\nMarkers are DOM-based (`mapboxgl.Marker`), `addMarkers` clears first (idempotent), and `clearMarkers`/`clusterMarkers` are stable — the prescribed latest-ref refactor preserves end-state while ending map teardowns on every data change. Applying.\n\n===== w2d2 =====\n\nFixing the try/finally bailout (the `finally` is the unsupported construct) — provable equivalent: `setSubmitting(false)` on the early-return path plus after the catch covers all three paths exactly: Trace: 4 event(s)."
+}

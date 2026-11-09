@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "0f2ad703-0913-4d22-a4b8-58260faaf42d",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-03T23:02:45.358Z",
+  "updatedAt": "2026-10-03T23:25:28.498Z",
+  "runs": [
+    {
+      "runId": "9eb613e6-e3f0-4337-8fde-5ba308af70cd",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9eb613e6-e3f0-4337-8fde-5ba308af70cd",
+      "status": "complete",
+      "startedAt": "2026-10-03T23:02:45.373Z",
+      "completedAt": "2026-10-03T23:25:28.497Z",
+      "usage": {
+        "tokens": 156589
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9eb613e6-e3f0-4337-8fde-5ba308af70cd/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9eb613e6-e3f0-4337-8fde-5ba308af70cd/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/9eb613e6-e3f0-4337-8fde-5ba308af70cd_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nAll verification complete. Final accounting: all 58 listed sites converted (26 files), none skipped; behavior preserved via the three in-tree patterns (reset-after-try/catch for plain bodies, fall-through/if-else or pre-return reset for early-return paths, promise `.then/.catch/.finally` for compiler-hostile shapes like the 422-early-return completion funnels and the cancelled-guard cases).\n\nfixed 58 of 58; skipped: none; verification: tsc 0 errors, lint 0/0"
+}

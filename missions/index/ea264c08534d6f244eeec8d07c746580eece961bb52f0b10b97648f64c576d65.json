@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "93a5ec99-bee7-4f94-80e7-5c90367fefe8",
+  "projectRoot": "/Users/ksimons/repos",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/1ea7b3df02a4a56b0d16be77ff1577dbd2e834c82dc1da09429d1785b6627ca9/93a5ec99-bee7-4f94-80e7-5c90367fefe8.json",
+  "title": "[prompt redacted]",
+  "status": "failed",
+  "updatedAt": "2026-10-25T20:13:46.484Z",
+  "lastRunId": "94701463-0510-4146-b9fc-3b3d20bbf624"
+}

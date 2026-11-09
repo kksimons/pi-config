@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "7522abd3-f7b2-4183-99da-30c7fa81eb8b",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "failed",
+  "createdAt": "2026-08-29T00:22:28.511Z",
+  "updatedAt": "2026-08-29T00:33:47.218Z",
+  "runs": [
+    {
+      "runId": "26fa13b8-b30e-4b51-803e-8774bfc4a859",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/26fa13b8-b30e-4b51-803e-8774bfc4a859",
+      "status": "failed",
+      "startedAt": "2026-08-29T00:22:28.515Z",
+      "completedAt": "2026-08-29T00:33:47.218Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "26fa13b8-b30e-4b51-803e-8774bfc4a859",
+      "key": "frontend",
+      "status": "completed",
+      "startedAt": "2026-08-29T00:22:28.580Z",
+      "updatedAt": "2026-08-29T00:33:10.554Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/a75d598c-34fa-411c-b8fc-cee52f9d5612/run-0/session.jsonl"
+      ],
+      "runId": "a75d598c-34fa-411c-b8fc-cee52f9d5612",
+      "agent": "reviewer",
+      "completedAt": "2026-08-29T00:33:10.554Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/a75d598c-34fa-411c-b8fc-cee52f9d5612/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-29T00:33:10.554Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "26fa13b8-b30e-4b51-803e-8774bfc4a859",
+      "key": "fastapi",
+      "status": "completed",
+      "startedAt": "2026-08-29T00:22:29.013Z",
+      "updatedAt": "2026-08-29T00:33:45.638Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/2bc103ef-4a33-42d9-b422-9421c35010d8/run-0/session.jsonl"
+      ],
+      "runId": "2bc103ef-4a33-42d9-b422-9421c35010d8",
+      "agent": "reviewer",
+      "completedAt": "2026-08-29T00:33:45.638Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/2bc103ef-4a33-42d9-b422-9421c35010d8/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-29T00:33:45.638Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "26fa13b8-b30e-4b51-803e-8774bfc4a859",
+      "key": "axum",
+      "status": "completed",
+      "startedAt": "2026-08-29T00:22:29.405Z",
+      "updatedAt": "2026-08-29T00:32:41.736Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/61864645-bece-475e-b49c-49f0293a4c6f/run-0/session.jsonl"
+      ],
+      "runId": "61864645-bece-475e-b49c-49f0293a4c6f",
+      "agent": "reviewer",
+      "completedAt": "2026-08-29T00:32:41.736Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/61864645-bece-475e-b49c-49f0293a4c6f/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-29T00:32:41.736Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/26fa13b8-b30e-4b51-803e-8774bfc4a859/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/26fa13b8-b30e-4b51-803e-8774bfc4a859/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/a75d598c-34fa-411c-b8fc-cee52f9d5612/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/2bc103ef-4a33-42d9-b422-9421c35010d8/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127/61864645-bece-475e-b49c-49f0293a4c6f/run-0/session.jsonl"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-28T23-27-15-531Z_01a04ab2-ee4b-7ea3-83a5-d7ee3ea68127.jsonl",
+  "summary": "ReferenceError: results is not defined\n    at workflow-script.js:84:13\n    at async MessagePort.<anonymous> ([worker eval]:605:15)"
+}

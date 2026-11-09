@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "8f5199c9-8f68-46f0-ade2-3f70e08b0064",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "cancelled",
+  "createdAt": "2026-09-15T18:03:07.878Z",
+  "updatedAt": "2026-09-15T18:04:11.015Z",
+  "runs": [
+    {
+      "runId": "a8df1753-2677-442e-ae6b-37f58b1eff3d",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a8df1753-2677-442e-ae6b-37f58b1eff3d",
+      "status": "stopped",
+      "startedAt": "2026-09-15T18:03:07.885Z",
+      "completedAt": "2026-09-15T18:04:10.653Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "a8df1753-2677-442e-ae6b-37f58b1eff3d",
+      "key": "api-fixes-r2",
+      "status": "failed",
+      "startedAt": "2026-09-15T18:03:07.919Z",
+      "updatedAt": "2026-09-15T18:04:11.015Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/f71ee600-31ae-47d9-9bd7-0d661639599b",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/forks/2026-09-15T18-03-07-945Z_01a0a63c-a729-7644-b2dc-03da3de0e02a.jsonl"
+      ],
+      "runId": "f71ee600-31ae-47d9-9bd7-0d661639599b",
+      "agent": "worker",
+      "completedAt": "2026-09-15T18:04:11.015Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/forks/2026-09-15T18-03-07-945Z_01a0a63c-a729-7644-b2dc-03da3de0e02a.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T18:04:11.015Z",
+        "status": "failed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a8df1753-2677-442e-ae6b-37f58b1eff3d/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a8df1753-2677-442e-ae6b-37f58b1eff3d/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee.jsonl",
+  "summary": "Workflow stopped."
+}

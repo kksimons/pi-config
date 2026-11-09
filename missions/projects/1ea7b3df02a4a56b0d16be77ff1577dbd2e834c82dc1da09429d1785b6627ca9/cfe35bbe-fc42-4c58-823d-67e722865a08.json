@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "cfe35bbe-fc42-4c58-823d-67e722865a08",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-08-31T20:53:36.307Z",
+  "updatedAt": "2026-08-31T20:53:36.382Z",
+  "runs": [
+    {
+      "runId": "f90780b2-9174-4d08-b971-19e1bd1ea4ca",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/f90780b2-9174-4d08-b971-19e1bd1ea4ca",
+      "status": "complete",
+      "startedAt": "2026-08-31T20:53:36.309Z",
+      "completedAt": "2026-08-31T20:53:36.382Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "f90780b2-9174-4d08-b971-19e1bd1ea4ca",
+      "key": "fastapi2",
+      "status": "failed",
+      "startedAt": "2026-08-31T20:53:36.339Z",
+      "updatedAt": "2026-08-31T20:53:36.357Z",
+      "artifactPaths": [],
+      "runId": "4029a9cf-8186-4076-a2b8-c8208c023cd9",
+      "agent": "reviewer",
+      "completedAt": "2026-08-31T20:53:36.357Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-08-31T20-23-45-376Z_01a0597e-01e0-7eff-818d-92e1ae36711b/4029a9cf-8186-4076-a2b8-c8208c023cd9/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-31T20:53:36.357Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "f90780b2-9174-4d08-b971-19e1bd1ea4ca",
+      "key": "ops2",
+      "status": "failed",
+      "startedAt": "2026-08-31T20:53:36.359Z",
+      "updatedAt": "2026-08-31T20:53:36.371Z",
+      "artifactPaths": [],
+      "runId": "0300c971-3a66-4ccf-9fb2-96fecc000541",
+      "agent": "reviewer",
+      "completedAt": "2026-08-31T20:53:36.371Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-08-31T20-23-45-376Z_01a0597e-01e0-7eff-818d-92e1ae36711b/0300c971-3a66-4ccf-9fb2-96fecc000541/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-31T20:53:36.371Z",
+        "status": "failed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/f90780b2-9174-4d08-b971-19e1bd1ea4ca/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/f90780b2-9174-4d08-b971-19e1bd1ea4ca/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-08-31T20-23-45-376Z_01a0597e-01e0-7eff-818d-92e1ae36711b.jsonl",
+  "summary": "Workflow completed with 2 child run(s). Return: === REVIEWER fastapi2 ===\n{\"key\":\"fastapi2\",\"ok\":false,\"agent\":\"reviewer\",\"runId\":\"4029a9cf-8186-4076-a2b8-c8208c023cd9\",\"output\":\"\",\"error\":\"Agent 'reviewer' was given an implementation task, but its tool allowlist has no mutation-capable tools. Add bash, edit, write, or another mutation-capable tool to the agent, or use a read-only task/agent.\\n\\nRun fan-out: 2/64 used, 62 remaining\\nAgent 'reviewer' was given an implementation task, but its tool allowlist has no mutation-capable tools. Add bash, edit, write, or another mutation-capable tool to the agent, or use a read-only task/agent.\\n\\nOutput artifact: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/4029a9cf-8186-4076-a2b8-c8208c023cd9_reviewer_0_output.md\",\"resolvedContext\":\"fresh\",\"resumability\":{\"state\":\"not-resumable\",\"reason\":\"Foreground run '4029a9cf-8186-4076-a2b8-c8208c023cd9' child 0 does not have a persisted session file to resume from.\"},\"continuation\":{\"runIds\":[\"4029a9cf-8186-4076-a2b8-c82 Trace: 4 event(s)."
+}

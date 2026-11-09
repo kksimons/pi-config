@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "432c03ff-bc76-41fa-948e-e282c8d6a471",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T01:47:56.839Z",
+  "updatedAt": "2026-10-04T02:01:50.985Z",
+  "runs": [
+    {
+      "runId": "99e1c589-66cf-4060-b425-77f12e190f38",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/99e1c589-66cf-4060-b425-77f12e190f38",
+      "status": "complete",
+      "startedAt": "2026-10-04T01:47:56.848Z",
+      "completedAt": "2026-10-04T02:01:50.985Z",
+      "usage": {
+        "tokens": 132493
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/99e1c589-66cf-4060-b425-77f12e190f38/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/99e1c589-66cf-4060-b425-77f12e190f38/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/99e1c589-66cf-4060-b425-77f12e190f38_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\n# Regression Review Report — test-side changes, 1aa87c5c4..HEAD (partition: `src/test/**`, `tests/e2e/**`)\n\nRead-only review completed. No files edited, written, formatted, or committed; no installs or test suites run. **`git status --porcelain` is empty** (evidence at bottom).\n\n---\n\n## Category 1 — Deleted tests (all five verified)\n\n**1a. \"Report Dashboard API\" section, `src/test/api/dashboard-analytics.test.tsx` (-1400)** — hunk intent: remove the section testing the deleted `src/db/collections/report-dashboard.ts` collection. Verdict: **OK (claim verified)**. Evidence: the collection module is gone at HEAD (deleted in 38bb4a0ad, in-range). `src/api/report-dashboard.ts` still exists but is now **type-only** (types derive from `@/schemas/reports-analytics/report-dashboard`); its wire contract is covered by `src/test/schemas/reports-cache-ai-wire.test.ts:374-399` (report-dashboard-list/detail/presets decoded through both backends against `ReportConfigSchema`/`ReportPresetsResponseSchema` imported from `@/schemas/...`), and the `/api/report-dashboard/*` endpoints' runtime behavior is covered by `src/db/collections/__tests__/reporting.test.ts` (fetch configs :55, presets :147, create :257, create-from-preset :303, update :338, delete :369). `useReportConfigs` now lives in `src/db/collections/reporting.ts` and is exercised at reporting.test.ts:217. No orphaned references remain.\n\n**1b. `src/test/utils/migration-refactor-sweep.test.ts` (deleted, -83)** — Verdict: **OK (language-only claim verified)**. Evidence: the deleted file imported only `vitest`; every assertion tested JS semantics (`0 ?? 5`, `Promise.all` ordering, `typeof Array.prototype.toSorted`) or locally-defined closures (`applyDefaults`) — zero app-code imports. Nothing about the codebase was pinned.\n\n**1c. waitFor-integration placeholders, `calendar-notes.test.tsx` + `lighting-van-inventory.test.tsx`** — Verdict: **OK**. Both deleted tests were tautologies: `await waitFor(() => expect(true).toBe(tr"
+}

@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "301bc8de-334f-495f-a9dd-709b7e5bb366",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "failed",
+  "createdAt": "2026-10-08T21:31:05.530Z",
+  "updatedAt": "2026-10-08T22:31:05.758Z",
+  "runs": [
+    {
+      "runId": "16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "status": "failed",
+      "startedAt": "2026-10-08T21:31:05.544Z",
+      "completedAt": "2026-10-08T22:31:05.551Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "key": "w3-1",
+      "status": "completed",
+      "startedAt": "2026-10-08T21:31:05.592Z",
+      "updatedAt": "2026-10-08T22:06:49.864Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cb4af35c-c621-408f-ab4c-7c2bb91fa808",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/ed144795-40ce-4834-8790-28abc2a342c6/run-0/session.jsonl"
+      ],
+      "runId": "cb4af35c-c621-408f-ab4c-7c2bb91fa808",
+      "agent": "worker",
+      "completedAt": "2026-10-08T22:06:49.864Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/ed144795-40ce-4834-8790-28abc2a342c6/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T22:06:49.864Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "key": "w3-2",
+      "status": "failed",
+      "startedAt": "2026-10-08T21:31:05.622Z",
+      "updatedAt": "2026-10-08T22:31:05.758Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/c77388fc-482f-4ef6-929f-6ee79403058d",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/636bac8d-df23-4117-b5ac-61acdb0f74c8/run-0/session.jsonl"
+      ],
+      "runId": "c77388fc-482f-4ef6-929f-6ee79403058d",
+      "agent": "worker",
+      "completedAt": "2026-10-08T22:31:05.758Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/636bac8d-df23-4117-b5ac-61acdb0f74c8/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T22:31:05.758Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "key": "w3-3",
+      "status": "completed",
+      "startedAt": "2026-10-08T21:31:05.642Z",
+      "updatedAt": "2026-10-08T21:56:23.785Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/df24bbf6-bed5-46fe-af2a-6426c7c2cd3a",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/11e7e00c-88ef-44aa-9f60-1c0afa306bc0/run-0/session.jsonl"
+      ],
+      "runId": "df24bbf6-bed5-46fe-af2a-6426c7c2cd3a",
+      "agent": "worker",
+      "completedAt": "2026-10-08T21:56:23.785Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/11e7e00c-88ef-44aa-9f60-1c0afa306bc0/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T21:56:23.785Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "key": "w3-4",
+      "status": "completed",
+      "startedAt": "2026-10-08T21:31:05.663Z",
+      "updatedAt": "2026-10-08T21:43:12.375Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/763f2abf-a355-4e95-bd2d-359e3674490b",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/1b0df25f-7890-4713-8e5d-13fee813eda8/run-0/session.jsonl"
+      ],
+      "runId": "763f2abf-a355-4e95-bd2d-359e3674490b",
+      "agent": "worker",
+      "completedAt": "2026-10-08T21:43:12.375Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/1b0df25f-7890-4713-8e5d-13fee813eda8/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T21:43:12.375Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "16202dfc-ef1d-4825-b0a4-61850cbb8288",
+      "key": "w3-5",
+      "status": "completed",
+      "startedAt": "2026-10-08T21:31:05.685Z",
+      "updatedAt": "2026-10-08T21:43:55.473Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/b1d2ad49-beea-499c-8fc7-4296a092506a",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/b209d43b-b958-43ca-b25d-aa8ab90a55f3/run-0/session.jsonl"
+      ],
+      "runId": "b1d2ad49-beea-499c-8fc7-4296a092506a",
+      "agent": "worker",
+      "completedAt": "2026-10-08T21:43:55.473Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/b209d43b-b958-43ca-b25d-aa8ab90a55f3/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-08T21:43:55.473Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/16202dfc-ef1d-4825-b0a4-61850cbb8288/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/16202dfc-ef1d-4825-b0a4-61850cbb8288/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/cb4af35c-c621-408f-ab4c-7c2bb91fa808_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/df24bbf6-bed5-46fe-af2a-6426c7c2cd3a_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/763f2abf-a355-4e95-bd2d-359e3674490b_worker_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/b1d2ad49-beea-499c-8fc7-4296a092506a_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0.jsonl",
+  "summary": "Workflow script timed out after 3600000ms."
+}

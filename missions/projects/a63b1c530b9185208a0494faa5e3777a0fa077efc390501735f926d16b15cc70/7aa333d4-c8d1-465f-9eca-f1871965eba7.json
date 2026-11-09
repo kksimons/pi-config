@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "id": "7aa333d4-c8d1-465f-9eca-f1871965eba7",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-03T18:27:32.200Z",
+  "updatedAt": "2026-10-03T18:47:58.998Z",
+  "runs": [
+    {
+      "runId": "5a60271f-310d-4f52-b4c9-72a3612e0020",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a60271f-310d-4f52-b4c9-72a3612e0020",
+      "status": "complete",
+      "startedAt": "2026-10-03T18:27:32.207Z",
+      "completedAt": "2026-10-03T18:47:58.998Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "5a60271f-310d-4f52-b4c9-72a3612e0020",
+      "key": "w2-hooks-components",
+      "status": "completed",
+      "startedAt": "2026-10-03T18:27:32.250Z",
+      "updatedAt": "2026-10-03T18:47:58.944Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/91683adf-f0bd-4b14-887a-7e553d30aae1",
+        "/tmp/heatreach-review-w2-hooks-components.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/b2013e7c-07c2-4029-b1cd-2d4401975605/run-0/session.jsonl"
+      ],
+      "runId": "91683adf-f0bd-4b14-887a-7e553d30aae1",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T18:47:58.943Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/b2013e7c-07c2-4029-b1cd-2d4401975605/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T18:47:58.944Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5a60271f-310d-4f52-b4c9-72a3612e0020",
+      "key": "w2-scripts",
+      "status": "completed",
+      "startedAt": "2026-10-03T18:27:32.283Z",
+      "updatedAt": "2026-10-03T18:44:18.570Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d2d5671d-8278-47d3-bee0-1fb44e2a5928",
+        "/tmp/heatreach-review-w2-scripts.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/6c0bfaf8-f04c-4c0d-9657-2b63da5c96db/run-0/session.jsonl"
+      ],
+      "runId": "d2d5671d-8278-47d3-bee0-1fb44e2a5928",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T18:44:18.570Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/6c0bfaf8-f04c-4c0d-9657-2b63da5c96db/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T18:44:18.570Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5a60271f-310d-4f52-b4c9-72a3612e0020",
+      "key": "w2-render",
+      "status": "completed",
+      "startedAt": "2026-10-03T18:27:32.302Z",
+      "updatedAt": "2026-10-03T18:47:40.579Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/c290b4d3-5ea3-4623-b49c-e474acd68e65",
+        "/tmp/heatreach-review-w2-render.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/b5614fa1-db30-400e-b429-b02fbe84d28a/run-0/session.jsonl"
+      ],
+      "runId": "c290b4d3-5ea3-4623-b49c-e474acd68e65",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T18:47:40.579Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/b5614fa1-db30-400e-b429-b02fbe84d28a/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T18:47:40.579Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5a60271f-310d-4f52-b4c9-72a3612e0020",
+      "key": "w2-config",
+      "status": "completed",
+      "startedAt": "2026-10-03T18:27:32.322Z",
+      "updatedAt": "2026-10-03T18:41:48.322Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cc5f0d02-bf94-481d-9944-f97839982ed0",
+        "/tmp/heatreach-review-w2-config.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/ececd292-61a7-47ac-9343-12f560b769f6/run-0/session.jsonl"
+      ],
+      "runId": "cc5f0d02-bf94-481d-9944-f97839982ed0",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T18:41:48.322Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/ececd292-61a7-47ac-9343-12f560b769f6/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T18:41:48.322Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a60271f-310d-4f52-b4c9-72a3612e0020/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a60271f-310d-4f52-b4c9-72a3612e0020/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/91683adf-f0bd-4b14-887a-7e553d30aae1_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/d2d5671d-8278-47d3-bee0-1fb44e2a5928_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/c290b4d3-5ea3-4623-b49c-e474acd68e65_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/cc5f0d02-bf94-481d-9944-f97839982ed0_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatreach-native",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36.jsonl",
+  "summary": "Workflow completed with 4 child run(s). Return: {\n  \"launched\": 4,\n  \"refs\": [\n    \"{\\\"key\\\":\\\"w2-hooks-components\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/91683adf-f0bd-4b14-887a-7e553d30aae1\\\",\\\"agent\\\":\\\"reviewer\\\",\\\"runId\\\":\\\"91683adf-f0bd-4b14-887a-7e553d30a\",\n    \"{\\\"key\\\":\\\"w2-scripts\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d2d5671d-8278-47d3-bee0-1fb44e2a5928\\\",\\\"agent\\\":\\\"reviewer\\\",\\\"runId\\\":\\\"d2d5671d-8278-47d3-bee0-1fb44e2a5928\\\",\\\"out\",\n    \"{\\\"key\\\":\\\"w2-render\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/c290b4d3-5ea3-4623-b49c-e474acd68e65\\\",\\\"agent\\\":\\\"reviewer\\\",\\\"runId\\\":\\\"c290b4d3-5ea3-4623-b49c-e474acd68e65\\\",\\\"outp\",\n    \"{\\\"key\\\":\\\"w2-config\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cc5f0d02-bf94-481d-9944-f… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a60271f-310d-4f52-b4c9-72a3612e0020/status.json (workflow.value, workflow.emits)) Trace: 8 event(s)."
+}

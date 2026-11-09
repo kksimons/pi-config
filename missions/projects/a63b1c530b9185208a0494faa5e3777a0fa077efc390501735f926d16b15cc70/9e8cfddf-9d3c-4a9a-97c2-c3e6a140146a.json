@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "9e8cfddf-9d3c-4a9a-97c2-c3e6a140146a",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "failed",
+  "createdAt": "2026-09-06T19:21:12.642Z",
+  "updatedAt": "2026-09-06T19:21:12.675Z",
+  "runs": [
+    {
+      "runId": "d6653df1-90d6-4ece-a238-a172edb4db32",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d6653df1-90d6-4ece-a238-a172edb4db32",
+      "status": "failed",
+      "startedAt": "2026-09-06T19:21:12.644Z",
+      "completedAt": "2026-09-06T19:21:12.675Z"
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d6653df1-90d6-4ece-a238-a172edb4db32/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/d6653df1-90d6-4ece-a238-a172edb4db32/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatreach-native",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-09-06T18-58-28-250Z_01a07816-1519-7724-8556-bc8924478766.jsonl",
+  "summary": "Error: runs.run has an invalid key.\n    at validateRunCall ([worker eval]:606:66)\n    at Object.run ([worker eval]:686:5)\n    at launch (workflow-script.js:102:34)\n    at Array.map (<anonymous>)\n    at workflow-script.js:112:41\n    at workflow-script.js:119:3\n    at Script.runInContext (node:vm:150:12)\n    at MessagePort.<anonymous> ([worker eval]:931:46)\n    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:856:20)\n    at MessagePort.<anonymous> (node:internal/per_context/messageport:23:28)"
+}

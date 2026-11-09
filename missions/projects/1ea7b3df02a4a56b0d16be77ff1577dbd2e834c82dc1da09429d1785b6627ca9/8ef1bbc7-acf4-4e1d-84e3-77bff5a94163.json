@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "8ef1bbc7-acf4-4e1d-84e3-77bff5a94163",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "failed",
+  "createdAt": "2026-10-31T18:44:54.295Z",
+  "updatedAt": "2026-10-31T19:14:58.036Z",
+  "runs": [
+    {
+      "runId": "63197474-620e-412e-a9fc-d41a67c8e7b6",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/63197474-620e-412e-a9fc-d41a67c8e7b6",
+      "status": "failed",
+      "startedAt": "2026-10-31T18:44:54.318Z",
+      "completedAt": "2026-10-31T19:14:58.036Z",
+      "usage": {
+        "tokens": 120220
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/63197474-620e-412e-a9fc-d41a67c8e7b6/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/63197474-620e-412e-a9fc-d41a67c8e7b6/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/63197474-620e-412e-a9fc-d41a67c8e7b6_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0.jsonl",
+  "summary": "Subagent timed out after 1800000ms.\n\nworker:\nPartial output before timeout:\nNow `build_today` — the 4-6 per-unit schedule queries become one statement:\n\nRecovery summary:\n- termination: timed-out\n- changed tracked files: unavailable (Command failed: git -c core.fsmonitor=false diff --no-ext-diff --name-only -z HEAD --\nfatal: bad revision 'HEAD'\n)\n- session file: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-10-31T17-35-45-528Z_01a19308-1f77-7536-bc5c-986bf1f0c5a0/63197474-620e-412e-a9fc-d41a67c8e7b6/run-0/session.jsonl\n- transcript: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/63197474-620e-412e-a9fc-d41a67c8e7b6_worker_transcript.jsonl\n- output artifact: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/63197474-620e-412e-a9fc-d41a67c8e7b6_worker_output.md\n- metadata artifact: /Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/subagent-artifacts/63197474-620e-412e-a9fc-d41a67c8e7b6_worker_meta.json\nWarning: Inspect partial changes before retrying or resuming the child."
+}

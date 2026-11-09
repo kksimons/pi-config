@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "30e62110-8438-4d7b-9824-bda92bd20010",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "cancelled",
+  "createdAt": "2026-09-02T15:09:38.328Z",
+  "updatedAt": "2026-09-02T15:10:00.916Z",
+  "runs": [
+    {
+      "runId": "ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "status": "stopped",
+      "startedAt": "2026-09-02T15:09:38.330Z",
+      "completedAt": "2026-09-02T15:10:00.891Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "key": "fix-a",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:09:38.367Z",
+      "updatedAt": "2026-09-02T15:09:38.374Z",
+      "artifactPaths": [],
+      "completedAt": "2026-09-02T15:09:38.374Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:09:38.374Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "key": "fix-b",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:09:38.376Z",
+      "updatedAt": "2026-09-02T15:09:38.383Z",
+      "artifactPaths": [],
+      "completedAt": "2026-09-02T15:09:38.383Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:09:38.383Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "key": "fix-c",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:09:38.384Z",
+      "updatedAt": "2026-09-02T15:09:38.391Z",
+      "artifactPaths": [],
+      "completedAt": "2026-09-02T15:09:38.391Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:09:38.391Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "key": "fix-d",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:09:38.393Z",
+      "updatedAt": "2026-09-02T15:09:38.400Z",
+      "artifactPaths": [],
+      "completedAt": "2026-09-02T15:09:38.400Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:09:38.400Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "ece2a510-9e16-438c-a6fb-67ca34133f26",
+      "key": "review",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:09:38.404Z",
+      "updatedAt": "2026-09-02T15:10:00.916Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/d31a05e5-eaa4-422b-81e5-9961bd4f1ad3/run-0/session.jsonl"
+      ],
+      "runId": "d31a05e5-eaa4-422b-81e5-9961bd4f1ad3",
+      "agent": "reviewer",
+      "completedAt": "2026-09-02T15:10:00.916Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/d31a05e5-eaa4-422b-81e5-9961bd4f1ad3/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:10:00.916Z",
+        "status": "failed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ece2a510-9e16-438c-a6fb-67ca34133f26/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ece2a510-9e16-438c-a6fb-67ca34133f26/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875.jsonl",
+  "summary": "Workflow stopped."
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "eb2af028-f3b3-4662-b2f4-7e6c22adff01",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-23T22:02:33.973Z",
+  "updatedAt": "2026-09-23T22:10:36.658Z",
+  "runs": [
+    {
+      "runId": "5a53d45f-67f5-46b9-baad-910e0cda1872",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a53d45f-67f5-46b9-baad-910e0cda1872",
+      "status": "complete",
+      "startedAt": "2026-09-23T22:02:33.979Z",
+      "completedAt": "2026-09-23T22:10:36.658Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "5a53d45f-67f5-46b9-baad-910e0cda1872",
+      "key": "api-r3",
+      "status": "completed",
+      "startedAt": "2026-09-23T22:02:34.031Z",
+      "updatedAt": "2026-09-23T22:10:36.582Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/63583aa3-5439-4b68-9a32-487a9c0f09e1",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/599490c1-3c90-42cb-b21b-780e4a74ae1d/run-0/session.jsonl"
+      ],
+      "runId": "63583aa3-5439-4b68-9a32-487a9c0f09e1",
+      "agent": "reviewer",
+      "completedAt": "2026-09-23T22:10:36.582Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/599490c1-3c90-42cb-b21b-780e4a74ae1d/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-23T22:10:36.582Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5a53d45f-67f5-46b9-baad-910e0cda1872",
+      "key": "axum-r3",
+      "status": "completed",
+      "startedAt": "2026-09-23T22:02:34.060Z",
+      "updatedAt": "2026-09-23T22:08:31.353Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/4ce7ba24-6bbd-4525-bd49-aa36f31b2f74",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/e6182ce8-60c9-48c5-b99f-007967d542fa/run-0/session.jsonl"
+      ],
+      "runId": "4ce7ba24-6bbd-4525-bd49-aa36f31b2f74",
+      "agent": "reviewer",
+      "completedAt": "2026-09-23T22:08:31.353Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/e6182ce8-60c9-48c5-b99f-007967d542fa/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-23T22:08:31.353Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "5a53d45f-67f5-46b9-baad-910e0cda1872",
+      "key": "fe-r3",
+      "status": "completed",
+      "startedAt": "2026-09-23T22:02:34.081Z",
+      "updatedAt": "2026-09-23T22:08:04.279Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7e8419bd-9449-4064-9517-ccc454ae886f",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/9fc63504-9f55-4a2f-b65d-fc1f6c684da7/run-0/session.jsonl"
+      ],
+      "runId": "7e8419bd-9449-4064-9517-ccc454ae886f",
+      "agent": "reviewer",
+      "completedAt": "2026-09-23T22:08:04.279Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/9fc63504-9f55-4a2f-b65d-fc1f6c684da7/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-23T22:08:04.279Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a53d45f-67f5-46b9-baad-910e0cda1872/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5a53d45f-67f5-46b9-baad-910e0cda1872/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/63583aa3-5439-4b68-9a32-487a9c0f09e1_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/4ce7ba24-6bbd-4525-bd49-aa36f31b2f74_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/7e8419bd-9449-4064-9517-ccc454ae886f_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatsink-api",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a.jsonl",
+  "summary": "Workflow completed with 3 child run(s). Return: [\n  {\n    \"key\": \"api-r3\",\n    \"ok\": true,\n    \"asyncDir\": \"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/63583aa3-5439-4b68-9a32-487a9c0f09e1\",\n    \"agent\": \"reviewer\",\n    \"runId\": \"63583aa3-5439-4b68-9a32-487a9c0f09e1\",\n    \"output\": \"All verification complete. Here is the round-3 review.\\n\\n## Review\\n\\n**Scope reviewed:** full uncommitted diff in heatsink-api (9 files) + untracked `alembic/versions/2026_09_23_a1c7f3d2b9e4_comment_sms_alerts_delivery_.py`, with cross-repo contract checks against `heatsink-axum/src/db/projects.rs` (serializer parity) and `tanstacked-heatsink/src` (`prioritySmsBadgeState`, `CommentSmsSchema` null/absent decode, `projectKeys.detail`).\\n\\n### Round-1/2 fixes verified present and correct\\n- **Correct:** Aggregate wired in `app/api/v1/projects.py:5725-5732` + `5761-5766` (`sms` key present only when the ledger has rows — byte-parity with axum's conditional `insert` at `heatsink-axum/src/db/projects.rs:3376-3382 Trace: 6 event(s)."
+}

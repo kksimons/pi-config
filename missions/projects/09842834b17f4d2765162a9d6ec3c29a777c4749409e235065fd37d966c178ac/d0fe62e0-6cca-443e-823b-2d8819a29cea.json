@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "d0fe62e0-6cca-443e-823b-2d8819a29cea",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "cancelled",
+  "createdAt": "2026-09-02T15:08:30.305Z",
+  "updatedAt": "2026-09-02T15:09:02.136Z",
+  "runs": [
+    {
+      "runId": "aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "status": "stopped",
+      "startedAt": "2026-09-02T15:08:30.309Z",
+      "completedAt": "2026-09-02T15:09:02.086Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "key": "fix-a",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:08:30.352Z",
+      "updatedAt": "2026-09-02T15:08:30.360Z",
+      "artifactPaths": [],
+      "agent": "generic",
+      "completedAt": "2026-09-02T15:08:30.360Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:08:30.360Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "key": "fix-b",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:08:30.362Z",
+      "updatedAt": "2026-09-02T15:08:30.370Z",
+      "artifactPaths": [],
+      "agent": "generic",
+      "completedAt": "2026-09-02T15:08:30.370Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:08:30.370Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "key": "fix-c",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:08:30.371Z",
+      "updatedAt": "2026-09-02T15:08:30.377Z",
+      "artifactPaths": [],
+      "agent": "generic",
+      "completedAt": "2026-09-02T15:08:30.377Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:08:30.377Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "key": "fix-d",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:08:30.378Z",
+      "updatedAt": "2026-09-02T15:08:30.385Z",
+      "artifactPaths": [],
+      "agent": "generic",
+      "completedAt": "2026-09-02T15:08:30.385Z",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:08:30.385Z",
+        "status": "failed"
+      }
+    },
+    {
+      "workflowRunId": "aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96",
+      "key": "review",
+      "status": "failed",
+      "startedAt": "2026-09-02T15:08:30.394Z",
+      "updatedAt": "2026-09-02T15:09:02.136Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/a9f8cf52-d6b0-40f4-8e87-aa667e26ec53/run-0/session.jsonl"
+      ],
+      "runId": "a9f8cf52-d6b0-40f4-8e87-aa667e26ec53",
+      "agent": "reviewer",
+      "completedAt": "2026-09-02T15:09:02.136Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/a9f8cf52-d6b0-40f4-8e87-aa667e26ec53/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:09:02.136Z",
+        "status": "failed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/aafeab1a-dfdf-4a2c-8bff-0ceb9614bd96/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875.jsonl",
+  "summary": "Workflow stopped."
+}

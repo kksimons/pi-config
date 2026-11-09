@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "910f0b48-0001-4aa9-abaa-83d1f1e3b7bf",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-08-21T20:18:14.326Z",
+  "updatedAt": "2026-08-21T20:27:02.910Z",
+  "runs": [
+    {
+      "runId": "fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "status": "complete",
+      "startedAt": "2026-08-21T20:18:14.330Z",
+      "completedAt": "2026-08-21T20:27:02.910Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "key": "4cc3f5f",
+      "status": "completed",
+      "startedAt": "2026-08-21T20:18:14.609Z",
+      "updatedAt": "2026-08-21T20:24:17.788Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/aad03ada-b4e2-4fed-aa7b-cbb869bc7756/run-0/session.jsonl"
+      ],
+      "runId": "aad03ada-b4e2-4fed-aa7b-cbb869bc7756",
+      "agent": "reviewer",
+      "completedAt": "2026-08-21T20:24:17.788Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/aad03ada-b4e2-4fed-aa7b-cbb869bc7756/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-21T20:24:17.788Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "key": "423676b",
+      "status": "completed",
+      "startedAt": "2026-08-21T20:18:14.645Z",
+      "updatedAt": "2026-08-21T20:27:00.726Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/51c7a128-35c7-4886-8e12-e7688c894e01/run-0/session.jsonl"
+      ],
+      "runId": "51c7a128-35c7-4886-8e12-e7688c894e01",
+      "agent": "reviewer",
+      "completedAt": "2026-08-21T20:27:00.726Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/51c7a128-35c7-4886-8e12-e7688c894e01/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-21T20:27:00.726Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "key": "fc1b33a",
+      "status": "completed",
+      "startedAt": "2026-08-21T20:18:14.668Z",
+      "updatedAt": "2026-08-21T20:25:03.873Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/9369bed3-8156-41c2-9e56-66723eab5253/run-0/session.jsonl"
+      ],
+      "runId": "9369bed3-8156-41c2-9e56-66723eab5253",
+      "agent": "reviewer",
+      "completedAt": "2026-08-21T20:25:03.873Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/9369bed3-8156-41c2-9e56-66723eab5253/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-21T20:25:03.873Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "key": "3598d8d",
+      "status": "completed",
+      "startedAt": "2026-08-21T20:18:14.695Z",
+      "updatedAt": "2026-08-21T20:23:57.924Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/0c367bbb-21b8-4127-ba18-d0d2154a545e/run-0/session.jsonl"
+      ],
+      "runId": "0c367bbb-21b8-4127-ba18-d0d2154a545e",
+      "agent": "reviewer",
+      "completedAt": "2026-08-21T20:23:57.924Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/0c367bbb-21b8-4127-ba18-d0d2154a545e/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-21T20:23:57.924Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "fa3a7148-dcac-4076-8c15-2123806b81a4",
+      "key": "6bf847c",
+      "status": "completed",
+      "startedAt": "2026-08-21T20:18:14.722Z",
+      "updatedAt": "2026-08-21T20:23:59.466Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/96faaa77-afc2-452c-8159-9a64268c988c/run-0/session.jsonl"
+      ],
+      "runId": "96faaa77-afc2-452c-8159-9a64268c988c",
+      "agent": "reviewer",
+      "completedAt": "2026-08-21T20:23:59.466Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/96faaa77-afc2-452c-8159-9a64268c988c/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-21T20:23:59.466Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fa3a7148-dcac-4076-8c15-2123806b81a4/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/fa3a7148-dcac-4076-8c15-2123806b81a4/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/aad03ada-b4e2-4fed-aa7b-cbb869bc7756/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/51c7a128-35c7-4886-8e12-e7688c894e01/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/9369bed3-8156-41c2-9e56-66723eab5253/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/0c367bbb-21b8-4127-ba18-d0d2154a545e/run-0/session.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f/96faaa77-afc2-452c-8159-9a64268c988c/run-0/session.jsonl"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-08-21T14-29-43-638Z_01a024ba-4a55-7463-af11-5f7aa3b3044f.jsonl",
+  "summary": "Workflow completed with 5 child run(s). Return: [\n  \"All sites verified. My sweep of the committed state is complete. Compiling the final review.\\n\\n## Review\\n\\n**Scope note / method:** This reviewer has no shell tooling (read/grep/find only), and the git objects for the 5-commit series are packed — the exact diff of `4cc3f5fe4` could not be materialized. The review was therefore performed against the working tree at HEAD (=6bf847c58, which includes r1+r2 for `src/api`), by enumerating **every** `readJson`/`fetchJson`/`assertOk`/`parseBody`/`.text()`/`.clone()`/raw `.json()` flow in `src/api` (~36 files with `readJson` sites, ~20+ files with `fetchJson` sites, ~61 `parseBody` sites, ~61 `.text()` sites) and checking each against the regression checklist. Any r1-introduced issue already fixed by r2 (423676b0e) would appear remediated in my view — noted as a favorable bias, not proof of absence.\\n\\n**Correct (verified clean, with evidence):**\\n- **No dropped ok-checks.** Every `readJson(response/res/resp, …)` site in `src/api` has an Trace: 10 event(s)."
+}

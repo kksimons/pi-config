@@ -1,5 +1,8 @@
 {
   "app.message.dequeue": [
     "ctrl+up"
+  ],
+  "tui.altScreen.previousPrompt": [
+    "ctrl+shift+up"
   ]
 }

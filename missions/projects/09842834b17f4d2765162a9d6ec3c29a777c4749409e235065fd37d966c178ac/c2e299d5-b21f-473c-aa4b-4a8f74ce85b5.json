@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "c2e299d5-b21f-473c-aa4b-4a8f74ce85b5",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T01:47:11.590Z",
+  "updatedAt": "2026-10-04T02:03:42.061Z",
+  "runs": [
+    {
+      "runId": "e16203b1-b290-41aa-b905-ed61aad68ec6",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e16203b1-b290-41aa-b905-ed61aad68ec6",
+      "status": "complete",
+      "startedAt": "2026-10-04T01:47:11.608Z",
+      "completedAt": "2026-10-04T02:03:42.061Z",
+      "usage": {
+        "tokens": 143444
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e16203b1-b290-41aa-b905-ed61aad68ec6/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e16203b1-b290-41aa-b905-ed61aad68ec6/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/e16203b1-b290-41aa-b905-ed61aad68ec6_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\n# Wave regression review — partition: calendar, finance, projects, payments, kpi, map, nav\n\nRange `1aa87c5c4..HEAD`, every hunk of all 80 changed files in the partition read and classified. **No files were edited, staged, or written; no test suites/install run.** Closing `git status --porcelain` is empty (exit 0), included at the end.\n\n---\n\n## REGRESSION (1)\n\n### R1. `src/components/projects/project-map.tsx` — markers no longer refresh when `projects` data arrives or the status filter changes\n- **Hunk intent (commit 18ec6e0e7, wave-2 sweep):** stop re-creating the mapbox map on every callback-identity change; introduce \"latest-callback mirrors\" so marker refreshes always run the newest `addMarkers`.\n- **Verdict: REGRESSION** — the refactor removed the only trigger that refreshed markers on data change and never replaced it.\n- **Old behavior** (base, line ~432): the map-init effect deps were `}, [mapStyle, styleKey, addMarkers, debouncedAddMarkers, clearMarkers]);`. `addMarkers` is a `useCallback` over `[projects, isXsMobile, isMobileView, getMarkerColor, clearMarkers, clusterMarkers]`, and `projects` comes from `useLiveQuery(getSolarMapCollection(...))` (project-map.tsx:120-123) — async, arrives **after** mount. So on every `projects`/statusFilter change the effect re-ran, the map was torn down and re-created, the `load` handler fired, and markers were rebuilt for the new data.\n- **New behavior** (HEAD): effect deps reduced to `}, [mapStyle, clearMarkers]);` (project-map.tsx:468). The refs `addMarkersRef`/`debouncedAddMarkersRef` are kept fresh (lines 409-414), but `addMarkersRef.current(map)` is invoked **only** from the map `load` handler (line 450) and `debouncedAddMarkersRef.current(map)` only from the `zoomend` handler (line 445). Nothing anywhere calls `addMarkers` when `addMarkers`/`projects` changes — the mirror-update effect (line 411) has no consumer for the data-change case.\n- **User-visible failure modes:**\n  1. Cold load: solar tab mounts with a"
+}

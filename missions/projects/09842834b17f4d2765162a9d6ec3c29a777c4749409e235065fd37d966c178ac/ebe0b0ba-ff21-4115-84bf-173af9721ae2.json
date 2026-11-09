@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "ebe0b0ba-ff21-4115-84bf-173af9721ae2",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-13T17:13:20.336Z",
+  "updatedAt": "2026-09-13T17:21:47.804Z",
+  "runs": [
+    {
+      "runId": "9ed8907c-b6f3-410e-86b2-f4ca3ed6a7b2",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9ed8907c-b6f3-410e-86b2-f4ca3ed6a7b2",
+      "status": "complete",
+      "startedAt": "2026-09-13T17:13:20.345Z",
+      "completedAt": "2026-09-13T17:21:47.804Z",
+      "usage": {
+        "tokens": 131971
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9ed8907c-b6f3-410e-86b2-f4ca3ed6a7b2/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/9ed8907c-b6f3-410e-86b2-f4ca3ed6a7b2/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/9ed8907c-b6f3-410e-86b2-f4ca3ed6a7b2_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-13T16-59-57-560Z_01a09bb6-18f7-7309-98f5-fb45d7ceec94.jsonl",
+  "summary": "reviewer:\nAll verification is complete. Here is my final report.\n\n## Review\n\nScope audited: all 94 files in `/tmp/heatsink-audit/data.diff` (45 collection-source files + 49 test files under `src/db/collections/`), plus `src/db/invalidation-dispatch.ts`. **`src/db/invalidation-stream.ts` and the entire `src/stores` tree have zero changed files** (verified against `all-changes.txt` — no `src/stores` entries exist).\n\n### Correct (verified good, with evidence)\n\n- **Bulk-invalidation consolidation** (`src/db/collections/cache/bulk-invalidation.ts`): 54 per-category hooks → one `bulkInvalidationCategories` table + `useBulkInvalidation`. Every category row carries the identical `mutationFn` and `invalidateKeys` as the deleted hook (verified row-by-row against the `-` hunk, incl. `invoices` → `[invoiceSystemKeys.invoices.all(), invoiceSystemKeys.myInvoices.all()]`, `invoiceSystem` → `[invoiceSystemKeys.all]`). `onSuccess` cascade is byte-equivalent to `useCacheMutation` (`src/db/collections/cache/single-invalidation.ts:29-37`: `refetchCacheCollections()` → invalidate `cacheQueryKeys.base` → per-key). No old hook used `invalidateAll`. The consumer (`src/components/cache/use-bulk-cache-actions.ts:54`) uses a single aggregate `isPending` for all buttons, matching the new counter semantics; per-call callbacks actually got safer (old React-Query mutate callbacks could be clobbered by a newer call).\n- **Presigned-URL freshness policy preserved** in the AI-invoice user-list migration: deleted `getAIInvoicesCollection`/`useAIInvoiceList` (5-min staleTime, gcTime, `refetchOnMount/Focus/Reconnect: \"always\"`, `meta: { persist: false }`) reappears verbatim as `useMyAIInvoices` (`src/api/invoice-system/ai-invoices.ts:323-337`), same route + `AIInvoiceListSchema`; consumer (`ai-invoice-tab.tsx:33`) explicitly invalidates its key after upload/confirm.\n- **`downloadBlob` extraction** (`performance-reports.ts`, `roofing-pdf-generation.ts` → `src/utils/download-blob.ts`): identical objectURL"
+}

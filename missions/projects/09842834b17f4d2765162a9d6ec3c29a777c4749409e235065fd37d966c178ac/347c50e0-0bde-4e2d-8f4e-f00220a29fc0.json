@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "347c50e0-0bde-4e2d-8f4e-f00220a29fc0",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T01:08:05.497Z",
+  "updatedAt": "2026-10-04T01:20:04.486Z",
+  "runs": [
+    {
+      "runId": "7a69c155-0cde-4fea-8a6d-7fbbe41eac3f",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7a69c155-0cde-4fea-8a6d-7fbbe41eac3f",
+      "status": "complete",
+      "startedAt": "2026-10-04T01:08:05.506Z",
+      "completedAt": "2026-10-04T01:20:04.486Z",
+      "usage": {
+        "tokens": 92959
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7a69c155-0cde-4fea-8a6d-7fbbe41eac3f/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7a69c155-0cde-4fea-8a6d-7fbbe41eac3f/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/7a69c155-0cde-4fea-8a6d-7fbbe41eac3f_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nThe diff is exactly as intended. Triage complete — no coordination needed; the conservative outcome is what the triage rules prescribe for these suites.\n\n**Final result: converted 5 sleeps across 2 files (waitFor: 5, fake-timers: 0, kept-with-comment: 36); skipped: 14 teardown `setTimeout(0)` yields + 1 fixture sleep + 1 workload tick (reasons below); verification: tsc 0, lint 0/0, converted files green ×3, comment-only files green, oxfmt clean on all 6 touched files**\n\nKey findings per triage rule:\n- **Rule 1 (waitFor)** — only the two error-sink suites had true sleep-then-assert-eventually sites: `log.test.ts` (2) and `query-client-403-reporter.test.ts` (3) now poll with `vi.waitFor`; their sibling *negative* tests (assert nothing ships) keep the real window with comments.\n- **Rule 2 (fake timers)** — zero legitimate uses: `heatsink-events.test.ts` pins real-time behavior (`Date.now()` gaps, real backoff ladders at `baseBackoffMs: 10`, `closeAfterMs` stream lifetimes), and the design-screen suites inject *stubbed never-firing* `Timers` into the core, so there is no live timer for `advanceTimersByTimeAsync` to advance — fake timers would be both wrong and a rule-2 mixing hazard.\n- **Rule 3 (negative waits, kept)** — all 20 sleeps in `heatsink-events.test.ts` (every \"eventually\" there already uses `vi.waitFor`; one hit is the scripted slow-dispatch mock, not a wait), all 5 in `use-pvwatts.test.ts` (\"asks nothing during the window\"), the 11 form-wipe windows, 3 role-gate negatives, lidar ×3, starter-card ×1, option-strip 1000ms, 2 settle-helper definitions. 14 sites gained explicit `// real sleep: …` comments; 22 already had adjacent why-comments.\n- **Rule 4 (skipped, documented)** — 14 `afterEach` teardown `setTimeout(0)` yields (settle-before-runtime-dispose, nothing asserted; `heatreach-design.test.tsx` documents the idiom in place), the scripted slow-dispatch in `heatsink-events` (fixture, not a wait), and `sequential.test.ts`'s `tick()` (simulated worklo"
+}

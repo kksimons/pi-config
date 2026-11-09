@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "d3e1b5ec-af8a-4dc0-bd82-af3930ff8ebe",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T02:53:05.211Z",
+  "updatedAt": "2026-10-04T03:00:53.778Z",
+  "runs": [
+    {
+      "runId": "2d102445-8025-450d-8263-ec8e5a01327d",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2d102445-8025-450d-8263-ec8e5a01327d",
+      "status": "complete",
+      "startedAt": "2026-10-04T02:53:05.221Z",
+      "completedAt": "2026-10-04T03:00:53.778Z",
+      "usage": {
+        "tokens": 53780
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2d102445-8025-450d-8263-ec8e5a01327d/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2d102445-8025-450d-8263-ec8e5a01327d/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/2d102445-8025-450d-8263-ec8e5a01327d_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nAll gates green. Final verification summary complete.\n\n**Implemented:** Triage + documentation of the 6 assigned `rn-no-scrollview-mapped-list` sites in heatreach-native. All 6 are documented keeps — none met the conversion bar (repo policy `docs/react-doctor.md`: fix only with concrete benefit and no behavior change; all sites are bounded strips/short lists ≤ ~30 rows, two inside a modal form where the task said keep-when-in-doubt). The timed-out predecessor had left keeps at 5 sites but misdocumented WeekView: its comment sat on `days.map` (line 144), which react-doctor does **not** flag (it's wrapped in the `Days` component); the actual flagged site is the closers person-chips ScrollView at line 101. I moved the documentation there with a truthful bound and restored `days.map` to its committed state.\n\n**Per-site outcome:**\n\n| Site | Triage | Outcome |\n|---|---|---|\n| `EquipmentSheet.tsx:76` (`usable.map`) | Bounded — per-category sheets; largest is the 21-inverter/9-module catalogue ≈30 rows (verified against callers in `SystemStage`/`stages`) | Keep, documented (predecessor's comment fact-checked ✓) |\n| `FreeView.tsx:61` (`days.map`) | 7 columns by construction (`DAYS_AHEAD = 7`) | Keep, documented (conformant marker; no change) |\n| `WeekView.tsx:101` (closers chips strip) | Bounded — one chip per closer on the team's roster | Keep; **fixed misdocumentation** — moved comment from unflagged `days.map`:144 to the flagged site, reworded to the roster bound |\n| `BookSitSheet.tsx:316` (`TeamStrip`) | Form component; roster-bounded pill strip, renders only when >1 team | Keep, documented (no change) |\n| `BookSitSheet.tsx:370` (`DayStrip`) | Form component; exactly `DAYS_AHEAD = 14` pills by construction | Keep, documented (no change) |\n| `ProgressRail.tsx:31` (`steps.map`) | `funnelPosition` (`src/lib/funnel.ts`) returns a literal 3-element array | Keep, documented (verified in source; no change) |\n\n**Changed files:** `src/screens/schedule/WeekView.tsx` (my on"
+}

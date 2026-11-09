@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "bc0caef0-9d0d-4aec-8d67-379ead5651dd",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T03:35:19.125Z",
+  "updatedAt": "2026-10-04T03:58:37.014Z",
+  "runs": [
+    {
+      "runId": "6cfde749-3ab9-4b1f-a0b0-c41a41c93dc5",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6cfde749-3ab9-4b1f-a0b0-c41a41c93dc5",
+      "status": "complete",
+      "startedAt": "2026-10-04T03:35:19.136Z",
+      "completedAt": "2026-10-04T03:58:37.014Z",
+      "usage": {
+        "tokens": 147465
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6cfde749-3ab9-4b1f-a0b0-c41a41c93dc5/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6cfde749-3ab9-4b1f-a0b0-c41a41c93dc5/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/6cfde749-3ab9-4b1f-a0b0-c41a41c93dc5_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nAll green. Final state verified — writing the report.\n\n**What happened, in short:** I extracted 5 render subtrees from `DesignBuilder` into module-local sub-components, then discovered via the rule's own diagnostics that the finding can't clear this way: the rule reports `cyclomatic complexity 127, cognitive complexity 113` for the function, and the counted decision points live overwhelmingly in the builder's direct hook/state expression body (not the render tree). Per your stop rule, I stopped extracting and verified everything is safe.\n\nImplemented render-subtree extractions in `src/screens/design/screen.tsx` (the only file touched).\nChanged files: `src/screens/design/screen.tsx` only.\nValidation: tsc 0 errors; `bun run lint` shows only the 1 pre-existing budgeted warning in this file; react-doctor shows the same 4 baseline issues (no new); 76/76 design component tests pass; calibration probe file created and deleted.\n\n**Extractions kept** (all behavior-preserving, pure prop-forwarding, module-local, unexported — same pattern as the existing `SummaryBar`):\n1. `BuilderCanvas` — the whole canvas column (surfaces row, seam, caption pile, `UndoPill`, `KeyCaptureView`, `CanvasMenu`, trace/penetration hints)\n2. `BuilderStagePanel` — the 4-way stage panel switch\n3. `BuilderSubModeBar` — roof shape/lines toggle + cancel-add row\n4. `BuilderRoofModeHint` — the roof-mode caption\n5. `BuilderOptionSwitcher` — the option-switcher gate\n\n**One extraction reverted:** `BuilderProgressStrip`. The compact branch's `header={progressStrip ?? rail}` relies on `progressStrip` being `null` while idle; an always-element child silently changed that `??` semantics and produced a new `typescript/no-unnecessary-condition` warning. Reverted to the original inline ternary — exactly the \"risk the file\" case you flagged.\n\n**Why the site cannot clear via this approach:** calibration probes show the rule counts the function's own ternaries/`&&`/`||`/`if` (nested callback bodies excluded; thr"
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "7e0a82af-9671-4202-bb86-05d268b5343e",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "active",
+  "createdAt": "2026-10-04T04:54:02.479Z",
+  "updatedAt": "2026-10-04T04:54:02.497Z",
+  "runs": [
+    {
+      "runId": "70922448-0b43-4061-9270-1d7db3ecaa81",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/70922448-0b43-4061-9270-1d7db3ecaa81",
+      "status": "active",
+      "startedAt": "2026-10-04T04:54:02.497Z"
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/70922448-0b43-4061-9270-1d7db3ecaa81/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/70922448-0b43-4061-9270-1d7db3ecaa81/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl"
+}

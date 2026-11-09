@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "9758e2d2-bb4f-4a10-95b5-2616421f204a",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T14:25:59.970Z",
+  "updatedAt": "2026-10-04T14:39:57.273Z",
+  "runs": [
+    {
+      "runId": "794a43f5-6cfd-41f3-9242-4b354b134981",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/794a43f5-6cfd-41f3-9242-4b354b134981",
+      "status": "complete",
+      "startedAt": "2026-10-04T14:25:59.992Z",
+      "completedAt": "2026-10-04T14:39:57.273Z",
+      "usage": {
+        "tokens": 213665
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/794a43f5-6cfd-41f3-9242-4b354b134981/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/794a43f5-6cfd-41f3-9242-4b354b134981/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/794a43f5-6cfd-41f3-9242-4b354b134981_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "reviewer:\nAll verification is complete. Here is the review.\n\n## Review\n\nScope: commit 8b68bf2, partition = `src/app/project/[id].tsx` and `src/app/ticket/[id].tsx` in `/Users/ksimons/repos/tanstacked-heatsink-native`. Method: full read of the supplied diff (`/tmp/rn-review/full.diff` lines 354–1535 for project, 2245–3029 for ticket), full read of both base files, and full read of both current files; every `-`/`+` pair compared line-by-line. Read-only; nothing run, nothing modified.\n\n### Verdict per file\n- `src/app/project/[id].tsx`: **FINDINGS** (1 × P2)\n- `src/app/ticket/[id].tsx`: **CLEAN**\n\n### Findings\n\n- **P2 — `src/app/project/[id].tsx:437-447` (`customerNameOf`) — fallback condition changed from nullish to truthy.** Base (`base/src/app/project/[id].tsx:733-746`): `const customerName = (p.owner as string | null | undefined) ?? (p.customer as string | null | undefined) ?? (() => { ... customer_info ... })()`. New: `const named = (p.owner ?? p.customer); if (named) return named;` (diff lines 437-447). `??` falls through only on `null`/`undefined`; `if (named)` also falls through on `\"\"`, `0`, `false`. So for a wire payload with `owner: \"\"` (or `customer: \"\"`) and a populated `customer_info`, base rendered **no** customer line (header guard is `{customerName ? ... : null}`, and `\"\"` is falsy there too), while the new code renders the customer_info-derived name. Visible UI difference in that edge case; contradicts the \"computes EXACTLY what the inline code computed\" invariant. Smallest fix: `if (named !== null && named !== undefined) return named;` (or restore the `??` shape). Everything else in the helper matches (`asText` composition, `.trim()`, `null` fallback).\n\n### Checklist results (explicit, per item)\n\n1. **Render equivalence** — VERIFIED, with the one exception above. `ProjectDetailHeader` vs base `ListHeaderComponent` (diff 529-641 vs 1245-1300): identical elements, styles arrays, ternary arms, `PersonnelCard project={p} businessUnit={businessUnit}`, comm"
+}

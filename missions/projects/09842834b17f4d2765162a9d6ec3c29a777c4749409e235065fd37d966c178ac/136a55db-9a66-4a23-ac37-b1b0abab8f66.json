@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "136a55db-9a66-4a23-ac37-b1b0abab8f66",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-13T17:14:41.455Z",
+  "updatedAt": "2026-09-13T17:20:44.791Z",
+  "runs": [
+    {
+      "runId": "657563a2-3971-4b87-8837-ecb038b41baa",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/657563a2-3971-4b87-8837-ecb038b41baa",
+      "status": "complete",
+      "startedAt": "2026-09-13T17:14:41.498Z",
+      "completedAt": "2026-09-13T17:20:44.791Z",
+      "usage": {
+        "tokens": 216256
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/657563a2-3971-4b87-8837-ecb038b41baa/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/657563a2-3971-4b87-8837-ecb038b41baa/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/657563a2-3971-4b87-8837-ecb038b41baa_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-13T16-59-57-560Z_01a09bb6-18f7-7309-98f5-fb45d7ceec94.jsonl",
+  "summary": "reviewer:\nAll verification complete. I have read the entire 13,977-line artifact (42 route-file diffs), the full change list, and inspected every shared component and helper the refactor delegates to. Final report:\n\n## Review\n\n### Scope and method\nAll 42 modified files under `src/routes` (excluding generated `routeTree.gen.ts`) plus the deleted `src/routes/_auth/invoices/line-items.tsx` (deletion pre-verified by the orchestrator; confirmed no dangling links — `grep \"invoices/line-items\"` matches only a comment in `invoice-list-context.tsx:343`). For every hunk classified semantic, I read the destination shared component in the working tree and compared against the removed inline code from the diff's `-` lines.\n\n### Numbered findings\n\n1. **LOW — `src/routes/_auth/personal/van-inventory.tsx` (search filter semantics changed).**\n   Old (baseline): `vanInventory.filter(a => a.inventory_item?.name.toLowerCase().includes(s) ?? a.inventory_item?.type… ?? a.inventory_item?.manufacturer…)`. Because `String.includes()` never returns nullish, `??` short-circuits after the first operand — the search effectively matched **only item name**, and rows with no `inventory_item` were dropped entirely. New: shared `MyVanPage` (`src/components/shared/inventory-routes/my-van-page.tsx:305-317`) uses `[name, type, manufacturer].some(field => …)` and keeps items with no `inventory_item` (`if (!item.inventory_item) return true;`). Users on root \"My Van Inventory\" will now get type/manufacturer matches they didn't before. This is a deliberate normalization to the lighting/roofing semantics (their old code already used `.some()`), i.e., a fix, but it is a user-visible search-result change.\n\n2. **LOW — `src/routes/_auth/windows/projects.$windowsProjectId.tsx` (project-number prefix changed).**\n   Old: `<span …>MAG-LIT-{String(project.project_number).padStart(4, \"0\")}</span>` — a copy-paste of the lighting page, displaying the wrong division prefix on windows projects. New: shared `ProjectDetail"
+}

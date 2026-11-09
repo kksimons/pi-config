@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "2e640656-6225-4a1d-b478-629f915c8d22",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-09T02:01:23.430Z",
+  "updatedAt": "2026-10-09T02:18:51.802Z",
+  "runs": [
+    {
+      "runId": "b9191d10-6dd0-4aee-894d-59e7097a0ddc",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/b9191d10-6dd0-4aee-894d-59e7097a0ddc",
+      "status": "complete",
+      "startedAt": "2026-10-09T02:01:23.460Z",
+      "completedAt": "2026-10-09T02:18:51.802Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "b9191d10-6dd0-4aee-894d-59e7097a0ddc",
+      "key": "r1-data",
+      "status": "completed",
+      "startedAt": "2026-10-09T02:01:23.501Z",
+      "updatedAt": "2026-10-09T02:14:21.189Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7ef04d74-acbd-4d2e-a778-9743f6698835",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/009ae8e5-03ec-4b20-aa27-aac494aa65f1/run-0/session.jsonl"
+      ],
+      "runId": "7ef04d74-acbd-4d2e-a778-9743f6698835",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T02:14:21.189Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/009ae8e5-03ec-4b20-aa27-aac494aa65f1/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T02:14:21.189Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "b9191d10-6dd0-4aee-894d-59e7097a0ddc",
+      "key": "r2-design",
+      "status": "completed",
+      "startedAt": "2026-10-09T02:01:23.528Z",
+      "updatedAt": "2026-10-09T02:15:25.453Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/e5535e12-13a4-40a7-938f-c2f3b258b9f4",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/1347b912-7600-4992-a347-8929839e226d/run-0/session.jsonl"
+      ],
+      "runId": "e5535e12-13a4-40a7-938f-c2f3b258b9f4",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T02:15:25.453Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/1347b912-7600-4992-a347-8929839e226d/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T02:15:25.453Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "b9191d10-6dd0-4aee-894d-59e7097a0ddc",
+      "key": "r3-ui-config",
+      "status": "completed",
+      "startedAt": "2026-10-09T02:01:23.548Z",
+      "updatedAt": "2026-10-09T02:18:51.789Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/17973f13-dfd8-46c9-8444-2e2970b6ff7e",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/25461736-6f0e-46ee-9e15-dac92a3d6b55/run-0/session.jsonl"
+      ],
+      "runId": "17973f13-dfd8-46c9-8444-2e2970b6ff7e",
+      "agent": "reviewer",
+      "completedAt": "2026-10-09T02:18:51.789Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0/25461736-6f0e-46ee-9e15-dac92a3d6b55/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-09T02:18:51.789Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/b9191d10-6dd0-4aee-894d-59e7097a0ddc/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/b9191d10-6dd0-4aee-894d-59e7097a0ddc/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/7ef04d74-acbd-4d2e-a778-9743f6698835_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/e5535e12-13a4-40a7-938f-c2f3b258b9f4_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/17973f13-dfd8-46c9-8444-2e2970b6ff7e_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-08T16-35-01-243Z_01a11c5e-3ffb-71ee-854a-528169eb16c0.jsonl",
+  "summary": "Workflow completed with 3 child run(s). Return: [\n  {\n    \"key\": \"r1-data\",\n    \"output\": \"All checks are complete. I read the entire 2263-line diff, the new `wire-guards.ts`, and verified every seam the checklist names against live files.\\n\\n## Review\\n\\n**Correct (verified against live source, not just diff text):**\\n\\n1. **Guard truth tables — exact.** Every `isString`/`isNumber`/`isBoolean`/`isFunction` swap is a typeof-exact twin (`wire-guards.ts` verified line by line; NaN/Infinity pass `isNumber` exactly where `typeof` did, and every consumer that needed finiteness kept its `Number.isFinite` guard — `financeit.numeric`, `provinceReference.provincial`). `isObjectLike` (arrays PASS) was used exactly where the old `typeof x === \\\"object\\\" && x !== null` also passed arrays, with the same outcome via failed field reads: `apply.ts` `confirmApplied` (array payload → `.leadId` undefined → early return, same), `applyLeadAgreements` `signing`/`lastEvent` (identical semantics incl. the `signing?.lastEvent !== null` edge), `applyProposal… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/b9191d10-6dd0-4aee-894d-59e7097a0ddc/status.json (workflow.value, workflow.emits)) Trace: 6 event(s)."
+}

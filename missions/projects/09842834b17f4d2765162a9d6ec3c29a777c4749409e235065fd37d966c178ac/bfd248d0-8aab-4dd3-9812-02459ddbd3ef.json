@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "id": "bfd248d0-8aab-4dd3-9812-02459ddbd3ef",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-10T04:43:44.291Z",
+  "updatedAt": "2026-10-10T05:05:32.036Z",
+  "runs": [
+    {
+      "runId": "call_5e7bd98772204c0d844a2169",
+      "mode": "workflow",
+      "status": "completed",
+      "startedAt": "2026-10-10T05:05:32.035Z",
+      "completedAt": "2026-10-10T05:05:32.035Z",
+      "usage": {
+        "tokens": 621881
+      }
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "call_5e7bd98772204c0d844a2169",
+      "key": "hrn-sweep-ai",
+      "status": "completed",
+      "startedAt": "2026-10-10T04:43:44.346Z",
+      "updatedAt": "2026-10-10T04:56:15.935Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5199ebc3-5afd-476d-8cbf-3baac59af373",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/ad43c352-f077-4001-b84c-33f26d62f420/run-0/session.jsonl"
+      ],
+      "runId": "5199ebc3-5afd-476d-8cbf-3baac59af373",
+      "agent": "worker",
+      "completedAt": "2026-10-10T04:56:15.935Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/ad43c352-f077-4001-b84c-33f26d62f420/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-10T04:56:15.935Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "call_5e7bd98772204c0d844a2169",
+      "key": "hrn-sweep-aj",
+      "status": "completed",
+      "startedAt": "2026-10-10T04:43:44.373Z",
+      "updatedAt": "2026-10-10T04:55:59.399Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/0f71e285-726d-408e-98d7-694911d7ace6",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/66821965-7294-4fcd-a13e-07df4f71b6aa/run-0/session.jsonl"
+      ],
+      "runId": "0f71e285-726d-408e-98d7-694911d7ace6",
+      "agent": "worker",
+      "completedAt": "2026-10-10T04:55:59.399Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/66821965-7294-4fcd-a13e-07df4f71b6aa/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-10T04:55:59.399Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "call_5e7bd98772204c0d844a2169",
+      "key": "hrn-sweep-ak",
+      "status": "completed",
+      "startedAt": "2026-10-10T04:43:44.395Z",
+      "updatedAt": "2026-10-10T04:57:29.144Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a0d46ea5-9b08-4640-8b70-22b63e0975db",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/1664ba9b-2e1b-41ee-93f2-609bf75c8b1f/run-0/session.jsonl"
+      ],
+      "runId": "a0d46ea5-9b08-4640-8b70-22b63e0975db",
+      "agent": "worker",
+      "completedAt": "2026-10-10T04:57:29.144Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/1664ba9b-2e1b-41ee-93f2-609bf75c8b1f/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-10T04:57:29.144Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "call_5e7bd98772204c0d844a2169",
+      "key": "hrn-sweep-al",
+      "status": "completed",
+      "startedAt": "2026-10-10T04:43:44.419Z",
+      "updatedAt": "2026-10-10T05:05:32.025Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/2b2f675a-3e58-46f2-8d43-51f248efb8e8",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/e191c6ac-b9de-420e-a414-3062ff39ced3/run-0/session.jsonl"
+      ],
+      "runId": "2b2f675a-3e58-46f2-8d43-51f248efb8e8",
+      "agent": "worker",
+      "completedAt": "2026-10-10T05:05:32.025Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05/e191c6ac-b9de-420e-a414-3062ff39ced3/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-10T05:05:32.025Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/5199ebc3-5afd-476d-8cbf-3baac59af373_worker_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/5199ebc3-5afd-476d-8cbf-3baac59af373_worker_transcript.jsonl",
+      "description": "Child transcript"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/0f71e285-726d-408e-98d7-694911d7ace6_worker_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/0f71e285-726d-408e-98d7-694911d7ace6_worker_transcript.jsonl",
+      "description": "Child transcript"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/a0d46ea5-9b08-4640-8b70-22b63e0975db_worker_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/a0d46ea5-9b08-4640-8b70-22b63e0975db_worker_transcript.jsonl",
+      "description": "Child transcript"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/2b2f675a-3e58-46f2-8d43-51f248efb8e8_worker_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/2b2f675a-3e58-46f2-8d43-51f248efb8e8_worker_transcript.jsonl",
+      "description": "Child transcript"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-09T22-50-24-731Z_01a122dc-4a5b-70b8-88c5-847dac478e05.jsonl",
+  "summary": "Run fan-out: 4/64 used, 60 remaining\nWorkflow completed.\n\nReturn:\n[\n  {\n    \"key\": \"hrn-sweep-ai\",\n    \"ok\": true,\n    \"asyncDir\": \"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/5199ebc3-5afd-476d-8cbf-3baac59af373\",\n    \"agent\": \"worker\",\n    \"runId\": \"5199ebc3-5afd-476d-8cbf-3baac59af373\",\n    \"output\": \"All verification passes. The sweep is complete.\\n\\n---\\n\\n## Comment sweep report — batch-ai (heatreach-native)\\n\\n**1. files changed: 20 / 25**\\n\\n**2. edits: removed 3, rewritten 27, names neutralized 4, phases stripped 29**\\n\\n- **Removed outright:** rank.ts roadmap parenthetical \\\"(Phase 8 replaces tier 3's tail…)\\\", audit.test.ts \\\"This is the state that shipped and was visible on Bankview.\\\", designCatalog.ts \\\"Phase 6 added the third.\\\"\\n- **Rewritten to present tense (fact kept):** \\\"used to be / previously / shipped as / predates / no longer exists as\\\" narratives in rank.ts, optimisticDoors.ts, teamColor.ts, push.ts, routes.ts, routes.test.ts, audit.ts, audit.test.ts, billStatementConfirmations.ts, billStatements.ts, consumptionAdjustments.ts(+test), designCatalog.ts, numbers.ts; dated provenance stamp \\\"Measured on device 2026-08-27\\\" → \\\"Measured on device:\\\".\\n- **Names neutralized:** \\\"Avery\\\" → \\\"Alex\\\" in quoted example \\\"Alex joined Edgemont\\\" (routes.ts, routes.test.ts, 4 occurrences).\\n- **Phases stripped (citation dropped, statement kept):** `Phase 2/3/4/5/6/7/8/9/10/11`, `PHASE-2 §9a`, `PHASE-3 §6`, `rep-workflow-platform Phase N` across 18 files. Migration numbers (e.g. \\\"migration 18\\\") kept — they are schema pointers, not milestones.\\n\\n**3. flagged:**\\n- `src/repositories/designNotes.test.ts:39,74,89,229` — \\\"Kyle Simons\\\" is inside fixture **string literals** (code, not comments); rules forbid string edits, left in place.\\n- `src/repositories/audit.test.ts:141,153,183,345,363,418` — \\\"Blake Osei\\\" fixture strings, same reasoning, left in place.\\n- `src/notifications/routes.test.ts:31` — test-..."
+}

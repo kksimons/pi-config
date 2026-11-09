@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "540b9575-c590-410b-baee-43b5c57ee20c",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-02T16:03:36.934Z",
+  "updatedAt": "2026-09-02T16:20:14.660Z",
+  "runs": [
+    {
+      "runId": "05117c57-3142-47e2-a6d0-d202a0200e47",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/05117c57-3142-47e2-a6d0-d202a0200e47",
+      "status": "complete",
+      "startedAt": "2026-09-02T16:03:36.938Z",
+      "completedAt": "2026-09-02T16:20:14.660Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "05117c57-3142-47e2-a6d0-d202a0200e47",
+      "key": "a11y-a",
+      "status": "completed",
+      "startedAt": "2026-09-02T16:03:37.199Z",
+      "updatedAt": "2026-09-02T16:07:46.401Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-214Z_01a062dc-907e-777b-a235-719ebcafd3e8.jsonl"
+      ],
+      "runId": "24b108d4-1292-46f5-b549-332ac4179b8d",
+      "agent": "worker",
+      "completedAt": "2026-09-02T16:07:46.401Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-214Z_01a062dc-907e-777b-a235-719ebcafd3e8.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T16:07:46.401Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "05117c57-3142-47e2-a6d0-d202a0200e47",
+      "key": "a11y-b",
+      "status": "completed",
+      "startedAt": "2026-09-02T16:03:37.372Z",
+      "updatedAt": "2026-09-02T16:14:11.657Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-383Z_01a062dc-9127-76f7-88a0-f4e33c1a3860.jsonl"
+      ],
+      "runId": "9734461e-ad68-4d60-828a-b585f1684b9c",
+      "agent": "worker",
+      "completedAt": "2026-09-02T16:14:11.657Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-383Z_01a062dc-9127-76f7-88a0-f4e33c1a3860.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T16:14:11.657Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "05117c57-3142-47e2-a6d0-d202a0200e47",
+      "key": "a11y-c",
+      "status": "completed",
+      "startedAt": "2026-09-02T16:03:37.502Z",
+      "updatedAt": "2026-09-02T16:09:00.630Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-514Z_01a062dc-91aa-7fc4-843d-a95e2cfc9d7e.jsonl"
+      ],
+      "runId": "d2f1d5a8-57d3-434f-ba4f-916fc270ecd6",
+      "agent": "worker",
+      "completedAt": "2026-09-02T16:09:00.630Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-514Z_01a062dc-91aa-7fc4-843d-a95e2cfc9d7e.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T16:09:00.630Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "05117c57-3142-47e2-a6d0-d202a0200e47",
+      "key": "a11y-d",
+      "status": "completed",
+      "startedAt": "2026-09-02T16:03:37.649Z",
+      "updatedAt": "2026-09-02T16:09:42.871Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-662Z_01a062dc-923e-73a4-b821-f0d5adbb4e83.jsonl"
+      ],
+      "runId": "9ec00562-1399-4a59-8432-6002e88ae8ba",
+      "agent": "worker",
+      "completedAt": "2026-09-02T16:09:42.871Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-662Z_01a062dc-923e-73a4-b821-f0d5adbb4e83.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T16:09:42.871Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "05117c57-3142-47e2-a6d0-d202a0200e47",
+      "key": "review",
+      "status": "completed",
+      "startedAt": "2026-09-02T16:14:11.670Z",
+      "updatedAt": "2026-09-02T16:20:14.630Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/53c5cfa9-6e58-49cb-b8dc-3857c0ba9c3b/run-0/session.jsonl"
+      ],
+      "runId": "53c5cfa9-6e58-49cb-b8dc-3857c0ba9c3b",
+      "agent": "reviewer",
+      "completedAt": "2026-09-02T16:20:14.630Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/53c5cfa9-6e58-49cb-b8dc-3857c0ba9c3b/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T16:20:14.630Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/05117c57-3142-47e2-a6d0-d202a0200e47/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/05117c57-3142-47e2-a6d0-d202a0200e47/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-214Z_01a062dc-907e-777b-a235-719ebcafd3e8.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-383Z_01a062dc-9127-76f7-88a0-f4e33c1a3860.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-514Z_01a062dc-91aa-7fc4-843d-a95e2cfc9d7e.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T16-03-37-662Z_01a062dc-923e-73a4-b821-f0d5adbb4e83.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/53c5cfa9-6e58-49cb-b8dc-3857c0ba9c3b/run-0/session.jsonl"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875.jsonl",
+  "summary": "Workflow completed with 5 child run(s). Return: {\n  \"reports\": \"LANE A:\\n{\\\"key\\\":\\\"a11y-a\\\",\\\"ok\\\":true,\\\"agent\\\":\\\"worker\\\",\\\"runId\\\":\\\"24b108d4-1292-46f5-b549-332ac4179b8d\\\",\\\"output\\\":\\\"The only non-`aria-label` diff lines are oxfmt reflowing four single-line button tags to multi-line (mechanical consequence of the added attribute — required by the repo's format gate). All semantic changes are aria-label additions.\\\\n\\\\n## Report\\\\n\\\\n**All 39 sites labeled, 0 skipped.** Every label was derived from the button's icon + handler + surrounding UI:\\\\n\\\\n- **assignments-dashboard** — labeled 2 (Edit rule, Delete rule)\\\\n- **site-check-manager** — labeled 3 (Previous month, Next month, Delete time slot)\\\\n- **cancellations-dashboard** — labeled 1 (Back to finance manager)\\\\n- **flha-form** — labeled 5 (Close form, Remove section image, Remove image, Remove icon, Remove hazard)\\\\n- **invitation-form** — labeled 1 (More actions)\\\\n- **ai-invoice-edit-form** — labeled 1 (Remove line item)\\\\n- **contractor-invoice-upload** — labeled 2 (Re Trace: 10 event(s)."
+}

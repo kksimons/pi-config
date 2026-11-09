@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "333e98ed-b126-4808-84f3-712ff1ecfd20",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "failed",
+  "createdAt": "2026-09-15T16:39:21.690Z",
+  "updatedAt": "2026-09-15T18:45:24.124Z",
+  "runs": [
+    {
+      "runId": "981d1421-b646-4a0b-b262-46dabeeecfe4",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/981d1421-b646-4a0b-b262-46dabeeecfe4",
+      "status": "failed",
+      "startedAt": "2026-09-15T16:39:21.699Z",
+      "completedAt": "2026-09-15T18:45:24.124Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "981d1421-b646-4a0b-b262-46dabeeecfe4",
+      "key": "fe",
+      "status": "running",
+      "startedAt": "2026-09-15T16:39:21.809Z",
+      "updatedAt": "2026-09-15T16:39:21.832Z",
+      "artifactPaths": [],
+      "agent": "reviewer",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/ba74719d-40fd-43ed-909a-8a6f42b8efb3/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T16:39:21.809Z",
+        "status": "running"
+      }
+    },
+    {
+      "workflowRunId": "981d1421-b646-4a0b-b262-46dabeeecfe4",
+      "key": "axum",
+      "status": "running",
+      "startedAt": "2026-09-15T16:39:21.859Z",
+      "updatedAt": "2026-09-15T16:39:21.873Z",
+      "artifactPaths": [],
+      "agent": "reviewer",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/80dea8a3-7fbf-43ad-a949-3d8677eac0a6/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T16:39:21.859Z",
+        "status": "running"
+      }
+    },
+    {
+      "workflowRunId": "981d1421-b646-4a0b-b262-46dabeeecfe4",
+      "key": "api",
+      "status": "running",
+      "startedAt": "2026-09-15T16:39:21.877Z",
+      "updatedAt": "2026-09-15T16:39:21.894Z",
+      "artifactPaths": [],
+      "agent": "reviewer",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/d8ee0f7e-39de-4a60-9d43-69aeaafb60d9/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T16:39:21.877Z",
+        "status": "running"
+      }
+    },
+    {
+      "workflowRunId": "981d1421-b646-4a0b-b262-46dabeeecfe4",
+      "key": "parity",
+      "status": "running",
+      "startedAt": "2026-09-15T16:39:21.900Z",
+      "updatedAt": "2026-09-15T16:39:21.918Z",
+      "artifactPaths": [],
+      "agent": "reviewer",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/dcc7f8fa-6511-493c-b0b0-b5759d768810/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T16:39:21.900Z",
+        "status": "running"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/981d1421-b646-4a0b-b262-46dabeeecfe4/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/981d1421-b646-4a0b-b262-46dabeeecfe4/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee.jsonl",
+  "summary": "Async runner process 29116 exited or disappeared before writing a result. Marked run failed by stale-run reconciliation."
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "873474b6-c627-41f0-8d37-2da684b9a870",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "cancelled",
+  "createdAt": "2026-09-15T17:13:59.746Z",
+  "updatedAt": "2026-09-15T18:45:24.126Z",
+  "runs": [
+    {
+      "runId": "a72c45c5-bbd1-43db-a422-e029fb0453f7",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a72c45c5-bbd1-43db-a422-e029fb0453f7",
+      "status": "stopped",
+      "startedAt": "2026-09-15T17:13:59.753Z",
+      "completedAt": "2026-09-15T18:45:24.125Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "a72c45c5-bbd1-43db-a422-e029fb0453f7",
+      "key": "api-fixes",
+      "status": "running",
+      "startedAt": "2026-09-15T17:13:59.819Z",
+      "updatedAt": "2026-09-15T17:13:59.859Z",
+      "artifactPaths": [],
+      "agent": "worker",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/forks/2026-09-15T17-13-59-845Z_01a0a60f-ab25-706e-9880-abe93b65fa44.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T17:13:59.819Z",
+        "status": "running"
+      }
+    },
+    {
+      "workflowRunId": "a72c45c5-bbd1-43db-a422-e029fb0453f7",
+      "key": "axum-fixes",
+      "status": "running",
+      "startedAt": "2026-09-15T17:13:59.878Z",
+      "updatedAt": "2026-09-15T17:13:59.919Z",
+      "artifactPaths": [],
+      "agent": "worker",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/forks/2026-09-15T17-13-59-903Z_01a0a60f-ab5e-706e-9880-abeb0fb6f0d2.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T17:13:59.878Z",
+        "status": "running"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a72c45c5-bbd1-43db-a422-e029fb0453f7/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a72c45c5-bbd1-43db-a422-e029fb0453f7/events.jsonl",
+      "description": "Lifecycle events"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee.jsonl",
+  "summary": "Workflow stopped because the extension session was replaced or reloaded."
+}

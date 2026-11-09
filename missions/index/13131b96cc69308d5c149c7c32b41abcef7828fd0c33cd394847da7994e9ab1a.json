@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "ac8ba020-3bb2-42f7-ba2e-ce6451d3fa0d",
+  "projectRoot": "/Users/ksimons/repos/heatsink-api",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/e157f192e3f578293eb74f23e186fc5b1b84424ecfdb144daba9f13a1045d39e/ac8ba020-3bb2-42f7-ba2e-ce6451d3fa0d.json",
+  "title": "[prompt redacted]",
+  "status": "completed",
+  "updatedAt": "2026-09-23T22:19:42.951Z",
+  "lastRunId": "39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3"
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "9f1e4c9c-18dc-468c-b180-33e657dfc1d5",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-02T15:10:32.851Z",
+  "updatedAt": "2026-09-02T15:25:00.662Z",
+  "runs": [
+    {
+      "runId": "052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "status": "complete",
+      "startedAt": "2026-09-02T15:10:32.853Z",
+      "completedAt": "2026-09-02T15:25:00.661Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "key": "fix-a",
+      "status": "completed",
+      "startedAt": "2026-09-02T15:10:32.885Z",
+      "updatedAt": "2026-09-02T15:18:37.888Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-896Z_01a062ab-f9c0-7f02-90d6-58660d20bb2e.jsonl"
+      ],
+      "runId": "3d04ad36-cd84-44d0-a08e-98c3174778a0",
+      "agent": "worker",
+      "completedAt": "2026-09-02T15:18:37.888Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-896Z_01a062ab-f9c0-7f02-90d6-58660d20bb2e.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:18:37.888Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "key": "fix-b",
+      "status": "completed",
+      "startedAt": "2026-09-02T15:10:32.929Z",
+      "updatedAt": "2026-09-02T15:16:23.582Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-939Z_01a062ab-f9eb-7d4a-8324-2cf0c45ffeb3.jsonl"
+      ],
+      "runId": "246b6ab0-1343-4156-9f3a-2d646a0e8119",
+      "agent": "worker",
+      "completedAt": "2026-09-02T15:16:23.582Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-939Z_01a062ab-f9eb-7d4a-8324-2cf0c45ffeb3.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:16:23.582Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "key": "fix-c",
+      "status": "completed",
+      "startedAt": "2026-09-02T15:10:32.972Z",
+      "updatedAt": "2026-09-02T15:17:27.201Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-982Z_01a062ab-fa16-7812-8ff4-0cb8ef0bd03d.jsonl"
+      ],
+      "runId": "7caa566a-ba50-4a31-8f98-3ca90e074cd5",
+      "agent": "worker",
+      "completedAt": "2026-09-02T15:17:27.201Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-982Z_01a062ab-fa16-7812-8ff4-0cb8ef0bd03d.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:17:27.201Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "key": "fix-d",
+      "status": "completed",
+      "startedAt": "2026-09-02T15:10:33.014Z",
+      "updatedAt": "2026-09-02T15:17:14.586Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-33-024Z_01a062ab-fa40-7c39-a24e-60d5f26de87c.jsonl"
+      ],
+      "runId": "a023069a-0273-48e4-83c8-9869230128af",
+      "agent": "worker",
+      "completedAt": "2026-09-02T15:17:14.586Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-33-024Z_01a062ab-fa40-7c39-a24e-60d5f26de87c.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:17:14.586Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "052ef75a-ce8e-4f4a-b9ab-47c421b68fa0",
+      "key": "review",
+      "status": "completed",
+      "startedAt": "2026-09-02T15:18:37.923Z",
+      "updatedAt": "2026-09-02T15:25:00.623Z",
+      "artifactPaths": [
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/11b10124-355d-46fe-b14c-336ed8a3a466/run-0/session.jsonl"
+      ],
+      "runId": "11b10124-355d-46fe-b14c-336ed8a3a466",
+      "agent": "reviewer",
+      "completedAt": "2026-09-02T15:25:00.623Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/11b10124-355d-46fe-b14c-336ed8a3a466/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-02T15:25:00.623Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/052ef75a-ce8e-4f4a-b9ab-47c421b68fa0/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/052ef75a-ce8e-4f4a-b9ab-47c421b68fa0/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-896Z_01a062ab-f9c0-7f02-90d6-58660d20bb2e.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-939Z_01a062ab-f9eb-7d4a-8324-2cf0c45ffeb3.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-32-982Z_01a062ab-fa16-7812-8ff4-0cb8ef0bd03d.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/forks/2026-09-02T15-10-33-024Z_01a062ab-fa40-7c39-a24e-60d5f26de87c.jsonl"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875/11b10124-355d-46fe-b14c-336ed8a3a466/run-0/session.jsonl"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-09-02T14-02-44-040Z_01a0626d-e3c8-7cf9-b6bd-09c2a17f5875.jsonl",
+  "summary": "Workflow completed with 5 child run(s). Return: {\n  \"fixerReports\": \"LANE A REPORT:\\n{\\\"key\\\":\\\"fix-a\\\",\\\"ok\\\":true,\\\"agent\\\":\\\"worker\\\",\\\"runId\\\":\\\"3d04ad36-cd84-44d0-a08e-98c3174778a0\\\",\\\"output\\\":\\\"All green. Final report:\\\\n\\\\n**Lane A results — 9 fixed / 9 skipped:**\\\\n\\\\n**FIXED:**\\\\n- `project-status-notification-form.tsx:194` — REMOVED `toast` (stable-identity: module-level function, never read in body — errors go through `toastMutationError`)\\\\n- `project-detail-header.tsx:177` — REMOVED `projectType, fundingProgram, fundingProgramOther, projectName` (unread-safe: ref-comparison guards made state-triggered re-runs no-ops)\\\\n- `project-tabs.tsx:61` — MISSING-dep variant: stabilized `preloadNonPhaseTabs` via `useCallback([])` (reads only a module-level lazy loader) and listed it; mount-run timing identical\\\\n- `upload-file.tsx:145` — REMOVED `initialCategory` (unread-safe: fully subsumed by derived `effectiveInitialCategory`, which stays listed)\\\\n- `assign-select.tsx:32` — DELETED empty debug-leftover effect `useEffect(() => Trace: 10 event(s)."
+}

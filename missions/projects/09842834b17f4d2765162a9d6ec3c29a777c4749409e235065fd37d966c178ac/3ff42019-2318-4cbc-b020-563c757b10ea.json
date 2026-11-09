@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "3ff42019-2318-4cbc-b020-563c757b10ea",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T03:35:10.746Z",
+  "updatedAt": "2026-10-04T03:51:35.050Z",
+  "runs": [
+    {
+      "runId": "6f0ee072-8277-4b7d-bd3b-317622514e14",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6f0ee072-8277-4b7d-bd3b-317622514e14",
+      "status": "complete",
+      "startedAt": "2026-10-04T03:35:10.762Z",
+      "completedAt": "2026-10-04T03:51:35.050Z",
+      "usage": {
+        "tokens": 121670
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6f0ee072-8277-4b7d-bd3b-317622514e14/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6f0ee072-8277-4b7d-bd3b-317622514e14/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/6f0ee072-8277-4b7d-bd3b-317622514e14_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nAll gates green. Final state verified — summarizing.\n\nImplemented the react-doctor reduction for `src/screens/canvass/screen.tsx:233` (`no-high-complexity-react-function`) via five behavior-preserving extractions, continuing the file's existing bottom-of-file pattern. No state, effects, handlers, or render outputs changed — all state stays in `CanvassScreen`; children are pure presentation receiving existing values/callbacks.\n\n**Calibration first** (scratch probe, moved out of the repo before editing): the rule counts only the component's top-level statements/JSX (`if`, ternary, `&&`/`||`, `??` — `?.` not counted), ignores nested callback bodies, and flags above 12–15 points. The screen sat at ~26.\n\n**Extractions (one per verified step):**\n1. `TeamAssignOverlays` — the `TeamAssignRail` + `TeamPickerSheet` pair (rail-visibility `||`/ternary chain, `pickerVisible` AND, four `?? null` prop derivations moved in).\n2. `CanvassMap` — `HeatMap` + `MapLayers` + add-mode tap wiring (conditional spread moved intact), with `selectedId` derived inside from a new `selected` prop.\n3. `CanvassSearchOverlay` — the `MapSearch` column; the `searchOpen ?? season === \"phone\"` open-default policy moved into the child.\n4. `CanvassSoldHomesOverlay` — the `SoldHomesControl` column; the recentre offset ternary moved in as a `recentreShown` prop.\n5. `resolveSeason(override, synced)` module-level helper — mirrors the file's existing `resolveSelected` pattern; moves the season fallback chain out of the component body.\n\n**Site cleared**: `bunx react-doctor src/screens/canvass` no longer reports `no-high-complexity-react-function`. The two remaining warnings are pre-existing, out-of-scope keeps (`expo-lockfile` on `package.json`; `public-env-secret-name` for the documented-by-design `EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN`).\n\nChanged files: `src/screens/canvass/screen.tsx` (only file touched; probe scratch file never committed and already moved to `/tmp`).\n\nValidation: `bunx tsc --noEmit` → 0 er"
+}

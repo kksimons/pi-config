@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "a5e95b16-66fe-4dd5-af2e-2c09d3219b0b",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-13T16:57:16.828Z",
+  "updatedAt": "2026-10-13T17:12:14.099Z",
+  "runs": [
+    {
+      "runId": "91b56d92-c4bb-4c10-a0f3-cd20d2ce738d",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/91b56d92-c4bb-4c10-a0f3-cd20d2ce738d",
+      "status": "complete",
+      "startedAt": "2026-10-13T16:57:16.840Z",
+      "completedAt": "2026-10-13T17:12:14.099Z",
+      "usage": {
+        "tokens": 187661
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/91b56d92-c4bb-4c10-a0f3-cd20d2ce738d/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/91b56d92-c4bb-4c10-a0f3-cd20d2ce738d/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/91b56d92-c4bb-4c10-a0f3-cd20d2ce738d_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatsink-api",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-10-13T15-07-37-786Z_01a135ce-09ba-74ca-b6cf-e0a354f83658.jsonl",
+  "summary": "reviewer:\nAll verification complete. I have everything needed for the final report.\n\n## Review\n\n**Scope reviewed**: `/tmp/intake_diff_prod_to_workingtree.patch` (prod `36d7c8aa` → working tree) plus full reads of the current working-tree files: `app/api/v1/aurora.py` (all four webhook handlers, postprocess/enrichment chain, asset helpers), `app/worker.py`, `app/jobs/agreement_postprocess.py`, `app/jobs/aurora_design_enrichment.py`, `app/models/project.py`, `alembic/versions/2026_10_11_c7d2e9f4a6b1_projects_personnel_keys.py`, `app/core/public_webhook_protection.py`, `app/core/config.py`, `tests/api/v1/test_aurora_webhooks.py` (all 47 tests), saq 0.26.4 internals (name registration, enqueue dedupe, ctx construction), and the uncommitted working-tree delta (which reverts a fail-closed auth gate that exists at HEAD back to open — the compliant state).\n\n### Findings\n\n**Finding (P1) — Last asset media row per phase is silently rolled back (data loss vs prod).**\n- Location: `app/api/v1/aurora.py:1309-1345` (`_run_off_response_intake_enrichment` — both asset phases close their `SessionLocal()` with no commit) + `app/api/v1/aurora.py:4951-4952` and `app/api/v1/aurora.py:5227-5228` (`download_and_upload_aurora_assets` / `download_and_upload_aurora_design_assets` end with `db.flush()`, never commit).\n- Evidence: inside both helpers the only per-row `db.commit()` runs **before** each asset's download, so the commit that precedes asset *N+1*'s download is what persists asset *N*'s row. The **last** newly-added `PrepWorkMedia` row per phase is flushed at the tail and then rolled back when `contextlib.closing(SessionLocal())` closes the session. Prod committed after each phase — the diff literally deletes those commits (removed lines: \"Release the asset phase's pending media rows… `db.commit()`\" and the final post-notification `db.commit()`).\n- Failure scenario: first-time signed intake with ≥1 new Aurora project asset and/or design asset → GCS upload succeeds, log says \"uploaded"
+}

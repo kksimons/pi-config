@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "id": "f3c0d72c-dd75-4808-a71b-eebe20467d01",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-03T17:06:19.151Z",
+  "updatedAt": "2026-10-03T17:29:31.117Z",
+  "runs": [
+    {
+      "runId": "cd1a62f6-2276-4145-811c-5a9dc6d51845",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd1a62f6-2276-4145-811c-5a9dc6d51845",
+      "status": "complete",
+      "startedAt": "2026-10-03T17:06:19.157Z",
+      "completedAt": "2026-10-03T17:29:31.117Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "cd1a62f6-2276-4145-811c-5a9dc6d51845",
+      "key": "w1-design",
+      "status": "completed",
+      "startedAt": "2026-10-03T17:06:19.195Z",
+      "updatedAt": "2026-10-03T17:29:31.099Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/380d7605-118d-4161-8c76-f308488c8fa3",
+        "/tmp/heatreach-review-w1-design.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/dbd3e212-004b-430d-90ee-aa7cd2ef9ea9/run-0/session.jsonl"
+      ],
+      "runId": "380d7605-118d-4161-8c76-f308488c8fa3",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T17:29:31.099Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/dbd3e212-004b-430d-90ee-aa7cd2ef9ea9/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T17:29:31.099Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "cd1a62f6-2276-4145-811c-5a9dc6d51845",
+      "key": "w1-screens",
+      "status": "completed",
+      "startedAt": "2026-10-03T17:06:19.229Z",
+      "updatedAt": "2026-10-03T17:24:55.727Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/0dcd49a3-c293-46b1-9a48-7139631abc0d",
+        "/tmp/heatreach-review-w1-screens.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/dc8fde3f-0cb7-4975-8295-4725abf2559a/run-0/session.jsonl"
+      ],
+      "runId": "0dcd49a3-c293-46b1-9a48-7139631abc0d",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T17:24:55.727Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/dc8fde3f-0cb7-4975-8295-4725abf2559a/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T17:24:55.727Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "cd1a62f6-2276-4145-811c-5a9dc6d51845",
+      "key": "w1-lib",
+      "status": "completed",
+      "startedAt": "2026-10-03T17:06:19.246Z",
+      "updatedAt": "2026-10-03T17:23:17.922Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/aa8179a5-d0e2-4ccb-b960-2581126c221f",
+        "/tmp/heatreach-review-w1-lib.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/e4722985-7e8e-4683-b203-331640c0fc17/run-0/session.jsonl"
+      ],
+      "runId": "aa8179a5-d0e2-4ccb-b960-2581126c221f",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T17:23:17.922Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/e4722985-7e8e-4683-b203-331640c0fc17/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T17:23:17.922Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "cd1a62f6-2276-4145-811c-5a9dc6d51845",
+      "key": "w1-data",
+      "status": "completed",
+      "startedAt": "2026-10-03T17:06:19.264Z",
+      "updatedAt": "2026-10-03T17:28:03.826Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a7a153e1-28a7-4f78-9ca5-d9ca3fb255b6",
+        "/tmp/heatreach-review-w1-data.md",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/849aeb31-f478-4a41-9de8-b878920b8a85/run-0/session.jsonl"
+      ],
+      "runId": "a7a153e1-28a7-4f78-9ca5-d9ca3fb255b6",
+      "agent": "reviewer",
+      "completedAt": "2026-10-03T17:28:03.826Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36/849aeb31-f478-4a41-9de8-b878920b8a85/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-10-03T17:28:03.826Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd1a62f6-2276-4145-811c-5a9dc6d51845/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd1a62f6-2276-4145-811c-5a9dc6d51845/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/380d7605-118d-4161-8c76-f308488c8fa3_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/0dcd49a3-c293-46b1-9a48-7139631abc0d_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/aa8179a5-d0e2-4ccb-b960-2581126c221f_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/subagent-artifacts/a7a153e1-28a7-4f78-9ca5-d9ca3fb255b6_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatreach-native",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatreach-native--/2026-10-03T15-37-07-188Z_01a10269-7174-70fc-89a4-a61d3487ae36.jsonl",
+  "summary": "Workflow completed with 4 child run(s). Return: {\n  \"launched\": 4,\n  \"refs\": [\n    \"{\\\"key\\\":\\\"w1-design\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/380d7605-118d-4161-8c76-f308488c8fa3\\\",\\\"agent\\\":\\\"reviewer\\\",\\\"runId\\\":\\\"380d7605-118d-4161-8c76-f308488c8fa3\\\",\\\"outp\",\n    \"{\\\"key\\\":\\\"w1-screens\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/0dcd49a3-c293-46b1-9a48-7139631abc0d\\\",\\\"agent\\\":\\\"reviewer\\\",\\\"runId\\\":\\\"0dcd49a3-c293-46b1-9a48-7139631abc0d\\\",\\\"out\",\n    \"{\\\"key\\\":\\\"w1-lib\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/aa8179a5-d0e2-4ccb-b960-2581126c221f\\\",\\\"agent\\\":\\\"reviewer\\\",\\\"runId\\\":\\\"aa8179a5-d0e2-4ccb-b960-2581126c221f\\\",\\\"output\\\"\",\n    \"{\\\"key\\\":\\\"w1-data\\\",\\\"ok\\\":true,\\\"asyncDir\\\":\\\"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a7a153e1-28a7-4f78-9ca5-… (truncated; full return value and emits: /var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/cd1a62f6-2276-4145-811c-5a9dc6d51845/status.json (workflow.value, workflow.emits)) Trace: 8 event(s)."
+}

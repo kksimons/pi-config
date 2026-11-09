@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "9d9c74df-0fcf-4df3-aea8-4106253e9afa",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-22T21:37:32.615Z",
+  "updatedAt": "2026-09-22T21:45:38.898Z",
+  "runs": [
+    {
+      "runId": "77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7",
+      "status": "complete",
+      "startedAt": "2026-09-22T21:37:32.619Z",
+      "completedAt": "2026-09-22T21:45:38.898Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7",
+      "key": "gate-review",
+      "status": "completed",
+      "startedAt": "2026-09-22T21:37:32.663Z",
+      "updatedAt": "2026-09-22T21:45:38.872Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/8c77f136-503e-4fb7-9d37-eaa9288985de",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/8045038d-a122-4225-88cf-1f2acc1c77fc/run-0/session.jsonl"
+      ],
+      "runId": "8c77f136-503e-4fb7-9d37-eaa9288985de",
+      "agent": "reviewer",
+      "completedAt": "2026-09-22T21:45:38.871Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/8045038d-a122-4225-88cf-1f2acc1c77fc/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-22T21:45:38.872Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7",
+      "key": "integration-review",
+      "status": "completed",
+      "startedAt": "2026-09-22T21:37:32.696Z",
+      "updatedAt": "2026-09-22T21:44:28.626Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a6d86656-0994-477c-b1c1-f8cfc89b2b52",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/08f6e67b-0b7f-4087-abdb-0ae6ee1fcc8f/run-0/session.jsonl"
+      ],
+      "runId": "a6d86656-0994-477c-b1c1-f8cfc89b2b52",
+      "agent": "reviewer",
+      "completedAt": "2026-09-22T21:44:28.626Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/08f6e67b-0b7f-4087-abdb-0ae6ee1fcc8f/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-22T21:44:28.626Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7",
+      "key": "tests-docs-review",
+      "status": "completed",
+      "startedAt": "2026-09-22T21:37:32.714Z",
+      "updatedAt": "2026-09-22T21:44:35.203Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/7fbaa499-1e38-4919-89cd-a81ae8900bd2",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/fa286b23-30d7-469d-956d-b4418c91dd74/run-0/session.jsonl"
+      ],
+      "runId": "7fbaa499-1e38-4919-89cd-a81ae8900bd2",
+      "agent": "reviewer",
+      "completedAt": "2026-09-22T21:44:35.203Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/fa286b23-30d7-469d-956d-b4418c91dd74/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-22T21:44:35.203Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7",
+      "key": "ops-tuning-review",
+      "status": "completed",
+      "startedAt": "2026-09-22T21:37:32.734Z",
+      "updatedAt": "2026-09-22T21:44:10.136Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/1dc895c4-ae4b-4abe-b975-4252518887a7",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/e024127d-4168-451d-ae08-0f2533ec1d00/run-0/session.jsonl"
+      ],
+      "runId": "1dc895c4-ae4b-4abe-b975-4252518887a7",
+      "agent": "reviewer",
+      "completedAt": "2026-09-22T21:44:10.136Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014/e024127d-4168-451d-ae08-0f2533ec1d00/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-22T21:44:10.136Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/77b3739a-9c00-4fd7-9b2e-154f6e8cd6d7/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/subagent-artifacts/8c77f136-503e-4fb7-9d37-eaa9288985de_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/subagent-artifacts/a6d86656-0994-477c-b1c1-f8cfc89b2b52_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/subagent-artifacts/7fbaa499-1e38-4919-89cd-a81ae8900bd2_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/subagent-artifacts/1dc895c4-ae4b-4abe-b975-4252518887a7_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/invoices-axum",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-invoices-axum--/2026-09-22T21-15-40-862Z_01a0caf9-73be-730b-9424-78772b02b014.jsonl",
+  "summary": "Workflow completed with 4 child run(s). Return: {\n  \"gate\": \"# Review — single-flight cache fill gate (986ba89 + 413ade5)\\n\\n**Scope verified** (gate internals `src/utils/cache.rs:461-933`, handler integration `src/handlers/invoices.rs:586-601, 639-641, 728-738` and the payment-date twins `1017-1031, 1078-1080, 1117-1125`, shed `src/utils/mod.rs:47-65`, against baseline copies, the heatsink-axum reference, both FE contract files, pool config `src/main.rs:43-81`). Working tree confirmed identical to HEAD 413ade5.\\n\\n**Verified correct** (evidence checked, not trusted from the summary):\\n\\n- **Lock races**: `SET NX PX` atomicity plus the double-check re-read in `won_fill_lock` (cache.rs:697-712) correctly serves a body published in the miss→acquire window instead of recomputing; the poll loop does GET *before* SET NX, so waiters prefer the published body over takeover; takeover fires only when the winner truly released (publish precedes release on every explicit handler path, and Drop means the future is gone), so a taker-over can't b Trace: 8 event(s)."
+}

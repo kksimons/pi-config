@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "362d4530-9793-4da4-ac23-18125c764da8",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-10-04T01:48:19.065Z",
+  "updatedAt": "2026-10-04T02:00:38.949Z",
+  "runs": [
+    {
+      "runId": "85abc069-3111-4504-b133-bcb75d7fe458",
+      "mode": "single",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/85abc069-3111-4504-b133-bcb75d7fe458",
+      "status": "complete",
+      "startedAt": "2026-10-04T01:48:19.074Z",
+      "completedAt": "2026-10-04T02:00:38.949Z",
+      "usage": {
+        "tokens": 90088
+      }
+    }
+  ],
+  "workflowChildren": [],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/85abc069-3111-4504-b133-bcb75d7fe458/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/85abc069-3111-4504-b133-bcb75d7fe458/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/subagent-artifacts/85abc069-3111-4504-b133-bcb75d7fe458_worker_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/tanstacked-heatsink",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-tanstacked-heatsink--/2026-10-03T15-32-11-199Z_01a10264-ed3f-7397-a0b4-40baeb34d6b1.jsonl",
+  "summary": "worker:\nAll verification complete. Here is the full regression review report.\n\n---\n\n# Regression Review — warning-removal wave `1aa87c5c4..HEAD` (048a6e69b)\n\n**Partition:** `scripts/**`, root configs, `src/hooks/**`, `src/lib/**`, `src/utils/**`, `src/db/**`, `src/api/**`, `src/effect/**`, `src/workers/**`\n**Working tree:** clean before, during, and after (`git status --porcelain` empty — only read commands and the two explicitly sanctioned budget gates were run).\n\n## A. Script hunks\n\n| # | File:line (HEAD) | Hunk intent | Old → New | Verdict |\n|---|---|---|---|---|\n| 1 | `scripts/e2e-ensure-template.sh:27` | Fix API_REPO default depth | `$(dirname \"$0\")/../../../heatsink-api` → `$(dirname \"$0\")/../../heatsink-api` | **OK (fix)** |\n| 2 | `scripts/e2e-publish-template.sh:18` | Same | same | **OK (fix)** |\n| 3 | `scripts/sync-proposal-render.ts:39` | FILES drift | added `present.html`, `roof.js` | **OK** |\n\n**Hunt 1 — e2e script depth (VERIFIED):** scripts live at `<repo>/scripts/`, so `dirname \"$0\"` = `<repo>/scripts`. New path resolves to `<repos>/heatsink-api` — which exists on disk (`/Users/ksimons/repos/heatsink-api` ✓), matching the sibling-repo layout AGENTS.md documents (`../heatsink-axum`). The old `../../../` resolved to `/Users/ksimons/heatsink-api` (wrong). Both scripts use `$API_REPO` only for `.env` + `.venv/bin/python`; the only other path is `$(dirname \"$0\")/e2e-portable.sh` (same dir, exists, untouched). No other depth assumptions.\n\n**Hunt 2 — sync-proposal-render (VERIFIED):** all 5 `FILES` exist in **both** the source (`~/repos/heatreach-native/assets/proposal-render/`: index.html 37.7K, present.html 39.6K, bundle.js 333.6K, resolve.wasm 468.7K, roof.js 552.7K) and the destination (`public/proposal-render/`, byte-identical sizes). `inline.html` (1.5M) deliberately not copied, per comment. `--check` mode: iterates `FILES`, byte-compares, on drift prints error and exits 1 **without writing**; write path only in copy mode. Aliased as `sync:proposal-ren"
+}

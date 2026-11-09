@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "56fe0bc1-3507-40f6-bd86-b6b0a20f303d",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-15T17:48:20.971Z",
+  "updatedAt": "2026-09-15T18:00:06.312Z",
+  "runs": [
+    {
+      "runId": "270ff036-fb08-4887-84aa-7a3395968589",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/270ff036-fb08-4887-84aa-7a3395968589",
+      "status": "complete",
+      "startedAt": "2026-09-15T17:48:20.981Z",
+      "completedAt": "2026-09-15T18:00:06.312Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "270ff036-fb08-4887-84aa-7a3395968589",
+      "key": "fe2",
+      "status": "completed",
+      "startedAt": "2026-09-15T17:48:21.098Z",
+      "updatedAt": "2026-09-15T17:54:44.140Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ab8ebcd6-3fb5-4f3c-8cc9-57981376bf35",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/3b5ca94e-cfe3-44bf-84e6-afd6c6f98537/run-0/session.jsonl"
+      ],
+      "runId": "ab8ebcd6-3fb5-4f3c-8cc9-57981376bf35",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T17:54:44.140Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/3b5ca94e-cfe3-44bf-84e6-afd6c6f98537/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T17:54:44.140Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "270ff036-fb08-4887-84aa-7a3395968589",
+      "key": "axum2",
+      "status": "completed",
+      "startedAt": "2026-09-15T17:48:21.148Z",
+      "updatedAt": "2026-09-15T17:54:30.652Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ec0407da-411e-4634-b178-d3b1256cc25a",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/ccd57f32-4dca-4145-8c2d-1368dde61655/run-0/session.jsonl"
+      ],
+      "runId": "ec0407da-411e-4634-b178-d3b1256cc25a",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T17:54:30.652Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/ccd57f32-4dca-4145-8c2d-1368dde61655/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T17:54:30.652Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "270ff036-fb08-4887-84aa-7a3395968589",
+      "key": "api2",
+      "status": "completed",
+      "startedAt": "2026-09-15T17:48:21.178Z",
+      "updatedAt": "2026-09-15T17:57:49.960Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/3df706af-369b-400f-a385-a2a797b097c2",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/2f58068f-670b-40c9-a6d9-72c8a5d38695/run-0/session.jsonl"
+      ],
+      "runId": "3df706af-369b-400f-a385-a2a797b097c2",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T17:57:49.960Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/2f58068f-670b-40c9-a6d9-72c8a5d38695/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T17:57:49.960Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "270ff036-fb08-4887-84aa-7a3395968589",
+      "key": "parity2",
+      "status": "completed",
+      "startedAt": "2026-09-15T17:48:21.202Z",
+      "updatedAt": "2026-09-15T18:00:06.288Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a2fd56d3-09d0-4b16-bc56-4c2d66d98c0d",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/d9de64e3-6244-4c7b-8304-3c907898f614/run-0/session.jsonl"
+      ],
+      "runId": "a2fd56d3-09d0-4b16-bc56-4c2d66d98c0d",
+      "agent": "reviewer",
+      "completedAt": "2026-09-15T18:00:06.288Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee/d9de64e3-6244-4c7b-8304-3c907898f614/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-15T18:00:06.288Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/270ff036-fb08-4887-84aa-7a3395968589/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/270ff036-fb08-4887-84aa-7a3395968589/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ab8ebcd6-3fb5-4f3c-8cc9-57981376bf35"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/ec0407da-411e-4634-b178-d3b1256cc25a"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/3df706af-369b-400f-a385-a2a797b097c2"
+    },
+    {
+      "kind": "output",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/a2fd56d3-09d0-4b16-bc56-4c2d66d98c0d"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos--/2026-09-15T15-00-20-957Z_01a0a595-4f5c-7394-b5d7-29b824b7d6ee.jsonl",
+  "summary": "Workflow completed with 4 child run(s). Return: [\n  {\n    \"key\": \"fe2\",\n    \"ok\": true,\n    \"agent\": \"reviewer\",\n    \"runId\": \"ab8ebcd6-3fb5-4f3c-8cc9-57981376bf35\",\n    \"output\": \"All verification complete. Here is the round-2 review.\\n\\n## Review — Round-2 fresh-eyes: deposit receipt feature (FE repo)\\n\\n### SECTION A — Round-1 fix verification\\n\\n**F1 (gating bypass via leftover estimate state) — CORRECT.**\\n`src/components/payments/invoice-preview.tsx:66-76`: `canGenerateInvoice` now branches on `isReceipt` first and requires `deposit_taken`, so leftover `isEstimate=true` cannot bypass the gate. Walked every legitimate flow:\\n- Deposit estimate / final estimate preview (`isEstimate=true, isReceipt=false`): still escape-hatched (`isEstimate ||` short-circuits) — not over-blocked.\\n- Receipt with leftover `isFinal=true`: gate is `deposit_taken` only, and the wire forces `is_final: false` (line 111) — correct.\\n- Ungated receipt: no preview request fires (effect guarded at line 85), receipt-specific warning renders (lines 70-72, 23 Trace: 8 event(s)."
+}

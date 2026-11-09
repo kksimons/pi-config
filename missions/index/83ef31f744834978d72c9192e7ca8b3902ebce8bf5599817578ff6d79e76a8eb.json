@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "missionId": "5eff9921-8726-44af-8a0a-0b9fd129f05f",
+  "projectRoot": "/Users/ksimons/repos/heatsink-axum",
+  "recordPath": "/Users/ksimons/.pi/agent/missions/projects/76d0252437ad453ec9a1cdcbf911896c99cb80cd782a773b54ccfabbc6bb2f49/5eff9921-8726-44af-8a0a-0b9fd129f05f.json",
+  "title": "[prompt redacted]",
+  "status": "failed",
+  "updatedAt": "2026-10-31T20:11:06.686Z",
+  "lastRunId": "df615779-4304-4a8c-92a2-e38cfae79860"
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "ac8ba020-3bb2-42f7-ba2e-ce6451d3fa0d",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-09-23T22:17:39.878Z",
+  "updatedAt": "2026-09-23T22:19:42.951Z",
+  "runs": [
+    {
+      "runId": "39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3",
+      "mode": "workflow",
+      "asyncDir": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3",
+      "status": "complete",
+      "startedAt": "2026-09-23T22:17:39.885Z",
+      "completedAt": "2026-09-23T22:19:42.951Z"
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3",
+      "key": "api-r4",
+      "status": "completed",
+      "startedAt": "2026-09-23T22:17:39.936Z",
+      "updatedAt": "2026-09-23T22:19:42.928Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/79f67c1c-06c3-4f6f-9435-2ce054690cc6",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/3c9567c4-d0e2-4ff2-9b06-6ad1d5c5e9ac/run-0/session.jsonl"
+      ],
+      "runId": "79f67c1c-06c3-4f6f-9435-2ce054690cc6",
+      "agent": "reviewer",
+      "completedAt": "2026-09-23T22:19:42.928Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/3c9567c4-d0e2-4ff2-9b06-6ad1d5c5e9ac/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-23T22:19:42.928Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3",
+      "key": "axum-r4",
+      "status": "completed",
+      "startedAt": "2026-09-23T22:17:39.973Z",
+      "updatedAt": "2026-09-23T22:18:20.212Z",
+      "artifactPaths": [
+        "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/6391b3a4-283b-421c-a8d7-be18412066b4",
+        "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/f1b56b15-1096-4dd9-8114-1b6bf0216945/run-0/session.jsonl"
+      ],
+      "runId": "6391b3a4-283b-421c-a8d7-be18412066b4",
+      "agent": "reviewer",
+      "completedAt": "2026-09-23T22:18:20.211Z",
+      "sessionPath": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a/f1b56b15-1096-4dd9-8114-1b6bf0216945/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-09-23T22:18:20.212Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "status",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3/status.json"
+    },
+    {
+      "kind": "other",
+      "path": "/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/39eb3d68-e856-4a1a-96b1-8c9aa6b1f4c3/events.jsonl",
+      "description": "Lifecycle events"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/79f67c1c-06c3-4f6f-9435-2ce054690cc6_reviewer_output.md"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/subagent-artifacts/6391b3a4-283b-421c-a8d7-be18412066b4_reviewer_output.md"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/ksimons/repos/heatsink-api",
+  "ownerSessionId": "/Users/ksimons/.pi/agent/sessions/--Users-ksimons-repos-heatsink-api--/2026-09-23T17-01-23-046Z_01a0cf36-fee5-7092-b514-19878602135a.jsonl",
+  "summary": "Workflow completed with 2 child run(s). Return: [\n  {\n    \"key\": \"api-r4\",\n    \"ok\": true,\n    \"asyncDir\": \"/var/folders/53/hnzck85x6cz6bmsmc3c481100000gn/T/pi-subagents-uid-501/async-subagent-runs/79f67c1c-06c3-4f6f-9435-2ce054690cc6\",\n    \"agent\": \"reviewer\",\n    \"runId\": \"79f67c1c-06c3-4f6f-9435-2ce054690cc6\",\n    \"output\": \"## Review\\n\\n### Fix 1 — `to_thread` wrap (app/api/v1/projects.py:8210-8230)\\n- **Correct.** `asyncio.to_thread(func, /, *args, **kwargs)` forwards kwargs by contract; both call sites verified against the real signatures:\\n  - `RedisCache._delete_patterns(*patterns: str, label: str = \\\"pattern\\\")` (app/core/cache.py:452) — the pattern lands positionally in `*patterns`, `label=\\\"priority comment sends\\\"` binds the kwarg. ✓\\n  - `publish_invalidation(query_keys, user_id=None, broadcast=True, ..., tenant_id=None, ...)` (app/api/v1/invalidations.py:236) — `query_keys=[...]`, `tenant_id=str(...)` both valid; `broadcast=True` default matches the sibling calls. ✓\\n- **Pattern match confirmed:** the new publish is th Trace: 4 event(s)."
+}
